@@ -14,13 +14,7 @@ const NavBarComponent = function (props) {
             <button className="btn btn-outline-primary" type="submit" style={{ height: "34px" }}>
               <img src="svgexport-4.svg" alt="" style={{ verticalAlign: "baseline" }} />
             </button>
-            <input
-              type="search"
-              className="form-control me-2"
-              placeholder="cerca"
-              aria-label="cerca"
-              style={{ height: "34px" }}
-            />
+            <input type="search" className="form-control me-2" placeholder="cerca" aria-label="cerca" style={{ height: "34px" }} />
           </form>
 
           <Nav>
@@ -44,7 +38,7 @@ const NavBarComponent = function (props) {
               <img src="svgexport-53.svg" alt="" />
               <span>Notifiche</span>
             </Nav.Link>
-            <Nav.Link className="d-flex flex-column" id="you">
+            <div className="d-flex flex-column align-items-center">
               <img src="logo192.png" alt="" width={25} />
               <NavDropdown title="Tu" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -52,9 +46,9 @@ const NavBarComponent = function (props) {
                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-              </NavDropdown>
-            </Nav.Link>
-            <Nav.Link className="d-flex flex-column">
+              </NavDropdown>{" "}
+            </div>
+            <div className="d-flex flex-column align-items-center">
               <img src="svgexport-55.svg" alt="" />
               <NavDropdown title="Per le aziende" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -63,7 +57,7 @@ const NavBarComponent = function (props) {
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
               </NavDropdown>
-            </Nav.Link>
+            </div>
             <Nav.Link href="#link" id="premium">
               Prova premium a 0 eur
             </Nav.Link>

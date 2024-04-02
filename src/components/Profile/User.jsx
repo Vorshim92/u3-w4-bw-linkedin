@@ -4,8 +4,7 @@ import { Container, Button, Card, Col, Dropdown, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUser } from "../../Redux/actions/fetchUser";
-import { Arrow90degRight, Bell, BellFill, Check2, Download, InfoSquareFill, PencilFill, PersonPlusFill, PlusLg, VolumeUpFill } from "react-bootstrap-icons";
+import { fetchUser } from "../../redux/actions/fetchUser";
 
 const User = () => {
   const dispatch = useDispatch();
@@ -28,7 +27,7 @@ const User = () => {
         <Card.Body style={{ position: "relative" }}>
           <img
             src={userData.image}
-            alt="image-profile"
+            alt=""
             style={{
               width: "150px",
               height: "150px",
