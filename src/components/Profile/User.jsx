@@ -49,10 +49,16 @@ const User = () => {
                 <Col xs={12}>Roma - Informazioni di contatto</Col>
                 <Col xs={12}>22 collegamenti</Col>
               </Row>
-              <Row>
-                <Button className="col-2">Disponibile per</Button>
-                <Button className="col-2">Aggiungi sezione del profilo</Button>
-                <Button className="col-2">Altro</Button>
+              <Row className="gap-3 my-3">
+                <Button id="btn1" className="col-2">
+                  Disponibile per
+                </Button>
+                <Button id="btn2" className="col-3">
+                  Aggiungi sezione del profilo
+                </Button>
+                <Button id="btn3" className="col-1">
+                  Altro
+                </Button>
               </Row>
               <Row>
                 <Col xs={8} id="profile-available">
@@ -68,20 +74,24 @@ const User = () => {
         </Card.Body>
       </Card>
 
-      <Card className="mt-2">
+      <Card className="mt-2 p-3">
         <Card.Body>
           <Card.Title>Consigliato per te</Card.Title>
           <Card.Text>Solo per te</Card.Text>
-          <Row>
-            <Col xs={2}>
-              <Card.Img src="logo192.png" alt="" />
-            </Col>
-            <Col>
-              <Card.Title>TROVA PIÙ CLIENTI PER I TUOI SERVIZI</Card.Title>
-              <Card.Text>Mostra i servizi in modo prominente sul tuo profilo e in post</Card.Text>
-            </Col>
-          </Row>
-          <Button className="w-50">PROVA PREMIUM PER 0 EUR</Button>
+          <Col className="border solid rounded p-4">
+            <Row>
+              <Col xs={2}>
+                <Card.Img src="logo192.png" alt="" />
+              </Col>
+              <Col>
+                <Card.Title>TROVA PIÙ CLIENTI PER I TUOI SERVIZI</Card.Title>
+                <Card.Text>Mostra i servizi in modo prominente sul tuo profilo e in post</Card.Text>
+              </Col>
+            </Row>
+            <Button id="btn4" className="w-50">
+              PROVA PREMIUM PER 0 EUR
+            </Button>
+          </Col>
         </Card.Body>
       </Card>
     </>
