@@ -12,7 +12,6 @@ const NavBarComponent = function (props) {
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
           <form className="{position-position-relative} d-flex">
             <button className="btn btn-outline-primary border none me-2" type="submit" style={{ height: "34px" }}>
-            <button className="btn btn-outline-primary border none me-2" type="submit" style={{ height: "34px" }}>
               <img src="svgexport-4.svg" alt="" style={{ verticalAlign: "baseline" }} />
             </button>
             <input type="search" className="form-control me-2" placeholder="cerca" aria-label="cerca" style={{ height: "34px" }} />
