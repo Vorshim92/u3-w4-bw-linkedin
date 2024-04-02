@@ -45,3 +45,30 @@ body {
   font-weight: normal;
   color: gray;
 }
+
+.nav-link {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  a {
+    padding: 0;
+  }
+}
+
+#mynavBar {
+  font-size: 13px;
+}
+
+#premium {
+  color: burlywood;
+  text-decoration: underline !important;
+}
+
+#you {
+  border-right: solid 1px grey;
+  padding-right: 0;
+}
