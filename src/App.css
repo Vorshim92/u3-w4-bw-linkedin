@@ -11863,4 +11863,13 @@ textarea.form-control-lg {
   color: rgb(40, 131, 222);
 }
 
+.sidebarTitle {
+  font-weight: bold;
+}
+
+.sidebarSpan {
+  font-weight: normal;
+  color: gray;
+}
+
 /*# sourceMappingURL=App.css.map */
