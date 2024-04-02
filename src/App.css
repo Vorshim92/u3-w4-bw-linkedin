@@ -11848,6 +11848,7 @@ body {
   border-radius: 15px;
   padding: 15px;
   line-height: 10px;
+  margin-top: 20px;
 }
 
 #main-card {
@@ -11909,9 +11910,16 @@ body {
   text-decoration: underline !important;
 }
 
-#you {
-  border-right: solid 1px grey;
-  padding-right: 0;
+.you {
+  border-left: solid 1px grey;
+  padding-left: 0;
+}
+
+.verify-now {
+  border: 1px dashed #0a66c2;
+  border-radius: 50px;
+  display: inline-block;
+  padding-inline: 10px;
 }
 
 /*# sourceMappingURL=App.css.map */

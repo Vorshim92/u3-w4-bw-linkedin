@@ -39,12 +39,23 @@ const User = () => {
               border: "5px solid white",
             }}
           />
-          <Row>
+          <Row className="p-3">
             <Col xs={12} className="mt-5">
               <Row>
-                <Col>Stefano Scalfari</Col>
-                <Col>Verifica ora</Col>
-                <Col>EPICODE</Col>
+                <Col xs={12} lg={3}>
+                  Stefano Scalfari
+                </Col>
+                <Col xs={12} lg={3}>
+                  <div className="verify-now">
+                    <img src="svgexport-20.svg" alt="" style={{ width: "16px", height: "16px", marginRight: "5px" }} />
+                    <span style={{ display: "inline-block" }}>Verifica ora</span>
+                  </div>
+                </Col>
+                <Col className="d-none d-lg-block"></Col>
+                <Col xs={12} lg={3}>
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoctrKT2Zx2V8heZqGs3-_uaYPn7evbEHw82kbMDld-Q&s" alt="" style={{ width: "25px", height: "25px" }} />
+                  EPICODE
+                </Col>
                 <Col xs={12}>Junior Front-End Developer</Col>
                 <Col xs={12}>Roma - Informazioni di contatto</Col>
                 <Col xs={12}>22 collegamenti</Col>
@@ -55,10 +66,10 @@ const User = () => {
                 <Button className="col-2">Altro</Button>
               </Row>
               <Row>
-                <Col xs={8} id="profile-available">
-                  <Card.Link href="#">
-                    <p>Disponibile a lavorare </p>
-                    <p>Ruoli di FullStack Developer</p>
+                <Col xs={12} lg={8} id="profile-available">
+                  <Card.Link href="#" style={{ textDecoration: "none" }}>
+                    <p className="text-black fw-bold">Disponibile a lavorare</p>
+                    <p className="text-black">Ruoli di FullStack Web Developer</p>
                     <p>Mostra dettagli</p>
                   </Card.Link>
                 </Col>
@@ -83,6 +94,33 @@ const User = () => {
           </Row>
           <Button className="w-50">PROVA PREMIUM PER 0 EUR</Button>
         </Card.Body>
+      </Card>
+
+      <Card className="rounded-3 mt-2">
+        <Card.Body className="p-3">
+          <Card.Title>
+            <p>Formazione</p>
+          </Card.Title>
+
+          <div className="d-flex">
+            <img
+              className="rounded-circle mx-2"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoctrKT2Zx2V8heZqGs3-_uaYPn7evbEHw82kbMDld-Q&s"
+              alt="avatar"
+              style={{ width: "45px", height: "45px" }}
+            />
+
+            <div className="d-flex flex-column">
+              <p className="sidebarTitle m-0">EPICODE</p>
+              <p>Progettazione pagine web, contenuti digitali/multimediali e risorse informativeProgettazione pagine web, contenuti digitali/multimediali e risorse informative</p>
+              <span className="sidebarSpan">gen 2024 - lug 2024</span>
+            </div>
+          </div>
+        </Card.Body>
+
+        {/* div di bordo */}
+        <div className="border-top border-1 "></div>
+        {/* fine div di bordo */}
       </Card>
     </>
   );
