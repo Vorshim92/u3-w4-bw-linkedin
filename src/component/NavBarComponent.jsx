@@ -3,36 +3,71 @@ import { Container, Nav, Navbar, NavDropdown, Form, FormControl } from "react-bo
 
 const NavBarComponent = function (props) {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" id="mynavBar">
       <Container>
-        <Navbar.Brand href="#home">LinkedIn Clone</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          <img src="./svgexport-46.svg" alt="" width={50} />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Rete</Nav.Link>
-            <Nav.Link href="#link">Lavoro</Nav.Link>
-            <Nav.Link href="#link">Messaggistica</Nav.Link>
-            <Nav.Link href="#link">Notifiche</Nav.Link>
-            <NavDropdown title="TU" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title="Per le aziende" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#link">Prova premium a 0 eur</Nav.Link>
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
+          <form className="{position-position-relative} d-flex">
+            <button className="btn btn-outline-primary" type="submit" style={{ height: "34px" }}>
+              <img src="svgexport-4.svg" alt="" style={{ verticalAlign: "baseline" }} />
+            </button>
+            <input
+              type="search"
+              className="form-control me-2"
+              placeholder="cerca"
+              aria-label="cerca"
+              style={{ height: "34px" }}
+            />
+          </form>
+
+          <Nav>
+            <Nav.Link href="#home" className="d-flex flex-column">
+              <img src="svgexport-49.svg" alt="" />
+              <span>Home</span>
+            </Nav.Link>
+            <Nav.Link href="#home" className="d-flex flex-column">
+              <img src="svgexport-50.svg" alt="" />
+              <span>Rete</span>
+            </Nav.Link>
+            <Nav.Link href="#home" className="d-flex flex-column">
+              <img src="svgexport-51.svg" alt="" />
+              <span>Lavoro</span>
+            </Nav.Link>
+            <Nav.Link href="#home" className="d-flex flex-column">
+              <img src="svgexport-52.svg" alt="" />
+              <span>Messaggistica</span>
+            </Nav.Link>
+            <Nav.Link href="#home" className="d-flex flex-column">
+              <img src="svgexport-53.svg" alt="" />
+              <span>Notifiche</span>
+            </Nav.Link>
+            <Nav.Link className="d-flex flex-column" id="you">
+              <img src="logo192.png" alt="" width={25} />
+              <NavDropdown title="Tu" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              </NavDropdown>
+            </Nav.Link>
+            <Nav.Link className="d-flex flex-column">
+              <img src="svgexport-55.svg" alt="" />
+              <NavDropdown title="Per le aziende" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              </NavDropdown>
+            </Nav.Link>
+            <Nav.Link href="#link" id="premium">
+              Prova premium a 0 eur
+            </Nav.Link>
           </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Cerca" className="mr-sm-2" />
-          </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>

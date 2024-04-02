@@ -3,11 +3,7 @@ import NavBarComponent from "./component/NavBarComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  return (
-    <div className="App">
-      <NavBarComponent></NavBarComponent>
-    </div>
-  );
+  return <div className="App"></div>;
 }
 
 export default App;
