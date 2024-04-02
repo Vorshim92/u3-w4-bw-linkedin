@@ -84,6 +84,79 @@ const User = () => {
           <Button className="w-50">PROVA PREMIUM PER 0 EUR</Button>
         </Card.Body>
       </Card>
+
+      {/* ---> inizio card esperienze<--- */}
+
+      <Card className="rounded-3 my-3 mt-2">
+        <Card.Body className="p-3">
+          <Card.Title
+            className="d-flex justify-content-between
+          "
+          >
+            <p>Esperienza</p>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="19"
+                fill="currentColor"
+                className="bi bi-pencil"
+                viewBox="0 0 16 16"
+              >
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-plus"
+                viewBox="0 0 16 16"
+              >
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+              </svg>
+            </div>
+          </Card.Title>
+
+          <div className="d-flex">
+            <img
+              className=" mx-2"
+              src="https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="pizza"
+              style={{ width: "45px", height: "45px" }}
+            />
+
+            <div className="d-flex flex-column">
+              <p className="sidebarTitle m-0">Scalda pizzette</p>
+              <p className="m-0">Dipendente</p>
+              <p className="dataLavoro"> gen 1820 - agosto 1952 - Prussia</p>
+            </div>
+          </div>
+
+          {/* div di divisione con border */}
+          <div className="border-top border-1 "></div>
+          {/* div di divisione con border */}
+
+          <div className="d-flex my-4">
+            <img
+              className=" mx-2"
+              src="https://images.pexels.com/photos/17942737/pexels-photo-17942737/free-photo-of-esercito-britannico-gurkhas.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="lanciatore"
+              style={{ width: "45px", height: "45px" }}
+            />
+
+            <div className="d-flex flex-column">
+              <p className="sidebarTitle m-0">Lanciatore di telefoni</p>
+              <p className="m-0">Autonomo</p>
+              <p className="dataLavoro"> gen 1983 - Presente - Finlandia</p>
+            </div>
+          </div>
+        </Card.Body>
+
+        {/* div di bordo */}
+        <div className="border-top border-1 "></div>
+        {/* fine div di bordo */}
+      </Card>
     </>
   );
 };
