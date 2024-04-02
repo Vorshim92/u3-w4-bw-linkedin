@@ -1,13 +1,14 @@
 import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import User from "./Profile/User";
+import SidebarRight from "./SidebarRight";
 const ProfilePage = () => {
   return (
     <>
       <Col xs={9}>
         <User />
       </Col>
-      {/* Componente SIDEBAR RIGHT */}
+      <SidebarRight />
     </>
   );
 };

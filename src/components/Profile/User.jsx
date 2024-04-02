@@ -22,7 +22,7 @@ const User = () => {
 
   return (
     <>
-      <Card id="main-card" className="mt-5">
+      <Card id="main-card" className="mt-3">
         <Card.Img variant="top" src="userbackground.svg" alt="User Background" />
 
         <Card.Body style={{ position: "relative" }}>
@@ -66,6 +66,23 @@ const User = () => {
               </Row>
             </Col>
           </Row>
+        </Card.Body>
+      </Card>
+
+      <Card className="mt-2">
+        <Card.Body>
+          <Card.Title>Consigliato per te</Card.Title>
+          <Card.Text>Solo per te</Card.Text>
+          <Row>
+            <Col xs={2}>
+              <Card.Img src="logo192.png" alt="" />
+            </Col>
+            <Col>
+              <Card.Title>TROVA PIÙ CLIENTI PER I TUOI SERVIZI</Card.Title>
+              <Card.Text>Mostra i servizi in modo prominente sul tuo profilo e in post</Card.Text>
+            </Col>
+          </Row>
+          <Button className="w-50">PROVA PREMIUM PER 0 EUR</Button>
         </Card.Body>
       </Card>
     </>
