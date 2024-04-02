@@ -11920,6 +11920,47 @@ body {
   border-radius: 50px;
   display: inline-block;
   padding-inline: 10px;
+  border-right: solid 1px grey;
+  padding-right: 0;
+}
+
+#btn1 {
+  background-color: #0a66c1;
+}
+#btn1:hover {
+  background-color: #004182;
+}
+
+#btn2 {
+  background-color: #ffffff;
+  color: #0a66c1;
+}
+#btn2:hover {
+  background-color: #e4f0fe;
+}
+
+#btn3 {
+  background-color: #ffffff;
+  color: #737373;
+  border-color: #737373;
+}
+#btn3:hover {
+  background-color: #eeeeee;
+}
+
+#btn4 {
+  margin-inline: 25%;
+  background-color: #f9c982;
+  color: #000000;
+  border: none;
+}
+#btn4:hover {
+  background-color: #ffa621;
+}
+
+button {
+  border-radius: 100px !important;
+  height: 10%;
 }
 
 /*# sourceMappingURL=App.css.map */
