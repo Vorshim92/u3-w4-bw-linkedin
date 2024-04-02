@@ -2,13 +2,18 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Container, Button, Card, Col, Dropdown, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "../../redux/actions/fetchUser";
+import UserImage from "./UserImageModal";
 
 const User = () => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.user.userData);
+  const [show, setShow] = useState(false);
+
+  const toggleOffcanvas = () => {
+    setShow(!show);
+  };
 
   useEffect(() => {
     dispatch(fetchUser());
@@ -29,8 +34,9 @@ const User = () => {
             right: "0",
           }}
         >
-          <button>
+          <button onClick={toggleOffcanvas}>
             <img src="svgexport-29.svg" alt="" />
+            <UserImage show={show} toggleOffcanvas={toggleOffcanvas} />
           </button>
         </div>
         <Card.Body style={{ position: "relative" }}>
