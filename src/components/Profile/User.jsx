@@ -22,8 +22,17 @@ const User = () => {
   return (
     <>
       <Card id="main-card" className="mt-3">
-        <Card.Img variant="top" src="userbackground.svg" alt="User Background" />
-
+        <Card.Img variant="top" src="userbackground.svg" alt="User Background" className="position-relative" />
+        <div
+          className="position-absolute"
+          style={{
+            right: "0",
+          }}
+        >
+          <button>
+            <img src="svgexport-29.svg" alt="" />
+          </button>
+        </div>
         <Card.Body style={{ position: "relative" }}>
           <img
             src={userData.image}
@@ -37,6 +46,7 @@ const User = () => {
               transform: "translateY( -70%)",
               borderRadius: "50%",
               border: "5px solid white",
+              objectFit: "cover",
             }}
           />
           <Row className="p-3">
