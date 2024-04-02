@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Nav, Navbar, NavDropdown, Form, FormControl } from "react-bootstrap";
 
 const NavBarComponent = function (props) {
@@ -14,7 +13,13 @@ const NavBarComponent = function (props) {
             <button className="btn btn-outline-primary border none me-2" type="submit" style={{ height: "34px" }}>
               <img src="svgexport-4.svg" alt="" style={{ verticalAlign: "baseline" }} />
             </button>
-            <input type="search" className="form-control me-2" placeholder="cerca" aria-label="cerca" style={{ height: "34px" }} />
+            <input
+              type="search"
+              className="form-control me-2"
+              placeholder="cerca"
+              aria-label="cerca"
+              style={{ height: "34px" }}
+            />
           </form>
 
           <Nav>

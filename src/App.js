@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProfilePage from "./components/ProfilePage";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import NavBarComponent from "./components/NavBarComponent";
 import Footer from "./components/Footer";
 import "bootstrap/dist/js/bootstrap.min.js";

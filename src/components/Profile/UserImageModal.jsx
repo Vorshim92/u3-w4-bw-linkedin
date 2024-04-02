@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -13,6 +13,11 @@ const UserImage = ({ show, toggleOffcanvas }) => {
   const handleUpload = async () => {
     if (!imageUrl) {
       alert("Inserisci l'URL dell'immagine");
+      return;
+    }
+
+    const confimerd = window.confirm("Sei sicuro di voler modificare l'immagine di profilo?");
+    if (!confimerd) {
       return;
     }
 
@@ -31,6 +36,7 @@ const UserImage = ({ show, toggleOffcanvas }) => {
       }
 
       console.log("Immagine caricata con successo");
+      window.location.reload();
     } catch (error) {
       console.error("Errore durante il caricamento dell'immagine:", error.message);
     }
@@ -40,7 +46,7 @@ const UserImage = ({ show, toggleOffcanvas }) => {
     <>
       <Modal show={show} onHide={toggleOffcanvas}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Mofidica Immagine Profilo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <input
@@ -48,6 +54,7 @@ const UserImage = ({ show, toggleOffcanvas }) => {
             placeholder="Inserisci URL dell'immagine"
             onChange={handleUrlChange}
             value={imageUrl} // Imposta il valore dell'input sull'URL dell'immagine
+            style={{ width: "100%" }}
           />
         </Modal.Body>
         <Modal.Footer>
