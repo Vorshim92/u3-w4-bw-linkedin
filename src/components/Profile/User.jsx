@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "../../Redux/actions/fetchUser";
-import { Arrow90degRight, Bell, BellFill, Check2, Download, InfoSquareFill, PencilFill, PersonPlusFill, PlusLg, VolumeUpFill } from "react-bootstrap-icons";
 
 const User = () => {
   const dispatch = useDispatch();

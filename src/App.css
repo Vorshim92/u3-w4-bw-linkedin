@@ -11909,7 +11909,7 @@ body {
   text-decoration: underline !important;
 }
 
-#you {
+.you {
   border-right: solid 1px grey;
   padding-right: 0;
 }
