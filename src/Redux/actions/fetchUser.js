@@ -3,6 +3,9 @@ export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
 export const FETCH_USER_ID = "FETCH_USER_ID";
 
 const baseEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me";
+const headers = {
+  Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo",
+};
 
 const fetchUserSuccess = (data) => ({
   type: FETCH_USER_SUCCESS,
@@ -20,11 +23,8 @@ const fetchUserByIdSuccess = (data) => ({
 
 export const fetchUser = () => async (dispatch) => {
   try {
-    let response = await fetch(baseEndpoint, {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo",
-      },
+    const response = await fetch(baseEndpoint, {
+      headers: headers,
     });
     if (response.ok) {
       const data = await response.json();
@@ -42,11 +42,8 @@ export const fetchUser = () => async (dispatch) => {
 export const fetchUserByID = (userId) => async (dispatch) => {
   const ENDPOINT = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
   try {
-    let response = await fetch(ENDPOINT, {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo",
-      },
+    const response = await fetch(baseEndpoint, {
+      headers: headers,
     });
     if (response.ok) {
       const data = await response.json();
