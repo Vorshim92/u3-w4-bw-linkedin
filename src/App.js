@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProfilePage from "./components/ProfilePage";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-
+import "bootstrap/dist/js/bootstrap.min.js";
 function App() {
   return (
     <BrowserRouter>
