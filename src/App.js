@@ -1,8 +1,13 @@
-import logo from "./logo.svg";
 import "./App.css";
+import NavBarComponent from "./component/NavBarComponent";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <NavBarComponent></NavBarComponent>
+    </div>
+  );
 }
 
 export default App;
