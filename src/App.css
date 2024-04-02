@@ -11839,5 +11839,28 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.footerCol {
+  font-size: 0.8em;
+  margin-top: 2em;
+}
+
+.footerBold {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#dropdown-basic {
+  padding-right: 7em;
+}
+
+.footerLink {
+  text-decoration: none;
+  color: black;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+  color: rgb(40, 131, 222);
+}
 
 /*# sourceMappingURL=App.css.map */
