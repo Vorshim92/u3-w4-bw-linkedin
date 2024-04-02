@@ -84,12 +84,12 @@ body {
   border-radius: 50px;
   display: inline-block;
   padding-inline: 10px;
-  border-right: solid 1px grey;
-  padding-right: 0;
 }
 
 #btn1 {
   background-color: #0a66c1;
+  border-radius: 100px !important;
+  height: 10%;
 
   &:hover {
     background-color: #004182;
@@ -99,6 +99,8 @@ body {
 #btn2 {
   background-color: #ffffff;
   color: #0a66c1;
+  border-radius: 100px !important;
+  height: 10%;
 
   &:hover {
     background-color: #e4f0fe;
@@ -109,6 +111,8 @@ body {
   background-color: #ffffff;
   color: #737373;
   border-color: #737373;
+  border-radius: 100px !important;
+  height: 10%;
 
   &:hover {
     background-color: #eeeeee;
@@ -123,9 +127,4 @@ body {
   &:hover {
     background-color: #ffa621;
   }
-}
-
-button {
-  border-radius: 100px !important;
-  height: 10%;
 }

@@ -61,13 +61,13 @@ const User = () => {
                 <Col xs={12}>22 collegamenti</Col>
               </Row>
               <Row className="gap-3 my-3">
-                <Button id="btn1" className="col-2">
+                <Button id="btn1" className="col-4 col-lg-3">
                   Disponibile per
                 </Button>
-                <Button id="btn2" className="col-3">
+                <Button id="btn2" className="col-7 col-md-6 col-lg-5 col-xl-3">
                   Aggiungi sezione del profilo
                 </Button>
-                <Button id="btn3" className="col-1">
+                <Button id="btn3" className="d-none d-lg-block col-lg-2">
                   Altro
                 </Button>
               </Row>

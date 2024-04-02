@@ -5,7 +5,7 @@ import SidebarRight from "./SidebarRight";
 const ProfilePage = () => {
   return (
     <>
-      <Col xs={9}>
+      <Col xs={12} lg={9}>
         <User />
       </Col>
       <SidebarRight />

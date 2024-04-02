@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 
 const SidebarRight = () => {
   return (
-    <Col lg={3}>
+    <Col lg={3} className="d-none d-lg-block">
       {/* ---> Inizio prima card <--- */}
       <Card className="rounded-3 m-3">
         <Card.Body className="p-3">
@@ -37,7 +37,7 @@ const SidebarRight = () => {
             <p>Altri profili simili</p>
           </Card.Title>
 
-          <Row className="d-flex d-sm-none d-md-flex">
+          <Row className="d-none d-md-flex">
             <Col lg={3}>
               <img
                 className="rounded-circle mx-2"
@@ -54,7 +54,6 @@ const SidebarRight = () => {
               <p>Developer presso IT Baobab Enterprice</p>{" "}
               <div>
                 <Button className="rounded-4 bg-light text-dark border-secondary d-flex">
-                  Collegati
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-plus-fill mx-2 mb-1" viewBox="0 0 16 16">
                     <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                     <path fillRule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5" />
@@ -77,12 +76,13 @@ const SidebarRight = () => {
       <Card className="rounded-3 m-3">
         <Card.Body className="p-3">
           <Card.Title>
+            {" "}
             <p>
               Persone che potresti conoscere <span className="sidebarSpan fs-6 d-block">Dalla tua scuola o università</span>
             </p>
           </Card.Title>
 
-          <Row className="d-flex d-sm-none d-md-flex">
+          <Row className="d-none d-md-flex">
             <Col lg={3}>
               <img
                 className="rounded-circle mx-2"
@@ -99,7 +99,6 @@ const SidebarRight = () => {
               <p>Developer presso IT Baobab Enterprice</p>{" "}
               <div>
                 <Button className="rounded-4 bg-light text-dark border-secondary d-flex">
-                  Collegati
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-plus-fill mx-2 mb-1" viewBox="0 0 16 16">
                     <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                     <path fillRule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5" />
