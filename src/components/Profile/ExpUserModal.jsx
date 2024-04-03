@@ -35,7 +35,7 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (expID) {
-      dispatch(ModUserExp(formData, img));
+      dispatch(ModUserExp(formData, expID, img));
     } else {
       dispatch(AddUserExp(formData, img));
     }
