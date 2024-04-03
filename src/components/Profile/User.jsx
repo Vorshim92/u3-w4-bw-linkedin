@@ -72,7 +72,7 @@ const User = () => {
             <Col xs={12} className="mt-5">
               <Row>
                 <Col xs={12} lg={3}>
-                  Stefano Scalfari
+                  {userData.name} {userData.surname}
                 </Col>
                 <Col xs={12} lg={3}>
                   <div className="verify-now">
@@ -85,8 +85,8 @@ const User = () => {
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoctrKT2Zx2V8heZqGs3-_uaYPn7evbEHw82kbMDld-Q&s" alt="" style={{ width: "25px", height: "25px" }} />
                   EPICODE
                 </Col>
-                <Col xs={12}>Junior Front-End Developer</Col>
-                <Col xs={12}>Roma - Informazioni di contatto</Col>
+                <Col xs={12}>{userData.title}</Col>
+                <Col xs={12}>{userData.area}</Col>
                 <Col xs={12}>22 collegamenti</Col>
               </Row>
               <Row className="gap-3 my-3">
