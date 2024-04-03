@@ -2,7 +2,8 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch } from "react-redux";
-import { ModUserExp } from "../../redux/actions/fetchUser";
+import { AddUserExp } from "../../redux/actions/fetchUser";
+import { AddUserExpImage } from "../../redux/actions/fetchUser";
 const ExpUserModal = ({ showExp, toggleExpModal }) => {
   const dispatch = useDispatch();
 
@@ -14,18 +15,27 @@ const ExpUserModal = ({ showExp, toggleExpModal }) => {
     description: "",
     area: "",
   });
-
+  const [img, setImg] = useState({
+    image: null,
+  });
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    if (e.target.name === "image") {
+      setImg({
+        image: e.target.files[0],
+      });
+    } else {
+      const { name, value } = e.target;
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(ModUserExp(formData));
+    dispatch(AddUserExp(formData, img));
+    // dispatch(AddUserExpImage(formData));
     console.log(formData);
   };
   return (
@@ -45,26 +55,12 @@ const ExpUserModal = ({ showExp, toggleExpModal }) => {
 
               <label htmlFor="company">Compagnia:</label>
               <br />
-              <input
-                type="text"
-                id="company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                required
-              />
+              <input type="text" id="company" name="company" value={formData.company} onChange={handleChange} required />
               <br />
 
               <label htmlFor="startDate">Data di Inizio:</label>
               <br />
-              <input
-                type="date"
-                id="startDate"
-                name="startDate"
-                value={formData.startDate}
-                onChange={handleChange}
-                required
-              />
+              <input type="date" id="startDate" name="startDate" value={formData.startDate} onChange={handleChange} required />
               <br />
 
               <label htmlFor="endDate">Data di Fine:</label>
@@ -74,17 +70,16 @@ const ExpUserModal = ({ showExp, toggleExpModal }) => {
 
               <label htmlFor="description">Descrizione:</label>
               <br />
-              <textarea
-                id="description"
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-              ></textarea>
+              <textarea id="description" name="description" value={formData.description} onChange={handleChange}></textarea>
               <br />
 
               <label htmlFor="area">Area:</label>
               <br />
               <input type="text" id="area" name="area" value={formData.area} onChange={handleChange} />
+              <br />
+              <label htmlFor="image">Immagine:</label>
+              <br />
+              <input type="file" id="image" name="image" onChange={handleChange} />
               <br />
               <Button variant="primary" type="submit">
                 Invia

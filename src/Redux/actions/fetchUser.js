@@ -7,8 +7,7 @@ export const FETCH_EXP_SUCCESS = "FETCH_EXP_SUCCESS";
 const MeEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me";
 const ExpEndopoint = "https://striveschool-api.herokuapp.com/api/profile/660bd3f7a281d80019a3ec68/experiences";
 const headers = {
-  Authorization:
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo",
+  Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo",
 };
 
 const fetchUserSuccess = (data) => ({
@@ -70,13 +69,15 @@ export const fetchUserByID = (userId) => async (dispatch) => {
 };
 
 // ACTION_3
-export const ModUserExp = (dataForm) => async (dispatch) => {
+export const AddUserExpImage = (image, expId) => async (dispatch) => {
   try {
-    const response = await fetch(ExpEndopoint, {
+    const formData = new FormData();
+    formData.append("experience", image); // Aggiungi l'immagine con la chiave "experience"
+
+    const response = await fetch(`${ExpEndopoint}/${expId}/picture`, {
       method: "POST",
-      body: JSON.stringify(dataForm),
+      body: formData,
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo`,
       },
     });
@@ -91,7 +92,30 @@ export const ModUserExp = (dataForm) => async (dispatch) => {
     // dispatch(fetchUserFailure());
   }
 };
-// ACTION_4
+// ACTION_5
+export const AddUserExp = (dataForm, img) => async (dispatch) => {
+  try {
+    const response = await fetch(ExpEndopoint, {
+      method: "POST",
+      body: JSON.stringify(dataForm),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo`,
+      },
+    });
+    if (response.ok) {
+      console.log("Esperienza con successo");
+      const data = await response.json();
+      dispatch(AddUserExpImage(img.image, data._id));
+    } else {
+      throw new Error("errore recupero dati");
+    }
+  } catch (error) {
+    console.log(error);
+    // dispatch(fetchUserFailure());
+  }
+};
+// ACTION_6
 export const fetchUserExp = () => async (dispatch) => {
   try {
     const response = await fetch(ExpEndopoint, {
