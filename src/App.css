@@ -12099,4 +12099,10 @@ p {
   border-color: rgb(0, 39, 52);
 }
 
+#chat {
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+
 /*# sourceMappingURL=App.css.map */

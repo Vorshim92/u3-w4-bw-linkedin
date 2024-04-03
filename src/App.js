@@ -6,10 +6,12 @@ import NavBarComponent from "./components/NavBarComponent";
 import Footer from "./components/Footer";
 import "bootstrap/dist/js/bootstrap.min.js";
 import Home from "./components/Home";
+import Chat from "./components/Chat";
 function App() {
   return (
     <BrowserRouter>
       <NavBarComponent />
+      <Chat></Chat>
       <Container>
         <Row>
           <Routes>
