@@ -48,9 +48,9 @@ const UserImage = ({ showImg, toggleModalImage }) => {
 
   return (
     <>
-      <Modal showImg={showImg} onHide={toggleModalImage}>
+      <Modal show={showImg} onHide={toggleModalImage}>
         <Modal.Header closeButton>
-          <Modal.Title>Mofidica Immagine Profilo</Modal.Title>
+          <Modal.Title>Modifica Immagine Profilo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <input

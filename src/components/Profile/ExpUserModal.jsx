@@ -30,7 +30,7 @@ const ExpUserModal = ({ showExp, toggleExpModal }) => {
   };
   return (
     <>
-      <Modal showExp={showExp} onHide={toggleExpModal}>
+      <Modal show={showExp} onHide={toggleExpModal}>
         <Modal.Header closeButton>
           <Modal.Title>Mofidica Immagine Profilo</Modal.Title>
         </Modal.Header>
@@ -67,15 +67,15 @@ const ExpUserModal = ({ showExp, toggleExpModal }) => {
               <br />
               <input type="text" id="area" name="area" value={formData.area} onChange={handleChange} />
               <br />
+              <Button variant="primary" type="submit">
+                Invia
+              </Button>
             </form>
           </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={toggleExpModal}>
             Close
-          </Button>
-          <Button variant="primary" type="submit">
-            Invia
           </Button>
         </Modal.Footer>
       </Modal>
