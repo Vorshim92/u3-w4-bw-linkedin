@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
-const UserImage = ({ show, toggleOffcanvas }) => {
+const UserImage = ({ showImg, toggleModalImage }) => {
   const [imageUrl, setImageUrl] = useState("");
 
   const handleUrlChange = (event) => {
@@ -15,9 +15,13 @@ const UserImage = ({ show, toggleOffcanvas }) => {
       alert("Inserisci l'URL dell'immagine");
       return;
     }
+    if (!imageUrl.startsWith("http://") && !imageUrl.startsWith("https://")) {
+      alert("Inserisci un URL VERO! STRONZO");
+      return;
+    }
 
-    const confimerd = window.confirm("Sei sicuro di voler modificare l'immagine di profilo?");
-    if (!confimerd) {
+    const confirmed = window.confirm("Sei sicuro di voler modificare l'immagine di profilo?");
+    if (!confirmed) {
       return;
     }
 
@@ -44,7 +48,7 @@ const UserImage = ({ show, toggleOffcanvas }) => {
 
   return (
     <>
-      <Modal show={show} onHide={toggleOffcanvas}>
+      <Modal showImg={showImg} onHide={toggleModalImage}>
         <Modal.Header closeButton>
           <Modal.Title>Mofidica Immagine Profilo</Modal.Title>
         </Modal.Header>
@@ -58,7 +62,7 @@ const UserImage = ({ show, toggleOffcanvas }) => {
           />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={toggleOffcanvas}>
+          <Button variant="secondary" onClick={toggleModalImage}>
             Close
           </Button>
           <Button variant="primary" onClick={handleUpload}>
