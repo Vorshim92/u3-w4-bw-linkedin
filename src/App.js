@@ -5,6 +5,7 @@ import { Container, Row } from "react-bootstrap";
 import NavBarComponent from "./components/NavBarComponent";
 import Footer from "./components/Footer";
 import "bootstrap/dist/js/bootstrap.min.js";
+import Home from "./components/Home";
 function App() {
   return (
     <BrowserRouter>
@@ -12,7 +13,7 @@ function App() {
       <Container>
         <Row>
           <Routes>
-            <Route path="/" element={<></>}></Route>
+            <Route path="/" element={<Home></Home>}></Route>
             <Route path="/me" element={<ProfilePage />}></Route>
           </Routes>
         </Row>

@@ -11906,6 +11906,19 @@ body {
   padding: 0;
 }
 
+p {
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.paragraphBold {
+  font-weight: 600;
+}
+
+.paragraphGrey {
+  color: rgb(149, 149, 149);
+}
+
 #mynavBar {
   font-size: 13px;
 }
@@ -11925,6 +11938,17 @@ body {
   border-radius: 50px;
   display: inline-block;
   padding-inline: 10px;
+}
+
+#btnPost {
+  background-color: white;
+  color: rgb(127, 127, 127);
+  border-radius: 35px;
+  border-color: grey;
+  padding-block: 13px;
+}
+#btnPost:hover {
+  background-color: rgba(219, 219, 219, 0.57);
 }
 
 #btnModify {
