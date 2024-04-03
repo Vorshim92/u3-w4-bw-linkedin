@@ -13,13 +13,7 @@ const NavBarComponent = function (props) {
             <button className="btn btn-outline-primary border none me-2" type="submit" style={{ height: "34px" }}>
               <img src="svgexport-4.svg" alt="" style={{ verticalAlign: "baseline" }} />
             </button>
-            <input
-              type="search"
-              className="form-control me-2"
-              placeholder="cerca"
-              aria-label="cerca"
-              style={{ height: "34px" }}
-            />
+            <input type="search" className="form-control me-2" placeholder="cerca" aria-label="cerca" style={{ height: "34px" }} />
           </form>
 
           <Nav>
@@ -52,7 +46,7 @@ const NavBarComponent = function (props) {
               id="basic-nav-dropdown"
               className="you"
             >
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="/me">Il Mio Profilo</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />

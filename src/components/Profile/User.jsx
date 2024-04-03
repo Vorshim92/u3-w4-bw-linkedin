@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUser } from "../../Redux/actions/fetchUser";
+import { fetchUser } from "../../redux/actions/fetchUser";
 import UserImage from "./UserImageModal";
 
 const User = () => {
@@ -36,22 +36,8 @@ const User = () => {
           }}
         >
           <Button onClick={toggleOffcanvas} id="btnModify">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              id="camera-small"
-              aria-hidden="true"
-              role="none"
-              data-supported-dps="16x16"
-              fill="#0A66C2"
-              fill-opacity="0.9"
-              width="16"
-              height="16"
-            >
-              <path
-                d="M10 9a2 2 0 11-2-2 2 2 0 012 2zm5-2.5V14H1V6.5A2.5 2.5 0 013.5 4h.75L5 2h6l.75 2h.75A2.5 2.5 0 0115 6.5zM11 9a3 3 0 10-3 3 3 3 0 003-3z"
-                fill-opacity="0.9"
-              ></path>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="camera-small" role="none" data-supported-dps="16x16" fill="#0A66C2" fillOpacity="0.9" width="16" height="16">
+              <path d="M10 9a2 2 0 11-2-2 2 2 0 012 2zm5-2.5V14H1V6.5A2.5 2.5 0 013.5 4h.75L5 2h6l.75 2h.75A2.5 2.5 0 0115 6.5zM11 9a3 3 0 10-3 3 3 3 0 003-3z" fillOpacity="0.9"></path>
             </svg>
           </Button>
           <UserImage show={show} toggleOffcanvas={toggleOffcanvas} />
@@ -86,11 +72,7 @@ const User = () => {
                 </Col>
                 <Col className="d-none d-lg-block"></Col>
                 <Col xs={12} lg={3}>
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoctrKT2Zx2V8heZqGs3-_uaYPn7evbEHw82kbMDld-Q&s"
-                    alt=""
-                    style={{ width: "25px", height: "25px" }}
-                  />
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoctrKT2Zx2V8heZqGs3-_uaYPn7evbEHw82kbMDld-Q&s" alt="" style={{ width: "25px", height: "25px" }} />
                   EPICODE
                 </Col>
                 <Col xs={12}>Junior Front-End Developer</Col>
@@ -158,10 +140,7 @@ const User = () => {
 
             <div className="d-flex flex-column">
               <p className="sidebarTitle m-0">EPICODE</p>
-              <p>
-                Progettazione pagine web, contenuti digitali/multimediali e risorse informativeProgettazione pagine web,
-                contenuti digitali/multimediali e risorse informative
-              </p>
+              <p>Progettazione pagine web, contenuti digitali/multimediali e risorse informativeProgettazione pagine web, contenuti digitali/multimediali e risorse informative</p>
               <span className="sidebarSpan">gen 2024 - lug 2024</span>
             </div>
           </div>
@@ -181,24 +160,10 @@ const User = () => {
           >
             <p>Esperienze</p>
             <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                fill="currentColor"
-                className="bi bi-plus"
-                viewBox="0 0 16 16"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 16">
                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
               </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="19"
-                height="19"
-                fill="currentColor"
-                className="bi bi-pencil"
-                viewBox="0 0 16 16"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" className="bi bi-pencil" viewBox="0 0 16 16">
                 <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
               </svg>
             </div>
@@ -251,24 +216,10 @@ const User = () => {
           >
             <p>Licenze e certificazioni</p>
             <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                fill="currentColor"
-                className="bi bi-plus"
-                viewBox="0 0 16 16"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 16">
                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
               </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="19"
-                height="19"
-                fill="currentColor"
-                className="bi bi-pencil"
-                viewBox="0 0 16 16"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" className="bi bi-pencil" viewBox="0 0 16 16">
                 <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
               </svg>
             </div>
