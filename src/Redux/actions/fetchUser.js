@@ -7,7 +7,8 @@ export const FETCH_EXP_SUCCESS = "FETCH_EXP_SUCCESS";
 const MeEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me";
 const ExpEndopoint = "https://striveschool-api.herokuapp.com/api/profile/660bd3f7a281d80019a3ec68/experiences";
 const headers = {
-  Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo",
+  Authorization:
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo",
 };
 
 const fetchUserSuccess = (data) => ({
@@ -81,7 +82,7 @@ export const ModUserExp = (dataForm) => async (dispatch) => {
     });
     if (response.ok) {
       console.log("Esperienza con successo");
-      window.location.reload();
+      // window.location.reload();
     } else {
       throw new Error("errore recupero dati");
     }
@@ -93,7 +94,7 @@ export const ModUserExp = (dataForm) => async (dispatch) => {
 // ACTION_4
 export const fetchUserExp = () => async (dispatch) => {
   try {
-    const response = await fetch(MeEndpoint, {
+    const response = await fetch(ExpEndopoint, {
       headers: headers,
     });
     if (response.ok) {
