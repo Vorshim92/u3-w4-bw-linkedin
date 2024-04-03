@@ -178,3 +178,65 @@ body {
     }
   }
 }
+
+#btnModal1 {
+  background: transparent;
+  border: none;
+  border-radius: 35px;
+  &:hover {
+    background-color: lightgray;
+    transition: 0.5s;
+  }
+}
+
+#btnModal2 {
+  background: transparent;
+  border: none;
+  border-radius: 35px;
+  margin-left: auto;
+  width: 6%;
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+}
+
+#role {
+  border-radius: 10px;
+  width: 100%;
+  border: solid;
+  border-color: rgb(0, 39, 52);
+}
+
+#company {
+  border-radius: 10px;
+  width: 100%;
+  border: solid;
+  border-color: rgb(0, 39, 52);
+}
+
+#description {
+  border-radius: 10px;
+  width: 100%;
+  border: solid;
+  border-color: rgb(0, 39, 52);
+}
+
+#area {
+  border-radius: 10px;
+  width: 100%;
+  border: solid;
+  border-color: rgb(0, 39, 52);
+}
+
+#startDate {
+  border: solid;
+  border-color: rgb(0, 39, 52);
+  border-radius: 10px;
+}
+
+#endDate {
+  border-radius: 10px;
+  border: solid;
+  border-color: rgb(0, 39, 52);
+}

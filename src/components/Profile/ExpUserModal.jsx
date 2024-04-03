@@ -63,7 +63,7 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
     <>
       <Modal show={showExp} onHide={toggleExpModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Mofidica Immagine Profilo</Modal.Title>
+          <Modal.Title>{expID ? "Modifica l'esperienza" : "Aggiungi esperienza"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
@@ -76,12 +76,26 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
 
               <label htmlFor="company">Compagnia:</label>
               <br />
-              <input type="text" id="company" name="company" value={formData.company} onChange={handleChange} required />
+              <input
+                type="text"
+                id="company"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                required
+              />
               <br />
 
               <label htmlFor="startDate">Data di Inizio:</label>
               <br />
-              <input type="date" id="startDate" name="startDate" value={formData.startDate} onChange={handleChange} required />
+              <input
+                type="date"
+                id="startDate"
+                name="startDate"
+                value={formData.startDate}
+                onChange={handleChange}
+                required
+              />
               <br />
 
               <label htmlFor="endDate">Data di Fine:</label>
@@ -91,7 +105,12 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
 
               <label htmlFor="description">Descrizione:</label>
               <br />
-              <textarea id="description" name="description" value={formData.description} onChange={handleChange}></textarea>
+              <textarea
+                id="description"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+              ></textarea>
               <br />
 
               <label htmlFor="area">Area:</label>
@@ -102,7 +121,7 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
               <br />
               <input type="file" id="image" name="image" onChange={handleChange} />
               <br />
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" className="mt-3">
                 Invia
               </Button>
             </form>
