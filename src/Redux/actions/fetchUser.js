@@ -27,7 +27,7 @@ export const fetchUser = () => async (dispatch) => {
   try {
     const response = await fetch(MeEndpoint, {
       headers: {
-        Authorization: tokenIla,
+        Authorization: tokenSte,
       },
     });
     if (response.ok) {
@@ -53,7 +53,7 @@ export const AddUserExpImage = (image, expId) => async (dispatch) => {
       method: "POST",
       body: formData,
       headers: {
-        Authorization: tokenIla,
+        Authorization: tokenSte,
       },
     });
     if (response.ok) {
@@ -75,7 +75,7 @@ export const AddUserExp = (dataForm, img) => async (dispatch) => {
       body: JSON.stringify(dataForm),
       headers: {
         "Content-Type": "application/json",
-        Authorization: tokenIla,
+        Authorization: tokenSte,
       },
     });
     if (response.ok) {
@@ -95,7 +95,7 @@ export const fetchUserExp = () => async (dispatch) => {
   try {
     const response = await fetch(ExpEndopoint, {
       headers: {
-        Authorization: tokenIla,
+        Authorization: tokenSte,
       },
     });
     if (response.ok) {
@@ -119,7 +119,7 @@ export const ModUserExp = (dataForm, expId, img) => async (dispatch) => {
       body: JSON.stringify(dataForm),
       headers: {
         "Content-Type": "application/json",
-        Authorization: tokenIla,
+        Authorization: tokenSte,
       },
     });
     if (response.ok) {
@@ -142,7 +142,7 @@ export const DelUserExp = (expId) => async (dispatch) => {
     const response = await fetch(`${ExpEndopoint}/${expId}`, {
       method: "DELETE",
       headers: {
-        Authorization: tokenIla,
+        Authorization: tokenSte,
       },
     });
     if (response.ok) {
@@ -155,3 +155,29 @@ export const DelUserExp = (expId) => async (dispatch) => {
     // dispatch(fetchUserFailure());
   }
 };
+export const ChangeImageUser =
+  ({ image }) =>
+  async (dispatch) => {
+    try {
+      const formData = new FormData();
+      console.log(image);
+      formData.append("profile", image); // Aggiungi l'immagine con la chiave "experience"
+
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/660bd3f7a281d80019a3ec68/picture`, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Authorization: tokenSte,
+        },
+      });
+      if (response.ok) {
+        console.log("Immagine Profilo modificata con successo");
+        // window.location.reload();
+      } else {
+        throw new Error("errore recupero dati");
+      }
+    } catch (error) {
+      console.log(error);
+      // dispatch(fetchUserFailure());
+    }
+  };
