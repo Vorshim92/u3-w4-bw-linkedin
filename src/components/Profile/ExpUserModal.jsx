@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { useDispatch } from "react-redux";
-import { AddUserExp } from "../../redux/actions/fetchUser";
-import { AddUserExpImage } from "../../redux/actions/fetchUser";
-const ExpUserModal = ({ showExp, toggleExpModal }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { AddUserExp, ModUserExp, DelUserExp } from "../../redux/actions/fetchUser";
+const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
   const dispatch = useDispatch();
+  const userExp = useSelector((state) => state.exp.expData);
 
   const [formData, setFormData] = useState({
     role: "",
@@ -34,10 +34,31 @@ const ExpUserModal = ({ showExp, toggleExpModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(AddUserExp(formData, img));
-    // dispatch(AddUserExpImage(formData));
-    console.log(formData);
+    if (expID) {
+      dispatch(ModUserExp(formData, img));
+    } else {
+      dispatch(AddUserExp(formData, img));
+    }
   };
+
+  useEffect(() => {
+    if (expID) {
+      const expFinder = userExp.find((experience) => experience._id === expID);
+      setFormData({
+        role: expFinder.role,
+        company: expFinder.company,
+        startDate: expFinder.startDate,
+        endDate: expFinder.endDate,
+        description: expFinder.description,
+        area: expFinder.area,
+      });
+    }
+  }, [expID, userExp]);
+
+  const dispatchDelete = (e) => {
+    dispatch(DelUserExp(expID));
+  };
+
   return (
     <>
       <Modal show={showExp} onHide={toggleExpModal}>
@@ -88,6 +109,11 @@ const ExpUserModal = ({ showExp, toggleExpModal }) => {
           </div>
         </Modal.Body>
         <Modal.Footer>
+          {expID && (
+            <Button variant="danger" type="click" onClick={dispatchDelete}>
+              CANCELLA
+            </Button>
+          )}
           <Button variant="secondary" onClick={toggleExpModal}>
             Close
           </Button>

@@ -180,7 +180,7 @@ const User = () => {
             </div>
           </Card.Title>
           {userExp.map((b) => {
-            return <Experience data={b} key={b._id} />;
+            return <Experience data={b} toggleExpModal={toggleExpModal} key={b._id} />;
           })}
         </Card.Body>
       </Card>

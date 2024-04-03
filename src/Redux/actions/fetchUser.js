@@ -1,6 +1,5 @@
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
-export const FETCH_USER_ID = "FETCH_USER_ID";
 export const FETCH_EXP_FAILURE = "FETCH_EXP_FAILURE";
 export const FETCH_EXP_SUCCESS = "FETCH_EXP_SUCCESS";
 
@@ -19,10 +18,6 @@ const fetchUserFailure = () => ({
   type: FETCH_USER_FAILURE,
 });
 
-const fetchUserByIdSuccess = (data) => ({
-  type: FETCH_USER_ID,
-  payload: data,
-});
 const fetchExpSuccess = (data) => ({
   type: FETCH_EXP_SUCCESS,
   payload: data,
@@ -44,27 +39,6 @@ export const fetchUser = () => async (dispatch) => {
   } catch (error) {
     console.log(error);
     dispatch(fetchUserFailure());
-  }
-};
-
-// ACTION_2 NON UTILIZZATA (ANCORA)
-export const fetchUserByID = (userId) => async (dispatch) => {
-  const ENDPOINT = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
-  try {
-    const response = await fetch(MeEndpoint, {
-      headers: headers,
-    });
-    if (response.ok) {
-      const data = await response.json();
-      console.log("dati ricevuti", data);
-      dispatch(fetchUserByIdSuccess(data));
-      return data;
-    } else {
-      throw new Error("errore recupero dati");
-    }
-  } catch (error) {
-    console.log(error);
-    // dispatch(fetchUserFailure());
   }
 };
 
@@ -125,6 +99,51 @@ export const fetchUserExp = () => async (dispatch) => {
       const data = await response.json();
       console.log("dati ricevuti", data);
       dispatch(fetchExpSuccess(data));
+    } else {
+      throw new Error("errore recupero dati");
+    }
+  } catch (error) {
+    console.log(error);
+    // dispatch(fetchUserFailure());
+  }
+};
+
+// ACTION_MODIFICA_EXP
+export const ModUserExp = (dataForm, expId, img) => async (dispatch) => {
+  try {
+    const response = await fetch(`${ExpEndopoint}/${expId}`, {
+      method: "PUT",
+      body: JSON.stringify(dataForm),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo`,
+      },
+    });
+    if (response.ok) {
+      console.log("Esperienza modificata con successo");
+      if (img) {
+        const data = await response.json();
+        dispatch(AddUserExpImage(img.image, data._id));
+      }
+    } else {
+      throw new Error("errore recupero dati");
+    }
+  } catch (error) {
+    console.log(error);
+    // dispatch(fetchUserFailure());
+  }
+};
+// ACTION_DELETE_EXP
+export const DelUserExp = (expId) => async (dispatch) => {
+  try {
+    const response = await fetch(`${ExpEndopoint}/${expId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo`,
+      },
+    });
+    if (response.ok) {
+      console.log("Esperienza eliminata con successo");
     } else {
       throw new Error("errore recupero dati");
     }
