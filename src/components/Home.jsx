@@ -3,6 +3,12 @@ import { useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 import { BsSquareHalf } from "react-icons/bs";
 import { HiPlus } from "react-icons/hi";
+import { BsInfoSquareFill } from "react-icons/bs";
+import { FaRegImage } from "react-icons/fa6";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { RiUserFollowFill } from "react-icons/ri";
+import { RiArrowDownSLine } from "react-icons/ri";
+import { RiArrowDropDownFill } from "react-icons/ri";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -16,7 +22,7 @@ const Home = () => {
   };
   return (
     <>
-      {/*LEFSIDE */}
+      {/*LEFSID */}
       <Col xs={2}>
         <Card id="main-card" className="mt-3 ">
           <Card.Img variant="top" src="userbackground.svg" alt="User Background" className="position-relative" />
@@ -83,14 +89,21 @@ const Home = () => {
             <ListGroup>
               <ListGroupItem style={{ borderLeft: "0", borderRight: "0" }}>
                 <div>
-                  <p id="pOfHome">Gruppi</p>
-                  <p id="pOfHome" className="my-3">
-                    Eventi
-                    <span>
-                      <HiPlus />
-                    </span>
-                  </p>
-                  <p id="pOfHome">Hashtag seguiti</p>
+                  <a href="#1" id="pOfHome" className="fw-medium aHome">
+                    Gruppi
+                  </a>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <a href="#1" id="pOfHome" className="my-3 fw-medium aHome">
+                      Eventi
+                    </a>
+
+                    <div>
+                      <HiPlus className="fs-5" />
+                    </div>
+                  </div>
+                  <a href="#1" id="pOfHome" className="fw-medium aHome">
+                    Hashtag seguiti
+                  </a>
                 </div>
               </ListGroupItem>
             </ListGroup>
@@ -134,15 +147,24 @@ const Home = () => {
                 </Button>
               </Col>
               <Col xs={12} className="my-3">
-                <Row>
-                  <Col xs={4}>
-                    <p id="pOfHome">Contenuti multimediali</p>
+                <Row className="d-flex justify-content-around ">
+                  <Col xs={4} className="d-flex justify-content-center align-items-center ">
+                    <FaRegImage className="mx-2" />
+                    <p id="pOfHome" className="m-0 fw-medium text-secondary">
+                      Contenuti multimediali
+                    </p>
                   </Col>
-                  <Col xs={4}>
-                    <p id="pOfHome">Evento</p>
+                  <Col xs={4} className="d-flex justify-content-center align-items-center">
+                    <FaRegCalendarAlt className="mx-2" />
+                    <p id="pOfHome" className="m-0 fw-medium text-secondary">
+                      Evento
+                    </p>
                   </Col>
-                  <Col xs={4}>
-                    <p id="pOfHome">Scrivi un articolo</p>
+                  <Col xs={4} className="d-flex justify-content-center align-items-center">
+                    <RiUserFollowFill className="mx-2" />
+                    <p id="pOfHome" className="m-0 fw-medium text-secondary">
+                      Scrivi un articolo
+                    </p>
                   </Col>
                 </Row>
               </Col>
@@ -198,7 +220,9 @@ const Home = () => {
                     </Col>
                   </Col>
                   <Col xs={3}>
-                    <h5>+ segui</h5>
+                    <Button className="seguiHomeBtn rounded-4 bg-light text-primary d-flex align-items-end border border-primary py-1 d-flex align-items-center">
+                      <HiPlus className="fs-5 me-1" /> Segui
+                    </Button>
                   </Col>
                 </Row>
               </Col>
@@ -226,7 +250,10 @@ const Home = () => {
             <ListGroup>
               <ListGroupItem>
                 <ul>
-                  <h6>Linkedin Notizie "icon"</h6>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <h6>Linkedin Notizie </h6>
+                    <BsInfoSquareFill />
+                  </div>
                   <li>
                     <p id="pOfHome" className="paragraphBold">
                       {" "}
@@ -271,8 +298,10 @@ const Home = () => {
                       1 giorno fa
                     </p>
                   </li>
+                  <h6 className="m-3 ms-0">
+                    Vedi altro <RiArrowDownSLine className="m-0" />
+                  </h6>
                 </ul>
-                <h6 className="paragraphGrey m-0">Vedi altro</h6>
               </ListGroupItem>
             </ListGroup>
           </CardBody>
@@ -283,9 +312,54 @@ const Home = () => {
             <Card.Img variant="top" src="./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg" />
           </Card>
           <div className="mt-3  text-center">
-            Informazioni Accessibilità Centro assistenza Privacy e condizioni Opzioni per gli annunci pubblicitari Pubblicità Servizi alle aziende Scarica l’app LinkedIn Altro{" "}
+            <div className="d-flex flex-column ">
+              <div className="me-1">
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  {" "}
+                  Informazioni
+                </a>
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  Accessibilità
+                </a>
+              </div>
+              <div className="me-1">
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  {" "}
+                  Centro assistenza{" "}
+                </a>
+                <a className="mx-2 homeFooter text-secondary " href="#1">
+                  Privacy e condizioni
+                  <span className="text-black fs-5">
+                    <RiArrowDropDownFill className="align-bottom" />
+                  </span>
+                </a>
+              </div>
+              <div className="me-1">
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  Opzioni per gli annunci pubblicitari{" "}
+                </a>
+              </div>
+              <div className="me-1">
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  {" "}
+                  Pubblicità{" "}
+                </a>
+                <a className="mx-2 homeFooter text-secondary " href="#1">
+                  Servizi alle aziende
+                  <span className="text-black fs-5">
+                    <RiArrowDropDownFill className="align-bottom" />
+                  </span>
+                </a>
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  Scarica l’app LinkedIn
+                </a>
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  Altro
+                </a>
+              </div>
+            </div>
             <p id="pOfHome">
-              <svg xmlns="http://www.w3.org/2000/svg" class="loader__linkedin-logo" width="48" height="48" viewBox="0 0 190 48" style={{ marginRight: "4px" }}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="loader__linkedin-logo" width="48" height="48" viewBox="0 0 190 48" style={{ marginRight: "4px" }}>
                 <g>
                   <g>
                     <path
