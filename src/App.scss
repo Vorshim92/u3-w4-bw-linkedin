@@ -379,3 +379,8 @@ body {
   background-color: rgba(175, 171, 171, 0.251);
   color: black;
 }
+
+.homeBtnPost:active {
+  background-color: rgba(175, 171, 171, 0.251) !important;
+  color: black !important;
+}

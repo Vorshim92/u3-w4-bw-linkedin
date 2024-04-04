@@ -55,7 +55,9 @@ const Home = () => {
           </Card.Body>
           <CardBody className="p-0 ">
             <ListGroup className="rounded-0">
-              <ListGroup.Item style={{ borderTop: "solid 1px", borderColor: "lightgray", borderLeft: "0", borderRight: "0" }}>
+              <ListGroup.Item
+                style={{ borderTop: "solid 1px", borderColor: "lightgray", borderLeft: "0", borderRight: "0" }}
+              >
                 <div className="my-1">
                   <p id="pOfHome" className="paragraphGrey">
                     Collegamenti
@@ -141,23 +143,29 @@ const Home = () => {
               </Col>
               <Col xs={12} className="my-3">
                 <Row className="d-flex justify-content-around ">
-                  <Col xs={4} className="d-flex justify-content-center align-items-center ">
-                    <FaRegImage className="mx-2" />
-                    <p id="pOfHome" className="m-0 fw-medium text-secondary">
-                      Contenuti multimediali
-                    </p>
+                  <Col xs={5}>
+                    <Button className="homeBtnPost d-flex justify-content-center align-items-center   ">
+                      <FaRegImage className="mx-2" />
+                      <p id="pOfHome" className="m-0 fw-medium text-secondary">
+                        Contenuti multimediali
+                      </p>
+                    </Button>
                   </Col>
-                  <Col xs={4} className="d-flex justify-content-center align-items-center">
-                    <FaRegCalendarAlt className="mx-2" />
-                    <p id="pOfHome" className="m-0 fw-medium text-secondary">
-                      Evento
-                    </p>
+                  <Col xs={3}>
+                    <Button className="homeBtnPost  d-flex justify-content-center align-items-center   ">
+                      <FaRegCalendarAlt className="mx-2" />
+                      <p id="pOfHome" className="m-0 fw-medium text-secondary">
+                        Evento
+                      </p>
+                    </Button>
                   </Col>
-                  <Col xs={4} className="d-flex justify-content-center align-items-center">
-                    <RiUserFollowFill className="mx-2" />
-                    <p id="pOfHome" className="m-0 fw-medium text-secondary">
-                      Scrivi un articolo
-                    </p>
+                  <Col xs={4}>
+                    <Button className="homeBtnPost  d-flex justify-content-center align-items-center   ">
+                      <RiUserFollowFill className="mx-2" />
+                      <p id="pOfHome" className="m-0 fw-medium text-secondary">
+                        Scrivi un articolo
+                      </p>
+                    </Button>
                   </Col>
                 </Row>
               </Col>
@@ -295,7 +303,14 @@ const Home = () => {
               </div>
             </div>
             <p id="pOfHome">
-              <svg xmlns="http://www.w3.org/2000/svg" className="loader__linkedin-logo" width="48" height="48" viewBox="0 0 190 48" style={{ marginRight: "4px" }}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="loader__linkedin-logo"
+                width="48"
+                height="48"
+                viewBox="0 0 190 48"
+                style={{ marginRight: "4px" }}
+              >
                 <g>
                   <g>
                     <path
