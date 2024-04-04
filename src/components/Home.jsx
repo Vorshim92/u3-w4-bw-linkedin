@@ -22,7 +22,7 @@ const Home = () => {
   };
   return (
     <>
-      {/*LEFSIDE */}
+      {/*LEFSID */}
       <Col xs={2}>
         <Card id="main-card" className="mt-3 ">
           <Card.Img variant="top" src="userbackground.svg" alt="User Background" className="position-relative" />
