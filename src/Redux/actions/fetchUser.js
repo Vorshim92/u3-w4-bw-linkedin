@@ -201,7 +201,7 @@ export const ChangeImageUser =
       });
       if (response.ok) {
         console.log("Immagine Profilo modificata con successo");
-        // window.location.reload();
+        // dispatch(fetchUser());
       } else {
         throw new Error("errore recupero dati");
       }
@@ -265,7 +265,7 @@ export const addPost = (data) => async (dispatch) => {
     });
     if (response.ok) {
       console.log("Esperienza con successo");
-      dispatch(fetchPost());
+      // dispatch(fetchPost());
     } else {
       throw new Error("errore recupero dati");
     }

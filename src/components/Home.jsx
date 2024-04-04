@@ -9,54 +9,30 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { RiUserFollowFill } from "react-icons/ri";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { RiArrowDropDownFill } from "react-icons/ri";
-import { fetchPost, addPost } from "../redux/actions/fetchUser";
+import { fetchPost } from "../redux/actions/fetchUser";
 import { useDispatch, useSelector } from "react-redux";
 import Post from "./Post";
+import PostHomeModal from "./PostHomeModal";
 const Home = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.post.postData);
   const [showModal, setShowModal] = useState(false);
-  const [textArea, settextArea] = useState({
-    text: "",
-  });
 
   useEffect(() => {
     dispatch(fetchPost());
   }, []);
 
-  const handleModalOpen = () => {
-    setShowModal(true);
-  };
-
-  const handleModalClose = () => {
-    setShowModal(false);
-  };
-
-  const handleChange = (e) => {
-    settextArea({
-      ...textArea,
-      text: e.target.value,
-    });
-  };
-
-  const handlePostSubmit = () => {
-    dispatch(addPost(textArea));
-    handleModalClose();
+  const handleModal = () => {
+    setShowModal(!showModal);
   };
 
   return (
     <>
-      {/*LEFSID */}
+      {/*LEFTSIDE */}
       <Col xs={2}>
         <Card id="main-card" className="mt-3 ">
           <Card.Img variant="top" src="userbackground.svg" alt="User Background" className="position-relative" />
-          <div
-            className="position-absolute"
-            style={{
-              right: "20px",
-              top: "20px",
-            }}
-          ></div>
+
           <Card.Body style={{ position: "relative" }} className="text-center">
             <img
               src=/*mettere immagine */ "./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"
@@ -159,7 +135,7 @@ const Home = () => {
                 />
               </Col>
               <Col xs={10}>
-                <Button id="btnPost" variant="primary" className="text-start w-100 " onClick={handleModalOpen}>
+                <Button id="btnPost" variant="primary" className="text-start w-100 " onClick={handleModal}>
                   Avvia un post
                 </Button>
               </Col>
@@ -188,23 +164,8 @@ const Home = () => {
             </Row>
           </Card.Body>
         </Card>
-        <Modal show={showModal} onHide={handleModalClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Avvia un post</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <textarea value={textArea.text} onChange={handleChange} className="form-control" rows="5" placeholder="Inserisci il testo del post"></textarea>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleModalClose}>
-              Chiudi
-            </Button>
-            <Button variant="primary" onClick={handlePostSubmit}>
-              Pubblica
-            </Button>
-          </Modal.Footer>
-        </Modal>
-
+        {/* MODALE */}
+        <PostHomeModal showModal={showModal} handleModal={handleModal}></PostHomeModal>
         {/* POST CONTENT*/}
         {posts &&
           [...posts]

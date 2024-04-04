@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-import { ChangeImageUser } from "../../redux/actions/fetchUser";
-import { useDispatch } from "react-redux";
+import { ChangeImageUser, fetchUser } from "../../redux/actions/fetchUser";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const UserImage = ({ showImg, toggleModalImage }) => {
   const dispatch = useDispatch();
   const [img, setImg] = useState({
@@ -16,7 +16,10 @@ const UserImage = ({ showImg, toggleModalImage }) => {
     });
   };
   const handleUpload = async () => {
-    dispatch(ChangeImageUser(img));
+    await dispatch(ChangeImageUser(img));
+    setImg({ image: null });
+    toggleModalImage();
+    dispatch(fetchUser());
   };
 
   return (
@@ -35,7 +38,8 @@ const UserImage = ({ showImg, toggleModalImage }) => {
           <Button variant="secondary" onClick={toggleModalImage}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleUpload}>
+
+          <Button variant="primary" onClick={() => handleUpload()}>
             Carica immagine
           </Button>
         </Modal.Footer>
