@@ -1,5 +1,5 @@
 import { Button, Card, Col, Row, ListGroup, CardBody, ListGroupItem, Modal } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 import { BsSquareHalf } from "react-icons/bs";
 import { HiPlus } from "react-icons/hi";
@@ -9,9 +9,17 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { RiUserFollowFill } from "react-icons/ri";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { RiArrowDropDownFill } from "react-icons/ri";
-
+import { fetchPost } from "../redux/actions/fetchUser";
+import { useDispatch, useSelector } from "react-redux";
+import Post from "./Post";
 const Home = () => {
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.post.postData);
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchPost());
+  }, []);
 
   const handleModalOpen = () => {
     setShowModal(true);
@@ -20,6 +28,7 @@ const Home = () => {
   const handleModalClose = () => {
     setShowModal(false);
   };
+
   return (
     <>
       {/*LEFSID */}
@@ -118,13 +127,6 @@ const Home = () => {
       {/*CENTRAL CONTENT*/}
       <Col xs={6}>
         <Card id="main-card" className="mt-3">
-          <div
-            className="position-absolute"
-            style={{
-              right: "20px",
-              top: "20px",
-            }}
-          ></div>
           <Card.Body className="text-center pb-0">
             <Row className="align-items-center">
               <Col xs={2}>
@@ -189,55 +191,10 @@ const Home = () => {
         </Modal>
 
         {/* POST CONTENT*/}
-        <Card id="main-card" className="mt-3">
-          <Card.Body className="text-start pb-0">
-            <Row className="align-items-center">
-              <Col xs={2}>
-                <img
-                  src=/*mettere immagine */ "./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"
-                  alt=""
-                  style={{
-                    width: "60px",
-                    height: "60px",
-
-                    borderRadius: "50%",
-                    border: "5px solid white",
-                    objectFit: "cover",
-                  }}
-                />
-              </Col>
-              <Col xs={10}>
-                <Row className="align-items-center">
-                  <Col xs={9}>
-                    <Col xs={12}>
-                      <p id="pOfHome">nome utente</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p id="pOfHome">bio io io io io io io</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p id="pOfHome">times</p>
-                    </Col>
-                  </Col>
-                  <Col xs={3}>
-                    <Button className="seguiHomeBtn rounded-4 bg-light text-primary d-flex align-items-end border border-primary py-1 d-flex align-items-center">
-                      <HiPlus className="fs-5 me-1" /> Segui
-                    </Button>
-                  </Col>
-                </Row>
-              </Col>
-              <Col xs={12} className="my-3">
-                <CardBody>
-                  <Card.Text>
-                    preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di
-                    caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.
-                  </Card.Text>
-                  <Card.Img src="./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"></Card.Img>
-                </CardBody>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
+        {posts &&
+          posts.slice(0, 20).map((post) => {
+            return <Post post={post} key={post._id} />;
+          })}
 
         {/* POST CONTENT*/}
       </Col>

@@ -11,14 +11,14 @@ const postReducer = (state = initialState, action) => {
     case FETCH_POST_SUCCESS:
       return {
         ...state,
-        initialState: action.payload,
+        postData: action.payload,
         loading: false,
         error: false,
       };
     case FETCH_POST_FAILURE:
       return {
         ...state,
-        initialState: null,
+        postData: null,
         loading: false,
         error: true,
       };

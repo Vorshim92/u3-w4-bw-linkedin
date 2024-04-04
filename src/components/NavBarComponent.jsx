@@ -17,7 +17,7 @@ const NavBarComponent = function () {
   return (
     <Navbar bg="light" expand="lg" id="mynavBar" className="p-0">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img src="./svgexport-46.svg" alt="" width={50} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
