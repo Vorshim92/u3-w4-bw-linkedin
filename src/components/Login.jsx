@@ -1,17 +1,29 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { Container, Form, Button, Card, Modal } from "react-bootstrap";
-
-const Login = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+import { useDispatch, useSelector } from "react-redux";
+import { validateToken, setTokenOk, setTokenFail } from "../redux/actions/fetchUser";
+const Login = () => {
   const [striveLink, setStriveLink] = useState(false);
+  const [token, setToken] = useState("");
+  const userData = useSelector((state) => state.user.userData);
 
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleOnChange = (e) => {
+    setToken(e.target.value);
+  };
 
-  const onButtonClick = () => {};
+  const onButtonClick = async () => {
+    console.log(token);
+    await dispatch(validateToken(token));
+  };
+
+  useEffect(() => {
+    if (userData) {
+      dispatch(setTokenOk(token));
+    } else {
+      dispatch(setTokenFail());
+    }
+  }, [userData]);
 
   return (
     <Container className="mainContainer d-flex">
@@ -35,14 +47,14 @@ const Login = (props) => {
         </div>
 
         <Form className="inputContainer">
-          <Form.Group controlId="formBasicEmail">
+          {/* <Form.Group controlId="formBasicEmail">
             <Form.Control type="email" placeholder="Enter your email here" value={email} onChange={(e) => setEmail(e.target.value)} className="inputBox" />
             <Form.Text className="errorLabel">{emailError}</Form.Text>
-          </Form.Group>
+          </Form.Group> */}
 
           <Form.Group controlId="formBasicPassword" className="my-5">
-            <Form.Control type="password" placeholder="Enter your password here" value={password} onChange={(ev) => setPassword(ev.target.value)} className="inputBox" />
-            <Form.Text className="errorLabel">{passwordError}</Form.Text>
+            <Form.Control type="password" placeholder="Enter your token here" value={token} onChange={(e) => handleOnChange(e)} className="inputBox" />
+            <Form.Text className="errorLabel">{}</Form.Text>
           </Form.Group>
           <div className="mx-auto">
             <Button variant="primary" className="inputButton" onClick={onButtonClick} style={{ width: "15rem" }}>

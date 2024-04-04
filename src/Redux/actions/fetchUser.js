@@ -7,18 +7,19 @@ export const FETCH_USERS_FAILURE = "FETCH_USERS_FAILURE";
 export const SET_SEARCH_QUERY = "SET_SEARCH_QUERY";
 export const FETCH_POST_SUCCESS = "FETCH_POST_SUCCESS";
 export const FETCH_POST_FAILURE = "FETCH_POST_FAILURE";
-export const FETCH_LOGIN_OK = "FETCH_LOGIN_OK";
-export const FETCH_LOGIN_FAIL = "FETCH_LOGIN_FAIL";
-
-const tokenSte = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo";
-const tokenMarco = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBjMjM5Y2EyODFkODAwMTlhM2VjZTAiLCJpYXQiOjE3MTIwNzE1ODEsImV4cCI6MTcxMzI4MTE4MX0.uHkSiXtnQG3NNv2MrezBb6Re8MLtSzeT_2-khWyvXXs";
-const tokenIla = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBkMGMzZWY5NGY0YTAwMTkzNzkxNmIiLCJpYXQiOjE3MTIxMzExMzQsImV4cCI6MTcxMzM0MDczNH0.gzh-f7cukea3mTuqBW89cf9BZCuUnAG32j2Vu4R8-7A";
-
+export const SET_TOKEN_OK = "FETCH_LOGIN_OK";
+export const SET_TOKEN_FAIL = "FETCH_LOGIN_FAIL";
 const MeEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me";
-const ExpEndopoint = "https://striveschool-api.herokuapp.com/api/profile/660bd3f7a281d80019a3ec68/experiences";
 const UsersEndopoint = "https://striveschool-api.herokuapp.com/api/profile";
 const PostEndopoint = "https://striveschool-api.herokuapp.com/api/posts/";
 
+export const setTokenOk = (token) => ({
+  type: SET_TOKEN_OK,
+  payload: token,
+});
+export const setTokenFail = () => ({
+  type: SET_TOKEN_FAIL,
+});
 const fetchUserSuccess = (data) => ({
   type: FETCH_USER_SUCCESS,
   payload: data,
@@ -55,11 +56,15 @@ export const setSearchQuery = (query) => {
 };
 
 // ACTION_1
-export const fetchUser = () => async (dispatch) => {
+export const fetchUser = () => async (dispatch, getState) => {
+  const state = getState();
+
+  const token = state.login.loginData;
+
   try {
     const response = await fetch(MeEndpoint, {
       headers: {
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
@@ -76,16 +81,20 @@ export const fetchUser = () => async (dispatch) => {
 };
 
 // ACTION_3
-export const AddUserExpImage = (image, expId) => async (dispatch) => {
+export const AddUserExpImage = (image, expId) => async (dispatch, getState) => {
+  const state = getState();
+
+  const token = state.login.loginData;
+  const userId = state.user.userData._id;
   try {
     const formData = new FormData();
-    formData.append("experience", image); // Aggiungi l'immagine con la chiave "experience"
+    formData.append("experience", image);
 
-    const response = await fetch(`${ExpEndopoint}/${expId}/picture`, {
+    const response = await fetch(`${UsersEndopoint}/${userId}/experiences/${expId}/picture`, {
       method: "POST",
       body: formData,
       headers: {
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
@@ -99,21 +108,25 @@ export const AddUserExpImage = (image, expId) => async (dispatch) => {
     // dispatch(fetchUserFailure());
   }
 };
+
 // ACTION_5
-export const AddUserExp = (dataForm, img) => async (dispatch) => {
+export const AddUserExp = (dataForm, img) => async (dispatch, getState) => {
+  const state = getState();
+  const token = state.login.loginData;
+  const userId = state.user.userData._id;
   try {
-    const response = await fetch(ExpEndopoint, {
+    const response = await fetch(`${UsersEndopoint}/${userId}/experiences/`, {
       method: "POST",
       body: JSON.stringify(dataForm),
       headers: {
         "Content-Type": "application/json",
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
       console.log("Esperienza con successo");
       const data = await response.json();
-      dispatch(AddUserExpImage(img.image, data._id));
+      await dispatch(AddUserExpImage(img.image, data._id)).then(() => {});
     } else {
       throw new Error("errore recupero dati");
     }
@@ -123,16 +136,19 @@ export const AddUserExp = (dataForm, img) => async (dispatch) => {
   }
 };
 // ACTION_6
-export const fetchUserExp = () => async (dispatch) => {
+export const fetchUserExp = () => async (dispatch, getState) => {
+  const state = getState();
+  const token = state.login.loginData;
+  const userId = state.user.userData._id;
   try {
-    const response = await fetch(ExpEndopoint, {
+    const response = await fetch(`${UsersEndopoint}/${userId}/experiences/`, {
       headers: {
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
       const data = await response.json();
-      console.log("dati ricevuti", data);
+      console.log("exp ricevute", data);
       dispatch(fetchExpSuccess(data));
     } else {
       throw new Error("errore recupero dati");
@@ -144,21 +160,24 @@ export const fetchUserExp = () => async (dispatch) => {
 };
 
 // ACTION_MODIFICA_EXP
-export const ModUserExp = (dataForm, expId, img) => async (dispatch) => {
+export const ModUserExp = (dataForm, expId, img) => async (dispatch, getState) => {
+  const state = getState();
+  const token = state.login.loginData;
+  const userId = state.user.userData._id;
   try {
-    const response = await fetch(`${ExpEndopoint}/${expId}`, {
+    const response = await fetch(`${UsersEndopoint}/${userId}/experiences/${expId}`, {
       method: "PUT",
       body: JSON.stringify(dataForm),
       headers: {
         "Content-Type": "application/json",
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
       console.log("Esperienza modificata con successo");
       if (img) {
         const data = await response.json();
-        dispatch(AddUserExpImage(img.image, data._id));
+        await dispatch(AddUserExpImage(img.image, data._id)).then(() => {});
       }
     } else {
       throw new Error("errore recupero dati");
@@ -169,12 +188,15 @@ export const ModUserExp = (dataForm, expId, img) => async (dispatch) => {
   }
 };
 // ACTION_DELETE_EXP
-export const DelUserExp = (expId) => async (dispatch) => {
+export const DelUserExp = (expId) => async (dispatch, getState) => {
+  const state = getState();
+  const token = state.login.loginData;
+  const userId = state.user.userData._id;
   try {
-    const response = await fetch(`${ExpEndopoint}/${expId}`, {
+    const response = await fetch(`${UsersEndopoint}/${userId}/experiences/${expId}`, {
       method: "DELETE",
       headers: {
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
@@ -189,7 +211,9 @@ export const DelUserExp = (expId) => async (dispatch) => {
 };
 export const ChangeImageUser =
   ({ image }) =>
-  async (dispatch) => {
+  async (dispatch, getState) => {
+    const state = getState();
+    const token = state.login.loginData;
     try {
       const formData = new FormData();
       console.log(image);
@@ -199,7 +223,7 @@ export const ChangeImageUser =
         method: "POST",
         body: formData,
         headers: {
-          Authorization: tokenSte,
+          Authorization: `Bearer ${token}`,
         },
       });
       if (response.ok) {
@@ -215,11 +239,13 @@ export const ChangeImageUser =
   };
 
 // ACTION_FETCH USERS
-export const fetchUsers = () => async (dispatch) => {
+export const fetchUsers = () => async (dispatch, getState) => {
+  const state = getState();
+  const token = state.login.loginData;
   try {
     const response = await fetch(UsersEndopoint, {
       headers: {
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
@@ -235,11 +261,15 @@ export const fetchUsers = () => async (dispatch) => {
   }
 };
 // ACTION_GET_POSTS
-export const fetchPost = () => async (dispatch) => {
+export const fetchPost = () => async (dispatch, getState) => {
+  const state = getState();
+
+  const token = state.login.loginData;
+
   try {
     const response = await fetch(PostEndopoint, {
       headers: {
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
@@ -256,14 +286,18 @@ export const fetchPost = () => async (dispatch) => {
 };
 
 // ACTION_POST_POST
-export const addPost = (data) => async (dispatch) => {
+export const addPost = (data) => async (dispatch, getState) => {
+  const state = getState();
+
+  const token = state.login.loginData;
+
   try {
     const response = await fetch(PostEndopoint, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
@@ -278,14 +312,16 @@ export const addPost = (data) => async (dispatch) => {
   }
 };
 // ACTION_PUT_POST
-export const modPost = (data, postId) => async (dispatch) => {
+export const modPost = (data, postId) => async (dispatch, getState) => {
+  const state = getState();
+  const token = state.login.loginData;
   try {
     const response = await fetch(`${PostEndopoint}/${postId}`, {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
@@ -300,12 +336,14 @@ export const modPost = (data, postId) => async (dispatch) => {
   }
 };
 // ACTION_DELETE_POST
-export const deletePost = (postId) => async (dispatch) => {
+export const deletePost = (postId) => async (dispatch, getState) => {
+  const state = getState();
+  const token = state.login.loginData;
   try {
     const response = await fetch(`${PostEndopoint}/${postId}`, {
       method: "DELETE",
       headers: {
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
@@ -320,14 +358,16 @@ export const deletePost = (postId) => async (dispatch) => {
   }
 };
 // ACTION_MOD_USER
-export const modUser = (data) => async (dispatch) => {
+export const modUser = (data) => async (dispatch, getState) => {
+  const state = getState();
+  const token = state.login.loginData;
   try {
     const response = await fetch(UsersEndopoint, {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
@@ -337,5 +377,25 @@ export const modUser = (data) => async (dispatch) => {
     }
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const validateToken = (token) => async (dispatch) => {
+  try {
+    const response = await fetch(MeEndpoint, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      console.log("dati ricevuti", data);
+      dispatch(fetchUserSuccess(data));
+    } else {
+      throw new Error("errore recupero dati");
+    }
+  } catch (error) {
+    console.log(error);
+    dispatch(fetchUserFailure());
   }
 };

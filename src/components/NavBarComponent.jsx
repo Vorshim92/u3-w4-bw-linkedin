@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Nav, Navbar, NavDropdown, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setSearchQuery } from "../redux/actions/fetchUser";
-
+import { useNavigate } from "react-router-dom";
 const NavBarComponent = function () {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
@@ -13,11 +13,12 @@ const NavBarComponent = function () {
   const handleSearchChange = (e) => {
     dispatch(setSearchQuery(e.target.value));
   };
+  const navigate = useNavigate();
 
   return (
     <Navbar bg="light" expand="lg" id="mynavBar" className="p-0">
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand onClick={() => navigate("/home")}>
           <img src="./svgexport-46.svg" alt="" width={50} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -40,11 +41,11 @@ const NavBarComponent = function () {
           )}
 
           <Nav>
-            <Nav.Link href="/" className="d-flex flex-column">
+            <Nav.Link onClick={() => navigate("/home")} className="d-flex flex-column">
               <img src="svgexport-49.svg" alt="" />
               <span>Home</span>
             </Nav.Link>
-            <Nav.Link href="#home" className="d-flex flex-column">
+            <Nav.Link href="#>" className="d-flex flex-column">
               <img src="svgexport-50.svg" alt="" />
               <span>Rete</span>
             </Nav.Link>
@@ -69,7 +70,8 @@ const NavBarComponent = function () {
               id="basic-nav-dropdown"
               className="you"
             >
-              <NavDropdown.Item href="/me">Il Mio Profilo</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => navigate("/me")}>Il Mio Profilo</NavDropdown.Item>
+
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />

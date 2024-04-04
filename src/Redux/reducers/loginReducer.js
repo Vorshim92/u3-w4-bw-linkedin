@@ -1,21 +1,21 @@
-import { FETCH_LOGIN_OK, FETCH_LOGIN_FAIL } from "../actions/fetchUser";
+import { SET_TOKEN_OK, SET_TOKEN_FAIL } from "../actions/fetchUser";
 
 const initialState = {
-  loginData: true,
+  loginData: null,
   loading: true,
   error: false,
 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_LOGIN_OK:
+    case SET_TOKEN_OK:
       return {
         ...state,
         loginData: action.payload,
         loading: false,
         error: false,
       };
-    case FETCH_LOGIN_FAIL:
+    case SET_TOKEN_FAIL:
       return {
         ...state,
         loginData: null,

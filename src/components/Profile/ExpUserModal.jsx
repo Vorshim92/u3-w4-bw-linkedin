@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { AddUserExp, ModUserExp, DelUserExp } from "../../redux/actions/fetchUser";
+import { AddUserExp, ModUserExp, DelUserExp, fetchUserExp } from "../../redux/actions/fetchUser";
 const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
   const dispatch = useDispatch();
   const userExp = useSelector((state) => state.exp.expData);
@@ -32,13 +32,16 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (expID) {
-      dispatch(ModUserExp(formData, expID, img));
+      await dispatch(ModUserExp(formData, expID, img));
     } else {
-      dispatch(AddUserExp(formData, img));
+      await dispatch(AddUserExp(formData, img));
     }
+    setImg({ image: null });
+    toggleExpModal();
+    dispatch(fetchUserExp()).then(() => {});
   };
 
   useEffect(() => {
@@ -55,8 +58,12 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
     }
   }, [expID, userExp]);
 
-  const dispatchDelete = (e) => {
+  const dispatchDelete = async (e) => {
     dispatch(DelUserExp(expID));
+    toggleExpModal();
+    dispatch(fetchUserExp()).then(() => {
+      console.log("fetchUserExp completato dopo DelUserExp");
+    });
   };
 
   return (
@@ -76,26 +83,12 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
 
               <label htmlFor="company">Compagnia:</label>
               <br />
-              <input
-                type="text"
-                id="company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                required
-              />
+              <input type="text" id="company" name="company" value={formData.company} onChange={handleChange} required />
               <br />
 
               <label htmlFor="startDate">Data di Inizio:</label>
               <br />
-              <input
-                type="date"
-                id="startDate"
-                name="startDate"
-                value={formData.startDate}
-                onChange={handleChange}
-                required
-              />
+              <input type="date" id="startDate" name="startDate" value={formData.startDate} onChange={handleChange} required />
               <br />
 
               <label htmlFor="endDate">Data di Fine:</label>
@@ -105,12 +98,7 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
 
               <label htmlFor="description">Descrizione:</label>
               <br />
-              <textarea
-                id="description"
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-              ></textarea>
+              <textarea id="description" name="description" value={formData.description} onChange={handleChange}></textarea>
               <br />
 
               <label htmlFor="area">Area:</label>
