@@ -1,30 +1,24 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Form, Button, Card } from "react-bootstrap";
+import { Container, Form, Button, Card, Modal } from "react-bootstrap";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [striveLink, setStriveLink] = useState(false);
 
   const navigate = useNavigate();
 
   const onButtonClick = () => {};
 
   return (
-    <Container className="mainContainer">
-      <Card className="p-5" style={{ height: "60%", borderRadius: "35px" }}>
+    <Container className="mainContainer d-flex">
+      <Card className="p-5" style={{ height: "65%", borderRadius: "35px" }}>
         <div className="titleContainer" style={{ marginBottom: "" }}>
           <div>
-            {" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="loader__linkedin-logo"
-              width="250"
-              height="100"
-              viewBox="0 0 190 48"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" className="loader__linkedin-logo" width="250" height="100" viewBox="0 0 190 48">
               <g>
                 <g>
                   <path
@@ -42,24 +36,12 @@ const Login = (props) => {
 
         <Form className="inputContainer">
           <Form.Group controlId="formBasicEmail">
-            <Form.Control
-              type="email"
-              placeholder="Enter your email here"
-              value={email}
-              onChange={(ev) => setEmail(ev.target.value)}
-              className="inputBox"
-            />
+            <Form.Control type="email" placeholder="Enter your email here" value={email} onChange={(e) => setEmail(e.target.value)} className="inputBox" />
             <Form.Text className="errorLabel">{emailError}</Form.Text>
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword" className="my-5">
-            <Form.Control
-              type="password"
-              placeholder="Enter your password here"
-              value={password}
-              onChange={(ev) => setPassword(ev.target.value)}
-              className="inputBox"
-            />
+            <Form.Control type="password" placeholder="Enter your password here" value={password} onChange={(ev) => setPassword(ev.target.value)} className="inputBox" />
             <Form.Text className="errorLabel">{passwordError}</Form.Text>
           </Form.Group>
           <div className="mx-auto">
@@ -67,8 +49,16 @@ const Login = (props) => {
               Log in
             </Button>
           </div>
+          <div className="mx-auto mt-2">
+            <Button variant="warning" className="inputButton" onClick={setStriveLink} style={{ width: "15rem" }}>
+              Strive SignUp
+            </Button>
+          </div>
         </Form>
       </Card>
+      <Modal show={striveLink} onHide={setStriveLink} className="">
+        <iframe src="https://strive.school/linkedin-registration" width="600" height="1000" frameBorder="0"></iframe>
+      </Modal>
     </Container>
   );
 };
