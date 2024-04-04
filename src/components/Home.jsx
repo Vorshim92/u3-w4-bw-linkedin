@@ -8,6 +8,7 @@ import { FaRegImage } from "react-icons/fa6";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { RiUserFollowFill } from "react-icons/ri";
 import { RiArrowDownSLine } from "react-icons/ri";
+import { RiArrowDropDownFill } from "react-icons/ri";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -148,20 +149,20 @@ const Home = () => {
                 </Button>
               </Col>
               <Col xs={12} className="my-3">
-                <Row>
-                  <Col xs={4} className="d-flex  align-items-center">
+                <Row className="d-flex justify-content-around ">
+                  <Col xs={4} className="d-flex justify-content-center align-items-center ">
                     <FaRegImage className="mx-2" />
                     <p id="pOfHome" className="m-0 fw-medium text-secondary">
                       Contenuti multimediali
                     </p>
                   </Col>
-                  <Col xs={4} className="d-flex  align-items-center">
+                  <Col xs={4} className="d-flex justify-content-center align-items-center">
                     <FaRegCalendarAlt className="mx-2" />
                     <p id="pOfHome" className="m-0 fw-medium text-secondary">
                       Evento
                     </p>
                   </Col>
-                  <Col xs={4} className="d-flex  align-items-center">
+                  <Col xs={4} className="d-flex justify-content-center align-items-center">
                     <RiUserFollowFill className="mx-2" />
                     <p id="pOfHome" className="m-0 fw-medium text-secondary">
                       Scrivi un articolo
@@ -338,8 +339,11 @@ const Home = () => {
                   {" "}
                   Centro assistenza{" "}
                 </a>
-                <a className="mx-2 homeFooter text-secondary" href="#1">
-                  Privacy e condizioni{" "}
+                <a className="mx-2 homeFooter text-secondary " href="#1">
+                  Privacy e condizioni
+                  <span className="text-black fs-5">
+                    <RiArrowDropDownFill className="align-bottom" />
+                  </span>
                 </a>
               </div>
               <div className="me-1">
@@ -352,8 +356,11 @@ const Home = () => {
                   {" "}
                   Pubblicità{" "}
                 </a>
-                <a className="mx-2 homeFooter text-secondary" href="#1">
+                <a className="mx-2 homeFooter text-secondary " href="#1">
                   Servizi alle aziende
+                  <span className="text-black fs-5">
+                    <RiArrowDropDownFill className="align-bottom" />
+                  </span>
                 </a>
                 <a className="mx-2 homeFooter text-secondary" href="#1">
                   Scarica l’app LinkedIn
