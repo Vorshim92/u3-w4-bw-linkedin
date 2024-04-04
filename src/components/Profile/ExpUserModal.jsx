@@ -39,6 +39,7 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
     } else {
       dispatch(AddUserExp(formData, img));
     }
+    setImg({ image: null });
   };
 
   useEffect(() => {
@@ -76,26 +77,12 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
 
               <label htmlFor="company">Compagnia:</label>
               <br />
-              <input
-                type="text"
-                id="company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                required
-              />
+              <input type="text" id="company" name="company" value={formData.company} onChange={handleChange} required />
               <br />
 
               <label htmlFor="startDate">Data di Inizio:</label>
               <br />
-              <input
-                type="date"
-                id="startDate"
-                name="startDate"
-                value={formData.startDate}
-                onChange={handleChange}
-                required
-              />
+              <input type="date" id="startDate" name="startDate" value={formData.startDate} onChange={handleChange} required />
               <br />
 
               <label htmlFor="endDate">Data di Fine:</label>
@@ -105,12 +92,7 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
 
               <label htmlFor="description">Descrizione:</label>
               <br />
-              <textarea
-                id="description"
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-              ></textarea>
+              <textarea id="description" name="description" value={formData.description} onChange={handleChange}></textarea>
               <br />
 
               <label htmlFor="area">Area:</label>

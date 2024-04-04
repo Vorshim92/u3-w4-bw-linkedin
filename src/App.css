@@ -12197,6 +12197,15 @@ body {
   height: calc(100vh - 52px);
 }
 
+#imgBtnUser {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+#containerProfileImage:hover #imgBtnUser {
+  opacity: 1;
+}
+
 .homeBtnPost {
   border-radius: 0.2em;
   background: transparent;
