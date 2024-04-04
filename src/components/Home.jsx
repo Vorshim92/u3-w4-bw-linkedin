@@ -6,6 +6,8 @@ import { HiPlus } from "react-icons/hi";
 import { BsInfoSquareFill } from "react-icons/bs";
 import { FaRegImage } from "react-icons/fa6";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import { RiUserFollowFill } from "react-icons/ri";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -159,8 +161,11 @@ const Home = () => {
                       Evento
                     </p>
                   </Col>
-                  <Col xs={4}>
-                    <p id="pOfHome">Scrivi un articolo</p>
+                  <Col xs={4} className="d-flex  align-items-center">
+                    <RiUserFollowFill className="mx-2" />
+                    <p id="pOfHome" className="m-0 fw-medium text-secondary">
+                      Scrivi un articolo
+                    </p>
                   </Col>
                 </Row>
               </Col>
@@ -223,7 +228,9 @@ const Home = () => {
                     </Col>
                   </Col>
                   <Col xs={3}>
-                    <h5>+ segui</h5>
+                    <Button className="seguiHomeBtn rounded-4 bg-light text-primary d-flex align-items-end border border-primary py-1 d-flex align-items-center">
+                      <HiPlus className="fs-5 me-1" /> Segui
+                    </Button>
                   </Col>
                 </Row>
               </Col>
@@ -302,8 +309,10 @@ const Home = () => {
                       1 giorno fa
                     </p>
                   </li>
+                  <h6 className="m-3 ms-0">
+                    Vedi altro <RiArrowDownSLine className="m-0" />
+                  </h6>
                 </ul>
-                <h6 className="paragraphGrey m-0">Vedi altro</h6>
               </ListGroupItem>
             </ListGroup>
           </CardBody>
@@ -314,12 +323,50 @@ const Home = () => {
             <Card.Img variant="top" src="./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg" />
           </Card>
           <div className="mt-3  text-center">
-            Informazioni Accessibilità Centro assistenza Privacy e condizioni Opzioni per gli annunci pubblicitari
-            Pubblicità Servizi alle aziende Scarica l’app LinkedIn Altro{" "}
+            <div className="d-flex flex-column ">
+              <div className="me-1">
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  {" "}
+                  Informazioni
+                </a>
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  Accessibilità
+                </a>
+              </div>
+              <div className="me-1">
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  {" "}
+                  Centro assistenza{" "}
+                </a>
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  Privacy e condizioni{" "}
+                </a>
+              </div>
+              <div className="me-1">
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  Opzioni per gli annunci pubblicitari{" "}
+                </a>
+              </div>
+              <div className="me-1">
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  {" "}
+                  Pubblicità{" "}
+                </a>
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  Servizi alle aziende
+                </a>
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  Scarica l’app LinkedIn
+                </a>
+                <a className="mx-2 homeFooter text-secondary" href="#1">
+                  Altro
+                </a>
+              </div>
+            </div>
             <p id="pOfHome">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="loader__linkedin-logo"
+                className="loader__linkedin-logo"
                 width="48"
                 height="48"
                 viewBox="0 0 190 48"

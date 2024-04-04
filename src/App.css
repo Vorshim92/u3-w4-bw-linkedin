@@ -11912,6 +11912,11 @@ body {
   text-decoration: none;
 }
 
+.homeFooter {
+  text-decoration: none;
+  font-size: small;
+}
+
 .aHome:hover {
   text-decoration: underline;
 }
@@ -12108,6 +12113,10 @@ body {
   bottom: 0;
   right: 0;
   z-index: 2;
+}
+
+.seguiHomeBtn:hover {
+  border: solid 5px blue;
 }
 
 /*# sourceMappingURL=App.css.map */
