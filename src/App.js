@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import "bootstrap/dist/js/bootstrap.min.js";
 import Home from "./components/Home";
 import Chat from "./components/Chat";
+import Login from "./components/Login";
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
       <Container>
         <Row>
           <Routes>
+            <Route path="/login" element={<Login />}></Route>
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/me" element={<ProfilePage />}></Route>
           </Routes>
