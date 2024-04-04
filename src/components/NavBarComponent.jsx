@@ -1,8 +1,21 @@
-import { Container, Nav, Navbar, NavDropdown, Form, FormControl } from "react-bootstrap";
+import { useState } from "react";
+import { Container, Nav, Navbar, NavDropdown, Modal } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { setSearchQuery } from "../redux/actions/fetchUser";
 
-const NavBarComponent = function (props) {
+const NavBarComponent = function () {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleSearchClick = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+  const handleSearchChange = (e) => {
+    dispatch(setSearchQuery(e.target.value));
+  };
+
   return (
-    <Navbar bg="light" expand="lg" id="mynavBar">
+    <Navbar bg="light" expand="lg" id="mynavBar" className="p-0">
       <Container>
         <Navbar.Brand href="#home">
           <img src="./svgexport-46.svg" alt="" width={50} />
@@ -13,14 +26,18 @@ const NavBarComponent = function (props) {
             <button className="btn btn-outline-primary border none me-2" type="submit" style={{ height: "34px" }}>
               <img src="svgexport-4.svg" alt="" style={{ verticalAlign: "baseline" }} />
             </button>
-            <input
-              type="search"
-              className="form-control me-2"
-              placeholder="cerca"
-              aria-label="cerca"
-              style={{ height: "34px" }}
-            />
+            <div className="search-global">
+              <input type="search" className="form-control me-2 " placeholder="cerca" aria-label="cerca" style={{ height: "34px" }} onClick={handleSearchClick} onChange={(e) => handleSearchChange(e)} />
+            </div>
           </form>
+          {isModalOpen && (
+            <Modal show={isModalOpen} onHide={handleSearchClick} className="search-global_overlay">
+              <Modal.Header closeButton>
+                <Modal.Title>Search</Modal.Title>
+              </Modal.Header>
+              <Modal.Body></Modal.Body>
+            </Modal>
+          )}
 
           <Nav>
             <Nav.Link href="/" className="d-flex flex-column">

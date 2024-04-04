@@ -270,3 +270,18 @@ body {
   right: 0;
   z-index: 2;
 }
+.search-global {
+  position: relative;
+}
+.search-global_overlay {
+  right: 0;
+  left: 0;
+  top: 0;
+  margin-top: 52px;
+  bottom: 0;
+  transition: opacity 0.2s ease-in;
+  height: calc(100vh - 52px);
+}
+#mynavBar {
+  // z-index: 9999;
+}

@@ -2,11 +2,19 @@ export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
 export const FETCH_EXP_FAILURE = "FETCH_EXP_FAILURE";
 export const FETCH_EXP_SUCCESS = "FETCH_EXP_SUCCESS";
+export const FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS";
+export const FETCH_USERS_FAILURE = "FETCH_USERS_FAILURE";
+export const SET_SEARCH_QUERY = "SET_SEARCH_QUERY";
+export const FETCH_POST_SUCCESS = "FETCH_POST_SUCCESS";
+export const FETCH_POST_FAILURE = "FETCH_POST_FAILURE";
+
 const tokenSte = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDNmN2EyODFkODAwMTlhM2VjNjgiLCJpYXQiOjE3MTIwNTExOTEsImV4cCI6MTcxMzI2MDc5MX0.gzdsFyJ3HO53BmeOvhHxOvkFmtHv5h-YAhze63vArYo";
 const tokenMarco = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBjMjM5Y2EyODFkODAwMTlhM2VjZTAiLCJpYXQiOjE3MTIwNzE1ODEsImV4cCI6MTcxMzI4MTE4MX0.uHkSiXtnQG3NNv2MrezBb6Re8MLtSzeT_2-khWyvXXs";
 const tokenIla = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBkMGMzZWY5NGY0YTAwMTkzNzkxNmIiLCJpYXQiOjE3MTIxMzExMzQsImV4cCI6MTcxMzM0MDczNH0.gzh-f7cukea3mTuqBW89cf9BZCuUnAG32j2Vu4R8-7A";
 const MeEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me";
 const ExpEndopoint = "https://striveschool-api.herokuapp.com/api/profile/660bd3f7a281d80019a3ec68/experiences";
+const UsersEndopoint = "https://striveschool-api.herokuapp.com/api/profile";
+const PostEndopoint = "https://striveschool-api.herokuapp.com/api/posts/";
 
 const fetchUserSuccess = (data) => ({
   type: FETCH_USER_SUCCESS,
@@ -21,6 +29,27 @@ const fetchExpSuccess = (data) => ({
   type: FETCH_EXP_SUCCESS,
   payload: data,
 });
+const fetchUsersSuccess = (data) => ({
+  type: FETCH_USERS_SUCCESS,
+  payload: data,
+});
+const fetchUsersFailure = () => ({
+  type: FETCH_USER_FAILURE,
+});
+const fetchPostSuccess = (data) => ({
+  type: FETCH_POST_SUCCESS,
+  payload: data,
+});
+const fetchPostFailure = () => ({
+  type: FETCH_POST_FAILURE,
+});
+
+export const setSearchQuery = (query) => {
+  return {
+    type: SET_SEARCH_QUERY,
+    payload: query,
+  };
+};
 
 // ACTION_1
 export const fetchUser = () => async (dispatch) => {
@@ -181,3 +210,44 @@ export const ChangeImageUser =
       // dispatch(fetchUserFailure());
     }
   };
+
+// ACTION_SEARCH
+export const fetchUsers = () => async (dispatch) => {
+  try {
+    const response = await fetch(UsersEndopoint, {
+      headers: {
+        Authorization: tokenSte,
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      console.log("dati ricevuti", data);
+      dispatch(fetchUsersSuccess(data));
+    } else {
+      throw new Error("errore recupero dati");
+    }
+  } catch (error) {
+    console.log(error);
+    dispatch(fetchUsersFailure());
+  }
+};
+// ACTION_GET_POSTS
+export const fetchPost = () => async (dispatch) => {
+  try {
+    const response = await fetch(PostEndopoint, {
+      headers: {
+        Authorization: tokenSte,
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      console.log("dati ricevuti", data);
+      dispatch(fetchPostSuccess(data));
+    } else {
+      throw new Error("errore recupero dati");
+    }
+  } catch (error) {
+    console.log(error);
+    dispatch(fetchPostFailure());
+  }
+};

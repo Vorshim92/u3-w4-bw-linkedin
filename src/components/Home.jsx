@@ -49,9 +49,7 @@ const Home = () => {
           </Card.Body>
           <CardBody className="p-0 ">
             <ListGroup className="rounded-0">
-              <ListGroup.Item
-                style={{ borderTop: "solid 1px", borderColor: "lightgray", borderLeft: "0", borderRight: "0" }}
-              >
+              <ListGroup.Item style={{ borderTop: "solid 1px", borderColor: "lightgray", borderLeft: "0", borderRight: "0" }}>
                 <div className="my-1">
                   <p id="pOfHome" className="paragraphGrey">
                     Collegamenti
@@ -214,11 +212,8 @@ const Home = () => {
               <Col xs={12} className="my-3">
                 <CardBody>
                   <Card.Text>
-                    preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio
-                    alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60,
-                    con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem
-                    Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni
-                    del Lorem Ipsum.
+                    preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di
+                    caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.
                   </Card.Text>
                   <Card.Img src="./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"></Card.Img>
                 </CardBody>
@@ -295,17 +290,9 @@ const Home = () => {
             <Card.Img variant="top" src="./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg" />
           </Card>
           <div className="mt-3  text-center">
-            Informazioni Accessibilità Centro assistenza Privacy e condizioni Opzioni per gli annunci pubblicitari
-            Pubblicità Servizi alle aziende Scarica l’app LinkedIn Altro{" "}
+            Informazioni Accessibilità Centro assistenza Privacy e condizioni Opzioni per gli annunci pubblicitari Pubblicità Servizi alle aziende Scarica l’app LinkedIn Altro{" "}
             <p id="pOfHome">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="loader__linkedin-logo"
-                width="48"
-                height="48"
-                viewBox="0 0 190 48"
-                style={{ marginRight: "4px" }}
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" class="loader__linkedin-logo" width="48" height="48" viewBox="0 0 190 48" style={{ marginRight: "4px" }}>
                 <g>
                   <g>
                     <path
