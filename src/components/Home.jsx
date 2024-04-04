@@ -168,13 +168,6 @@ const Home = () => {
 
         {/* POST CONTENT*/}
         <Card id="main-card" className="mt-3">
-          <div
-            className="position-absolute"
-            style={{
-              right: "20px",
-              top: "20px",
-            }}
-          ></div>
           <Card.Body className="text-start pb-0">
             <Row className="align-items-center">
               <Col xs={2}>
