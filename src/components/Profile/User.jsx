@@ -65,8 +65,8 @@ const User = () => {
             <div
               className="position-absolute"
               style={{
-                left: "85px",
-                top: "-45px",
+                left: "140px",
+                top: "-88px",
                 zIndex: "2",
               }}
             >
