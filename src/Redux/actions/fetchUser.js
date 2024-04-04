@@ -211,7 +211,7 @@ export const ChangeImageUser =
     }
   };
 
-// ACTION_SEARCH
+// ACTION_FETCH USERS
 export const fetchUsers = () => async (dispatch) => {
   try {
     const response = await fetch(UsersEndopoint, {
@@ -274,7 +274,7 @@ export const addPost = (data) => async (dispatch) => {
     // dispatch(fetchUserFailure());
   }
 };
-// ACTION_POST_POST
+// ACTION_PUT_POST
 export const modPost = (data, postId) => async (dispatch) => {
   try {
     const response = await fetch(`${PostEndopoint}/${postId}`, {
@@ -294,5 +294,45 @@ export const modPost = (data, postId) => async (dispatch) => {
   } catch (error) {
     console.log(error);
     // dispatch(fetchUserFailure());
+  }
+};
+// ACTION_DELETE_POST
+export const deletePost = (postId) => async (dispatch) => {
+  try {
+    const response = await fetch(`${PostEndopoint}/${postId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: tokenSte,
+      },
+    });
+    if (response.ok) {
+      console.log("Esperienza con successo");
+      // dispatch(fetchPost());
+    } else {
+      throw new Error("errore recupero dati");
+    }
+  } catch (error) {
+    console.log(error);
+    // dispatch(fetchUserFailure());
+  }
+};
+// ACTION_MOD_USER
+export const modUser = (data) => async (dispatch) => {
+  try {
+    const response = await fetch(UsersEndopoint, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: tokenSte,
+      },
+    });
+    if (response.ok) {
+      console.log("dati ricevuti", data);
+    } else {
+      throw new Error("errore recupero dati");
+    }
+  } catch (error) {
+    console.log(error);
   }
 };

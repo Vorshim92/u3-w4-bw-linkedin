@@ -1,7 +1,7 @@
 import { Modal } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchPost, addPost, modPost } from "../redux/actions/fetchUser";
+import { fetchPost, addPost, modPost, deletePost } from "../redux/actions/fetchUser";
 import { Button } from "react-bootstrap";
 const PostHomeModal = ({ showModal, handleModal, post }) => {
   const dispatch = useDispatch();
@@ -38,6 +38,11 @@ const PostHomeModal = ({ showModal, handleModal, post }) => {
     }
   }, [post]);
 
+  const dispatchDelete = async () => {
+    await dispatch(deletePost(post._id));
+    dispatch(fetchPost());
+  };
+
   return (
     <Modal show={showModal} onHide={handleModal}>
       <Modal.Header closeButton>
@@ -47,6 +52,11 @@ const PostHomeModal = ({ showModal, handleModal, post }) => {
         <textarea value={textArea.text} onChange={handleChange} className="form-control" rows="5" placeholder="Inserisci il testo del post"></textarea>
       </Modal.Body>
       <Modal.Footer>
+        {post && (
+          <Button variant="danger" type="click" onClick={dispatchDelete}>
+            CANCELLA
+          </Button>
+        )}
         <Button variant="secondary" onClick={handleModal}>
           Chiudi
         </Button>
