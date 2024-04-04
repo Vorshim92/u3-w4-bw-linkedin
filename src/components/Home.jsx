@@ -85,14 +85,21 @@ const Home = () => {
             <ListGroup>
               <ListGroupItem style={{ borderLeft: "0", borderRight: "0" }}>
                 <div>
-                  <p id="pOfHome">Gruppi</p>
-                  <p id="pOfHome" className="my-3">
-                    Eventi
-                    <span>
-                      <HiPlus />
-                    </span>
-                  </p>
-                  <p id="pOfHome">Hashtag seguiti</p>
+                  <a href="#1" id="pOfHome" className="fw-medium aHome">
+                    Gruppi
+                  </a>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <a href="#1" id="pOfHome" className="my-3 fw-medium aHome">
+                      Eventi
+                    </a>
+
+                    <div>
+                      <HiPlus className="fs-5" />
+                    </div>
+                  </div>
+                  <a href="#1" id="pOfHome" className="fw-medium aHome">
+                    Hashtag seguiti
+                  </a>
                 </div>
               </ListGroupItem>
             </ListGroup>

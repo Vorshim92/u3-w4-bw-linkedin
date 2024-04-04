@@ -11909,6 +11909,11 @@ body {
 #pOfHome {
   font-size: 13px;
   margin-bottom: 0;
+  text-decoration: none;
+}
+
+.aHome:hover {
+  text-decoration: underline;
 }
 
 .paragraphBold {
