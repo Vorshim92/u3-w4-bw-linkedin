@@ -1,9 +1,9 @@
 import { Modal } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchPost, addPost } from "../redux/actions/fetchUser";
+import { fetchPost, addPost, modPost } from "../redux/actions/fetchUser";
 import { Button } from "react-bootstrap";
-const PostHomeModal = ({ showModal, handleModal }) => {
+const PostHomeModal = ({ showModal, handleModal, post }) => {
   const dispatch = useDispatch();
   const [textArea, settextArea] = useState({
     text: "",
@@ -17,7 +17,11 @@ const PostHomeModal = ({ showModal, handleModal }) => {
   };
 
   const handlePostSubmit = async () => {
-    await dispatch(addPost(textArea));
+    if (post) {
+      await dispatch(modPost(textArea, post._id));
+    } else {
+      await dispatch(addPost(textArea));
+    }
     handleModal();
     dispatch(fetchPost());
     settextArea({
@@ -25,6 +29,14 @@ const PostHomeModal = ({ showModal, handleModal }) => {
       text: "",
     });
   };
+  useEffect(() => {
+    if (post) {
+      settextArea({
+        ...textArea,
+        text: post.text,
+      });
+    }
+  }, [post]);
 
   return (
     <Modal show={showModal} onHide={handleModal}>
