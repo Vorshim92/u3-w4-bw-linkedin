@@ -366,3 +366,16 @@ body {
 #mynavBar {
   // z-index: 9999;
 }
+
+.homeBtnPost {
+  border-radius: 0.2em;
+  background: transparent;
+  color: black;
+  margin: 0.2em;
+  border: none;
+}
+
+.homeBtnPost:hover {
+  background-color: rgba(175, 171, 171, 0.251);
+  color: black;
+}
