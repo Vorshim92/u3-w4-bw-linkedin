@@ -3,6 +3,9 @@ import { useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 import { BsSquareHalf } from "react-icons/bs";
 import { HiPlus } from "react-icons/hi";
+import { BsInfoSquareFill } from "react-icons/bs";
+import { FaRegImage } from "react-icons/fa6";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -144,11 +147,17 @@ const Home = () => {
               </Col>
               <Col xs={12} className="my-3">
                 <Row>
-                  <Col xs={4}>
-                    <p id="pOfHome">Contenuti multimediali</p>
+                  <Col xs={4} className="d-flex  align-items-center">
+                    <FaRegImage className="mx-2" />
+                    <p id="pOfHome" className="m-0 fw-medium text-secondary">
+                      Contenuti multimediali
+                    </p>
                   </Col>
-                  <Col xs={4}>
-                    <p id="pOfHome">Evento</p>
+                  <Col xs={4} className="d-flex  align-items-center">
+                    <FaRegCalendarAlt className="mx-2" />
+                    <p id="pOfHome" className="m-0 fw-medium text-secondary">
+                      Evento
+                    </p>
                   </Col>
                   <Col xs={4}>
                     <p id="pOfHome">Scrivi un articolo</p>
@@ -245,7 +254,10 @@ const Home = () => {
             <ListGroup>
               <ListGroupItem>
                 <ul>
-                  <h6>Linkedin Notizie "icon"</h6>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <h6>Linkedin Notizie </h6>
+                    <BsInfoSquareFill />
+                  </div>
                   <li>
                     <p id="pOfHome" className="paragraphBold">
                       {" "}
