@@ -2,6 +2,7 @@ import { Button, Card, Col, Row, ListGroup, CardBody, ListGroupItem, Modal } fro
 import { useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 import { BsSquareHalf } from "react-icons/bs";
+import { HiPlus } from "react-icons/hi";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -34,9 +35,9 @@ const Home = () => {
                 width: "70px",
                 height: "70px",
                 position: "absolute",
-                top: "9%",
-                left: "34%",
-                transform: "translateY( -70%)",
+                top: "0",
+
+                transform: "translate( -50%, -50%)",
                 borderRadius: "50%",
                 border: "5px solid white",
                 objectFit: "cover",
@@ -87,6 +88,9 @@ const Home = () => {
                   <p id="pOfHome">Gruppi</p>
                   <p id="pOfHome" className="my-3">
                     Eventi
+                    <span>
+                      <HiPlus />
+                    </span>
                   </p>
                   <p id="pOfHome">Hashtag seguiti</p>
                 </div>
