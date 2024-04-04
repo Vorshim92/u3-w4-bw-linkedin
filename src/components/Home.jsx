@@ -1,5 +1,8 @@
 import { Button, Card, Col, Row, ListGroup, CardBody, ListGroupItem, Modal } from "react-bootstrap";
 import { useState } from "react";
+import { FaBookmark } from "react-icons/fa";
+import { BsSquareHalf } from "react-icons/bs";
+
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
 
@@ -13,8 +16,8 @@ const Home = () => {
   return (
     <>
       {/*LEFSIDE */}
-      <Col xs={3}>
-        <Card id="main-card" className="mt-3">
+      <Col xs={2}>
+        <Card id="main-card" className="mt-3 ">
           <Card.Img variant="top" src="userbackground.svg" alt="User Background" className="position-relative" />
           <div
             className="position-absolute"
@@ -31,8 +34,8 @@ const Home = () => {
                 width: "70px",
                 height: "70px",
                 position: "absolute",
-                top: "4%",
-                left: "35%",
+                top: "9%",
+                left: "34%",
                 transform: "translateY( -70%)",
                 borderRadius: "50%",
                 border: "5px solid white",
@@ -43,22 +46,34 @@ const Home = () => {
             <Card.Title className="mt-5">Ti diamo il benvenuto nome utente</Card.Title>
             <Card.Link>Aggiungi una foto</Card.Link>
           </Card.Body>
-          <CardBody className="p-0">
-            <ListGroup>
-              <ListGroup.Item style={{ borderTop: "solid 1px", borderColor: "lightgray" }}>
+          <CardBody className="p-0 ">
+            <ListGroup className="rounded-0">
+              <ListGroup.Item
+                style={{ borderTop: "solid 1px", borderColor: "lightgray", borderLeft: "0", borderRight: "0" }}
+              >
                 <div className="my-1">
-                  <p className="paragraphGrey">Collegamenti</p>
-                  <p className="paragraphBold">Espandi la tua rete</p>
+                  <p id="pOfHome" className="paragraphGrey">
+                    Collegamenti
+                  </p>
+                  <p id="pOfHome" className="paragraphBold">
+                    Espandi la tua rete
+                  </p>
                 </div>
               </ListGroup.Item>
-              <ListGroup.Item>
+              <ListGroup.Item style={{ borderLeft: "0", borderRight: "0" }}>
                 <div className="my-1">
-                  <p className="paragraphGrey">Accedi a strumenti e informazioni in esclusiva</p>
-                  <p className="paragraphBold">Prova premium per 0 EUR</p>
+                  <p id="pOfHome" className="paragraphGrey">
+                    Accedi a strumenti e informazioni in esclusiva
+                  </p>
+                  <p id="pOfHome" className="paragraphBold ">
+                    <BsSquareHalf className="me-2" /> Prova premium per 0 EUR
+                  </p>
                 </div>
               </ListGroup.Item>
-              <ListGroup.Item>
-                <p className="paragraphBold my-1">"SVG" I miei elementi </p>
+              <ListGroup.Item style={{ borderLeft: "0", borderRight: "0", borderBottom: "0", borderRadius: "25px" }}>
+                <p id="pOfHome" className="paragraphBold my-1 d-flex align-items-center ">
+                  <FaBookmark className="me-2" /> I miei elementi{" "}
+                </p>
               </ListGroup.Item>
             </ListGroup>
           </CardBody>
@@ -67,11 +82,13 @@ const Home = () => {
         <Card className="mt-2 ">
           <CardBody className="p-0">
             <ListGroup>
-              <ListGroupItem>
+              <ListGroupItem style={{ borderLeft: "0", borderRight: "0" }}>
                 <div>
-                  <p>Gruppi</p>
-                  <p className="my-3">Eventi</p>
-                  <p>Hashtag seguiti</p>
+                  <p id="pOfHome">Gruppi</p>
+                  <p id="pOfHome" className="my-3">
+                    Eventi
+                  </p>
+                  <p id="pOfHome">Hashtag seguiti</p>
                 </div>
               </ListGroupItem>
             </ListGroup>
@@ -117,13 +134,13 @@ const Home = () => {
               <Col xs={12} className="my-3">
                 <Row>
                   <Col xs={4}>
-                    <p>Contenuti multimediali</p>
+                    <p id="pOfHome">Contenuti multimediali</p>
                   </Col>
                   <Col xs={4}>
-                    <p>Evento</p>
+                    <p id="pOfHome">Evento</p>
                   </Col>
                   <Col xs={4}>
-                    <p>Scrivi un articolo</p>
+                    <p id="pOfHome">Scrivi un articolo</p>
                   </Col>
                 </Row>
               </Col>
@@ -176,13 +193,13 @@ const Home = () => {
                 <Row className="align-items-center">
                   <Col xs={9}>
                     <Col xs={12}>
-                      <p>nome utente</p>
+                      <p id="pOfHome">nome utente</p>
                     </Col>
                     <Col xs={12}>
-                      <p>bio io io io io io io</p>
+                      <p id="pOfHome">bio io io io io io io</p>
                     </Col>
                     <Col xs={12}>
-                      <p>times</p>
+                      <p id="pOfHome">times</p>
                     </Col>
                   </Col>
                   <Col xs={3}>
@@ -206,353 +223,6 @@ const Home = () => {
           </Card.Body>
         </Card>
 
-        <Card id="main-card" className="mt-3">
-          <div
-            className="position-absolute"
-            style={{
-              right: "20px",
-              top: "20px",
-            }}
-          ></div>
-          <Card.Body className="text-start pb-0">
-            <Row className="align-items-center">
-              <Col xs={2}>
-                <img
-                  src=/*mettere immagine */ "./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"
-                  alt=""
-                  style={{
-                    width: "60px",
-                    height: "60px",
-
-                    borderRadius: "50%",
-                    border: "5px solid white",
-                    objectFit: "cover",
-                  }}
-                />
-              </Col>
-              <Col xs={10}>
-                <Row className="align-items-center">
-                  <Col xs={9}>
-                    <Col xs={12}>
-                      <p>nome utente</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p>bio io io io io io io</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p>times</p>
-                    </Col>
-                  </Col>
-                  <Col xs={3}>
-                    <h5>+ segui</h5>
-                  </Col>
-                </Row>
-              </Col>
-              <Col xs={12} className="my-3">
-                <CardBody>
-                  <Card.Text>
-                    preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio
-                    alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60,
-                    con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem
-                    Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni
-                    del Lorem Ipsum.
-                  </Card.Text>
-                  <Card.Img src="./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"></Card.Img>
-                </CardBody>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
-
-        <Card id="main-card" className="mt-3">
-          <div
-            className="position-absolute"
-            style={{
-              right: "20px",
-              top: "20px",
-            }}
-          ></div>
-          <Card.Body className="text-start pb-0">
-            <Row className="align-items-center">
-              <Col xs={2}>
-                <img
-                  src=/*mettere immagine */ "./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"
-                  alt=""
-                  style={{
-                    width: "60px",
-                    height: "60px",
-
-                    borderRadius: "50%",
-                    border: "5px solid white",
-                    objectFit: "cover",
-                  }}
-                />
-              </Col>
-              <Col xs={10}>
-                <Row className="align-items-center">
-                  <Col xs={9}>
-                    <Col xs={12}>
-                      <p>nome utente</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p>bio io io io io io io</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p>times</p>
-                    </Col>
-                  </Col>
-                  <Col xs={3}>
-                    <h5>+ segui</h5>
-                  </Col>
-                </Row>
-              </Col>
-              <Col xs={12} className="my-3">
-                <CardBody>
-                  <Card.Text>
-                    preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio
-                    alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60,
-                    con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem
-                    Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni
-                    del Lorem Ipsum.
-                  </Card.Text>
-                  <Card.Img src="./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"></Card.Img>
-                </CardBody>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
-
-        <Card id="main-card" className="mt-3">
-          <div
-            className="position-absolute"
-            style={{
-              right: "20px",
-              top: "20px",
-            }}
-          ></div>
-          <Card.Body className="text-start pb-0">
-            <Row className="align-items-center">
-              <Col xs={2}>
-                <img
-                  src=/*mettere immagine */ "./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"
-                  alt=""
-                  style={{
-                    width: "60px",
-                    height: "60px",
-
-                    borderRadius: "50%",
-                    border: "5px solid white",
-                    objectFit: "cover",
-                  }}
-                />
-              </Col>
-              <Col xs={10}>
-                <Row className="align-items-center">
-                  <Col xs={9}>
-                    <Col xs={12}>
-                      <p>nome utente</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p>bio io io io io io io</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p>times</p>
-                    </Col>
-                  </Col>
-                  <Col xs={3}>
-                    <h5>+ segui</h5>
-                  </Col>
-                </Row>
-              </Col>
-              <Col xs={12} className="my-3">
-                <CardBody>
-                  <Card.Text>
-                    preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio
-                    alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60,
-                    con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem
-                    Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni
-                    del Lorem Ipsum.
-                  </Card.Text>
-                  <Card.Img src="./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"></Card.Img>
-                </CardBody>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
-
-        <Card id="main-card" className="mt-3">
-          <div
-            className="position-absolute"
-            style={{
-              right: "20px",
-              top: "20px",
-            }}
-          ></div>
-          <Card.Body className="text-start pb-0">
-            <Row className="align-items-center">
-              <Col xs={2}>
-                <img
-                  src=/*mettere immagine */ "./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"
-                  alt=""
-                  style={{
-                    width: "60px",
-                    height: "60px",
-
-                    borderRadius: "50%",
-                    border: "5px solid white",
-                    objectFit: "cover",
-                  }}
-                />
-              </Col>
-              <Col xs={10}>
-                <Row className="align-items-center">
-                  <Col xs={9}>
-                    <Col xs={12}>
-                      <p>nome utente</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p>bio io io io io io io</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p>times</p>
-                    </Col>
-                  </Col>
-                  <Col xs={3}>
-                    <h5>+ segui</h5>
-                  </Col>
-                </Row>
-              </Col>
-              <Col xs={12} className="my-3">
-                <CardBody>
-                  <Card.Text>
-                    preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio
-                    alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60,
-                    con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem
-                    Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni
-                    del Lorem Ipsum.
-                  </Card.Text>
-                  <Card.Img src="./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"></Card.Img>
-                </CardBody>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
-
-        <Card id="main-card" className="mt-3">
-          <div
-            className="position-absolute"
-            style={{
-              right: "20px",
-              top: "20px",
-            }}
-          ></div>
-          <Card.Body className="text-start pb-0">
-            <Row className="align-items-center">
-              <Col xs={2}>
-                <img
-                  src=/*mettere immagine */ "./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"
-                  alt=""
-                  style={{
-                    width: "60px",
-                    height: "60px",
-
-                    borderRadius: "50%",
-                    border: "5px solid white",
-                    objectFit: "cover",
-                  }}
-                />
-              </Col>
-              <Col xs={10}>
-                <Row className="align-items-center">
-                  <Col xs={9}>
-                    <Col xs={12}>
-                      <p>nome utente</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p>bio io io io io io io</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p>times</p>
-                    </Col>
-                  </Col>
-                  <Col xs={3}>
-                    <h5>+ segui</h5>
-                  </Col>
-                </Row>
-              </Col>
-              <Col xs={12} className="my-3">
-                <CardBody>
-                  <Card.Text>
-                    preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio
-                    alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60,
-                    con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem
-                    Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni
-                    del Lorem Ipsum.
-                  </Card.Text>
-                  <Card.Img src="./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"></Card.Img>
-                </CardBody>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
-
-        <Card id="main-card" className="mt-3">
-          <div
-            className="position-absolute"
-            style={{
-              right: "20px",
-              top: "20px",
-            }}
-          ></div>
-          <Card.Body className="text-start pb-0">
-            <Row className="align-items-center">
-              <Col xs={2}>
-                <img
-                  src=/*mettere immagine */ "./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"
-                  alt=""
-                  style={{
-                    width: "60px",
-                    height: "60px",
-
-                    borderRadius: "50%",
-                    border: "5px solid white",
-                    objectFit: "cover",
-                  }}
-                />
-              </Col>
-              <Col xs={10}>
-                <Row className="align-items-center">
-                  <Col xs={9}>
-                    <Col xs={12}>
-                      <p>nome utente</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p>bio io io io io io io</p>
-                    </Col>
-                    <Col xs={12}>
-                      <p>times</p>
-                    </Col>
-                  </Col>
-                  <Col xs={3}>
-                    <h5>+ segui</h5>
-                  </Col>
-                </Row>
-              </Col>
-              <Col xs={12} className="my-3">
-                <CardBody>
-                  <Card.Text>
-                    preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio
-                    alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60,
-                    con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem
-                    Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni
-                    del Lorem Ipsum.
-                  </Card.Text>
-                  <Card.Img src="./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"></Card.Img>
-                </CardBody>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
         {/* POST CONTENT*/}
       </Col>
       {/*CENTRAL CONTENT*/}
@@ -566,24 +236,48 @@ const Home = () => {
                 <ul>
                   <h6>Linkedin Notizie "icon"</h6>
                   <li>
-                    <p className="paragraphBold"> Quali confini tra vita e lavoro</p>
-                    <p className="paragraphGrey">Notizie principali</p>
+                    <p id="pOfHome" className="paragraphBold">
+                      {" "}
+                      Quali confini tra vita e lavoro
+                    </p>
+                    <p id="pOfHome" className="paragraphGrey">
+                      Notizie principali
+                    </p>
                   </li>
                   <li>
-                    <p className="paragraphBold">Più sfide per la cybersicurezza</p>
-                    <p className="paragraphGrey">5 giorni fa</p>
+                    <p id="pOfHome" className="paragraphBold">
+                      Più sfide per la cybersicurezza
+                    </p>
+                    <p id="pOfHome" className="paragraphGrey">
+                      5 giorni fa
+                    </p>
                   </li>
                   <li>
-                    <p className="paragraphBold"> L'età dell'oro della discografia</p>
-                    <p className="paragraphGrey">5 giorni fa</p>
+                    <p id="pOfHome" className="paragraphBold">
+                      {" "}
+                      L'età dell'oro della discografia
+                    </p>
+                    <p id="pOfHome" className="paragraphGrey">
+                      5 giorni fa
+                    </p>
                   </li>
                   <li>
-                    <p className="paragraphBold"> Chi è il nuovo ceo di NTT Data Italia</p>
-                    <p className="paragraphGrey">3 ore fa</p>
+                    <p id="pOfHome" className="paragraphBold">
+                      {" "}
+                      Chi è il nuovo ceo di NTT Data Italia
+                    </p>
+                    <p id="pOfHome" className="paragraphGrey">
+                      3 ore fa
+                    </p>
                   </li>
                   <li>
-                    <p className="paragraphBold"> Lamborghini ritocca il logo</p>
-                    <p className="paragraphGrey">1 giorno fa</p>
+                    <p id="pOfHome" className="paragraphBold">
+                      {" "}
+                      Lamborghini ritocca il logo
+                    </p>
+                    <p id="pOfHome" className="paragraphGrey">
+                      1 giorno fa
+                    </p>
                   </li>
                 </ul>
                 <h6 className="paragraphGrey m-0">Vedi altro</h6>
@@ -599,7 +293,7 @@ const Home = () => {
           <div className="mt-3  text-center">
             Informazioni Accessibilità Centro assistenza Privacy e condizioni Opzioni per gli annunci pubblicitari
             Pubblicità Servizi alle aziende Scarica l’app LinkedIn Altro{" "}
-            <p>
+            <p id="pOfHome">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="loader__linkedin-logo"

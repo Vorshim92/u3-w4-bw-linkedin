@@ -1,5 +1,6 @@
 import ExpUserModal from "./ExpUserModal";
 import { useState } from "react";
+import { ListGroupItem } from "react-bootstrap";
 
 const Experience = ({ data }) => {
   const [showModExp, setShowModExp] = useState(false);
@@ -9,7 +10,7 @@ const Experience = ({ data }) => {
 
   return (
     <>
-      <div className="d-flex">
+      <div className="d-flex mt-3 border-bottom border-1">
         <img className=" mx-2" src={data.image} alt="" style={{ width: "60px", height: "60px" }} />
         <div className="d-flex flex-column">
           <p className="sidebarTitle m-0">{data.role}</p>
@@ -32,9 +33,6 @@ const Experience = ({ data }) => {
           </svg>
         </button>
       </div>
-
-      {/* div di divisione con border */}
-      <div className="border-top border-1 "></div>
     </>
   );
 };
