@@ -251,3 +251,26 @@ export const fetchPost = () => async (dispatch) => {
     dispatch(fetchPostFailure());
   }
 };
+
+// ACTION_POST_POST
+export const addPost = (data) => async (dispatch) => {
+  try {
+    const response = await fetch(PostEndopoint, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: tokenSte,
+      },
+    });
+    if (response.ok) {
+      console.log("Esperienza con successo");
+      dispatch(fetchPost());
+    } else {
+      throw new Error("errore recupero dati");
+    }
+  } catch (error) {
+    console.log(error);
+    // dispatch(fetchUserFailure());
+  }
+};

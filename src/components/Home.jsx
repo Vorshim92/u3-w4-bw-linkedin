@@ -9,13 +9,16 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { RiUserFollowFill } from "react-icons/ri";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { RiArrowDropDownFill } from "react-icons/ri";
-import { fetchPost } from "../redux/actions/fetchUser";
+import { fetchPost, addPost } from "../redux/actions/fetchUser";
 import { useDispatch, useSelector } from "react-redux";
 import Post from "./Post";
 const Home = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.post.postData);
   const [showModal, setShowModal] = useState(false);
+  const [textArea, settextArea] = useState({
+    text: "",
+  });
 
   useEffect(() => {
     dispatch(fetchPost());
@@ -27,6 +30,18 @@ const Home = () => {
 
   const handleModalClose = () => {
     setShowModal(false);
+  };
+
+  const handleChange = (e) => {
+    settextArea({
+      ...textArea,
+      text: e.target.value,
+    });
+  };
+
+  const handlePostSubmit = () => {
+    dispatch(addPost(textArea));
+    handleModalClose();
   };
 
   return (
@@ -178,13 +193,13 @@ const Home = () => {
             <Modal.Title>Avvia un post</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <textarea className="form-control" rows="5" placeholder="Inserisci il testo del post"></textarea>
+            <textarea value={textArea.text} onChange={handleChange} className="form-control" rows="5" placeholder="Inserisci il testo del post"></textarea>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleModalClose}>
               Chiudi
             </Button>
-            <Button variant="primary" onClick={handleModalClose}>
+            <Button variant="primary" onClick={handlePostSubmit}>
               Pubblica
             </Button>
           </Modal.Footer>
@@ -192,9 +207,12 @@ const Home = () => {
 
         {/* POST CONTENT*/}
         {posts &&
-          posts.slice(0, 20).map((post) => {
-            return <Post post={post} key={post._id} />;
-          })}
+          [...posts]
+            .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+            .slice(0, 20)
+            .map((post) => {
+              return <Post post={post} key={post._id} />;
+            })}
 
         {/* POST CONTENT*/}
       </Col>
