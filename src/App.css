@@ -12197,4 +12197,17 @@ body {
   height: calc(100vh - 52px);
 }
 
+.homeBtnPost {
+  border-radius: 0.2em;
+  background: transparent;
+  color: black;
+  margin: 0.2em;
+  border: none;
+}
+
+.homeBtnPost:hover {
+  background-color: rgba(175, 171, 171, 0.251);
+  color: black;
+}
+
 /*# sourceMappingURL=App.css.map */
