@@ -98,7 +98,7 @@ const Post = ({ post }) => {
             </Col>
             <Col sx={12} className="my-3 d-flex justify-content-end">
               <a href="#1" className="commentLink" onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
-                Tot commenti
+                {postComments && postComments.length > 0 && `${postComments.length} commenti`}
               </a>
             </Col>
           </Row>
