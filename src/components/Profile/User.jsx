@@ -17,7 +17,6 @@ const User = () => {
   const [showExp, setShowExp] = useState(false);
   const [showUsr, setShowUsr] = useState(false);
   const userExp = useSelector((state) => state.exp.expData);
-
   const toggleModalImage = () => {
     setShowImg(!showImg);
   };
