@@ -263,7 +263,7 @@ export const fetchUsers = () => async (dispatch, getState) => {
     if (response.ok) {
       const data = await response.json();
       console.log("dati ricevuti", data);
-      dispatch(fetchUsersSuccess(data));
+      await dispatch(fetchUsersSuccess(data));
     } else {
       throw new Error("errore recupero dati");
     }
@@ -287,7 +287,7 @@ export const fetchPost = () => async (dispatch, getState) => {
     if (response.ok) {
       const data = await response.json();
       console.log("dati ricevuti", data);
-      dispatch(fetchPostSuccess(data));
+      await dispatch(fetchPostSuccess(data));
     } else {
       throw new Error("errore recupero dati");
     }
@@ -438,7 +438,7 @@ export const fetchComments = () => async (dispatch, getState) => {
     if (response.ok) {
       const data = await response.json();
       console.log("COMMENTI", data);
-      dispatch(fetchCommentsSuccess(data));
+      await dispatch(fetchCommentsSuccess(data));
     } else {
       throw new Error("errore recupero dati");
     }

@@ -20,9 +20,9 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
+    dispatch(fetchUsers());
     dispatch(fetchPost());
     dispatch(fetchComments());
-    dispatch(fetchUsers());
   }, []);
 
   const handleModal = () => {
@@ -177,6 +177,7 @@ const Home = () => {
         <PostHomeModal showModal={showModal} handleModal={handleModal}></PostHomeModal>
         {/* POST CONTENT*/}
         {posts &&
+          posts.length > 0 &&
           [...posts]
             .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
             .slice(0, 20)

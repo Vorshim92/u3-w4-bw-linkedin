@@ -146,7 +146,7 @@ const Post = ({ post }) => {
                 <input type="text" id="" variant="primary" placeholder="Aggiungi un commento..." className="text-start w-100 " onChange={handleChange}></input>
               </div>
               <Button onClick={handleSubmit}> pubblica</Button>
-              {postComments && postComments.map((comment) => <Comment comment={comment} key={comment._id} />)}
+              {postComments && postComments.length > 0 && postComments.map((comment) => <Comment comment={comment} key={comment._id} />)}
             </div>
           </Collapse>
         </Card.Body>
