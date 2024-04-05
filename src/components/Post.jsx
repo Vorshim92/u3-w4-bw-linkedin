@@ -146,10 +146,10 @@ const Post = ({ post }) => {
                   }}
                 />
 
-                <input type="text" id="" variant="primary" placeholder="Aggiungi un commento..." className="text-start w-100 my-4 rounded-3 p-1 " onChange={handleChange}></input>
+                <input type="text" id="" variant="primary" placeholder="Aggiungi un commento..." value={formData.comment} className="text-start w-100 my-4 rounded-3 p-1 " onChange={handleChange}></input>
 
                 <div className="p-4">
-                  <Button onClick={handleSubmit}> pubblica</Button>
+                  <Button onClick={handleSubmit}> Pubblica</Button>
                 </div>
               </div>
 
