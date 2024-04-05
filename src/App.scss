@@ -1,7 +1,7 @@
 @import "./bootstrap_override.scss";
 body {
   background-color: #f4f2ee;
-  font-family: BlinkMacSystemFont;
+  font-family: sans-serif;
 }
 #profile-available {
   background-color: #dde7f1;
@@ -421,4 +421,231 @@ body {
 .homeBtnPost:active {
   background-color: rgba(175, 171, 171, 0.251);
   color: black;
+}
+
+// TEST NAVBAR PROFILE
+#top-icon-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 1rem;
+  border-right: 1px solid rgb(140 140 140/0.2);
+  cursor: pointer;
+  position: relative;
+}
+
+#nav-icons-container {
+  display: flex;
+  gap: 2.8rem;
+}
+
+#top-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#top-icon-lg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  cursor: pointer;
+}
+
+#top-icon-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 1rem;
+  border-right: 1px solid rgb(140 140 140/0.2);
+  cursor: pointer;
+  position: relative;
+}
+
+#top-icon-img {
+  width: 25px;
+  position: relative;
+}
+#top-icon-img img {
+  width: 100%;
+}
+
+#top-icon span:hover {
+  color: black;
+  transition: 0.2s;
+}
+#top-icon-user span:hover {
+  color: black;
+  transition: 0.2s;
+}
+#top-icon-lg span:hover {
+  color: black;
+  transition: 0.2s;
+}
+
+#top-icon-avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#top-icon-avatar img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#top-icon span {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+#top-icon-lg span {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+#top-icon-user span {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+#premiumLink {
+  font-size: smaller;
+  color: #856436;
+}
+
+@media screen and (max-width: 1200px) {
+  #premiumLink {
+    display: none;
+  }
+}
+
+#span-1 {
+  position: absolute;
+  top: 0;
+  right: -3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #cb112d;
+  z-index: 1;
+}
+#span-2 {
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 2;
+}
+
+@media screen and (max-width: 1110px) {
+  #input-search {
+    display: none;
+  }
+
+  #top-icon-lg {
+    display: flex;
+  }
+}
+@media screen and (max-width: 900px) {
+  #top-icon span {
+    display: none;
+  }
+  #top-icon-lg span {
+    display: none;
+  }
+  #drop-span {
+    display: none;
+  }
+}
+
+/* DROPDOWN */
+
+#user-dropdown {
+  width: 280px;
+  height: 440px;
+  position: absolute;
+  right: 0px;
+  top: 60px;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  justify-content: start;
+  flex-direction: column;
+  box-shadow: 0px 7px 17px 4px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  gap: 0.4rem;
+  z-index: 2;
+}
+
+#drop-img-container {
+  font-family: "roboto", sans-serif;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#drop-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#drop-text-container {
+  display: flex;
+  flex-direction: column;
+}
+#drop-text-container p {
+  margin: unset;
+}
+
+#dropdownName {
+  font-size: 1.2rem;
+}
+
+#view-profile {
+  border: 1px solid #0a66c2;
+  border-radius: 10px;
+  text-align: center;
+  color: #0a66c2;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#view-profile:hover {
+  transition: 0.2;
+  background-color: #e2f0fe;
+  outline: solid #0a66c2 2px;
+}
+
+#drop-line {
+  margin-block: 0.5rem;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(140 140 140/0.2);
+}
+
+#account-drop p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgb(0 0 0/0.8);
+  margin-bottom: 5px;
+}
+
+#account-drop h6 {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(0 0 0/0.6);
+  margin-bottom: 5px;
 }

@@ -69,33 +69,66 @@ const NavBarComponent = function () {
               <span>Notifiche</span>
             </Nav.Link>
             <NavDropdown
+              id="top-icon-user"
               title={
                 <>
-                  <img
-                    src={userData.image}
-                    alt=""
-                    width={25}
-                    style={{
-                      width: "35px",
-                      height: "35px",
-
-                      borderRadius: "50%",
-                      border: "5px solid white",
-                      objectFit: "cover",
-                    }}
-                  />
-                  TU
+                  <div id="top-icon-avatar">
+                    <img src={userData.image} alt="user" />
+                  </div>
+                  <div id="drop-span" className="d-flex gap-1">
+                    Tu
+                  </div>
                 </>
               }
-              id="basic-nav-dropdown"
-              className="you"
             >
-              <NavDropdown.Item onClick={() => navigate("/me")}>Il Mio Profilo</NavDropdown.Item>
+              <NavDropdown.Item>
+                <div className="d-flex gap-3">
+                  <div id="drop-img-container">
+                    <img src={userData.image} alt="user" />
+                  </div>
+                  <div id="drop-text-container">
+                    <p id="dropdownName" className="fw-medium">
+                      {userData.name} {userData.surname}
+                    </p>
+                    <span className="fs-6">{userData.title}</span>
+                  </div>
+                </div>
+              </NavDropdown.Item>
 
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => navigate("/me")}>Visualizza profilo</NavDropdown.Item>
+
               <NavDropdown.Divider />
-              <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
+
+              <NavDropdown.Item>
+                <div id="account-drop">
+                  <p>Account</p>
+                  <div className="d-flex align-items-end">
+                    <img src="/linkedinPremium.svg" alt="" className="mb-1" />
+                    <h6 className="fw-medium" id="provaPremium">
+                      Prova Premium gratis
+                    </h6>
+                  </div>
+                  <h6 id="microCardLink">Impostazioni e privacy</h6>
+                  <h6 id="microCardLink">Guida</h6>
+                  <h6 id="microCardLink">Lingua</h6>
+                </div>
+              </NavDropdown.Item>
+
+              <NavDropdown.Divider />
+
+              <NavDropdown.Item>
+                <div id="account-drop">
+                  <p>Gestisci</p>
+                  <h6 id="microCardLink">Post e attività</h6>
+                  <h6 id="microCardLink">Account per la pubblicazione di...</h6>
+                </div>
+              </NavDropdown.Item>
+
+              <NavDropdown.Divider />
+
+              <NavDropdown.Item onClick={handleLogout}>
+                <h6 id="microCardLink">Esci</h6>
+              </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown
               title={
