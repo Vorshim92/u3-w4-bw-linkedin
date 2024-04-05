@@ -30,7 +30,13 @@ const Login = () => {
       <Card className="p-5" style={{ borderRadius: "35px" }}>
         <div className="titleContainer" style={{ marginBottom: "" }}>
           <div>
-            <svg xmlns="http://www.w3.org/2000/svg" className="loader__linkedin-logo" width="250" height="100" viewBox="0 0 190 48">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="loader__linkedin-logo"
+              width="250"
+              height="100"
+              viewBox="0 0 190 48"
+            >
               <g>
                 <g>
                   <path
@@ -48,7 +54,13 @@ const Login = () => {
 
         <Form className="inputContainer">
           <Form.Group controlId="formBasicPassword" className="my-5">
-            <Form.Control type="password" placeholder="Enter your token here" value={token} onChange={(e) => handleOnChange(e)} className="inputBox" />
+            <Form.Control
+              type="password"
+              placeholder="Enter your token here"
+              value={token}
+              onChange={(e) => handleOnChange(e)}
+              className="inputBox"
+            />
             <Form.Text className="errorLabel">{}</Form.Text>
           </Form.Group>
           <div className="mx-auto">
@@ -60,6 +72,38 @@ const Login = () => {
             <Button variant="warning" className="inputButton" onClick={setStriveLink} style={{ width: "15rem" }}>
               Strive SignUp
             </Button>
+          </div>
+          <div className="d-flex justify-content-center w-50 m-auto mt-5 pt-2 ">
+            <Button
+              variant="warning"
+              className="loginBtnAvatar rounded-circle mx-2"
+              // onClick={setStriveLink}
+              style={{
+                width: "50px",
+                height: "50px",
+                backgroundImage: `url('https://preview.redd.it/fqxnuxmpu9d61.png?width=727&format=png&auto=webp&s=08f8c8592a6e1575977a477a6c27cf2946d8dc07')`,
+              }}
+            ></Button>{" "}
+            <Button
+              variant="warning"
+              className="loginBtnAvatar rounded-circle mx-2"
+              // onClick={setStriveLink}
+              style={{
+                width: "50px",
+                height: "50px",
+                backgroundImage: `url('https://i.pinimg.com/736x/f9/cf/72/f9cf722fc0c79dc1f299a12f58cf8b91.jpg')`,
+              }}
+            ></Button>{" "}
+            <Button
+              variant="warning"
+              className="loginBtnAvatar rounded-circle mx-2"
+              // onClick={setStriveLink}
+              style={{
+                width: "50px",
+                height: "50px",
+                backgroundImage: `url('https://www.pngitem.com/pimgs/m/152-1524586_random-fish-from-spongebob-hd-png-download.png')`,
+              }}
+            ></Button>
           </div>
         </Form>
       </Card>

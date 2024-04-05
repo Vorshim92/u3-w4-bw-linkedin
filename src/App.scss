@@ -346,6 +346,16 @@ body {
   padding-left: 8px;
 }
 
+.loginBtnAvatar {
+  background-size: cover;
+  border: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.loginBtnAvatar:hover {
+  transform: scale(1.5);
+}
+
 //LOGIN END
 
 .seguiHomeBtn:hover {
