@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Container, Nav, Navbar, NavDropdown, Modal } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSearchQuery } from "../redux/actions/fetchUser";
 import { useNavigate } from "react-router-dom";
 import { setTokenFail, fetchUserFailure } from "../redux/actions/fetchUser";
 const NavBarComponent = function () {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const userData = useSelector((state) => state.user.userData);
   const dispatch = useDispatch();
 
   const handleSearchClick = () => {
@@ -70,7 +71,20 @@ const NavBarComponent = function () {
             <NavDropdown
               title={
                 <>
-                  <img src="logo192.png" alt="" width={25} /> TU
+                  <img
+                    src={userData.image}
+                    alt=""
+                    width={25}
+                    style={{
+                      width: "35px",
+                      height: "35px",
+
+                      borderRadius: "50%",
+                      border: "5px solid white",
+                      objectFit: "cover",
+                    }}
+                  />
+                  TU
                 </>
               }
               id="basic-nav-dropdown"
