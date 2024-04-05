@@ -30,7 +30,13 @@ const Login = () => {
       <Card className="p-5" style={{ height: "65%", borderRadius: "35px" }}>
         <div className="titleContainer" style={{ marginBottom: "" }}>
           <div>
-            <svg xmlns="http://www.w3.org/2000/svg" className="loader__linkedin-logo" width="250" height="100" viewBox="0 0 190 48">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="loader__linkedin-logo"
+              width="250"
+              height="100"
+              viewBox="0 0 190 48"
+            >
               <g>
                 <g>
                   <path
@@ -47,13 +53,14 @@ const Login = () => {
         </div>
 
         <Form className="inputContainer">
-          {/* <Form.Group controlId="formBasicEmail">
-            <Form.Control type="email" placeholder="Enter your email here" value={email} onChange={(e) => setEmail(e.target.value)} className="inputBox" />
-            <Form.Text className="errorLabel">{emailError}</Form.Text>
-          </Form.Group> */}
-
           <Form.Group controlId="formBasicPassword" className="my-5">
-            <Form.Control type="password" placeholder="Enter your token here" value={token} onChange={(e) => handleOnChange(e)} className="inputBox" />
+            <Form.Control
+              type="password"
+              placeholder="Enter your token here"
+              value={token}
+              onChange={(e) => handleOnChange(e)}
+              className="inputBox"
+            />
             <Form.Text className="errorLabel">{}</Form.Text>
           </Form.Group>
           <div className="mx-auto">
