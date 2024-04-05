@@ -1,4 +1,5 @@
 import Card from "react-bootstrap/Card";
+import { FaTrash } from "react-icons/fa";
 
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -11,7 +12,12 @@ const Comment = ({ comment }) => {
     <>
       {commentAuthor && commentAuthor.length > 0 && (
         <div className="d-flex m-4">
-          <img className="rounded-circle m-3 mt-0" style={{ width: "30px", height: "30px" }} src={commentAuthor[0].image} alt="avatar" />
+          <img
+            className="rounded-circle m-3 mt-0"
+            style={{ width: "30px", height: "30px" }}
+            src={commentAuthor[0].image}
+            alt="avatar"
+          />
           <Card className="w-75 bg-body-tertiary border-0 rounded-3">
             <Card.Body>
               <div className="d-flex justify-content-between align-items-start">
@@ -29,7 +35,19 @@ const Comment = ({ comment }) => {
                   </p>
                 </div>
               </div>
-              <p>{comment.comment}</p>
+              <p>
+                {comment.comment}{" "}
+                <FaTrash
+                  style={{
+                    border: "none",
+                    cursor: "pointer",
+
+                    borderRadius: "50%",
+
+                    marginLeft: "15%",
+                  }}
+                />
+              </p>
             </Card.Body>
           </Card>
         </div>
