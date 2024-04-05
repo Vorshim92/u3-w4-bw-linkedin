@@ -26,7 +26,7 @@ const NavBarComponent = function () {
     <Navbar bg="light" expand="lg" id="mynavBar" className="p-0">
       <Container>
         <Navbar.Brand onClick={() => navigate("/home")}>
-          <img src="./svgexport-46.svg" alt="" width={50} />
+          <img src="./svgexport-46.svg" alt="" width={50} className="cursor-pointer" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">

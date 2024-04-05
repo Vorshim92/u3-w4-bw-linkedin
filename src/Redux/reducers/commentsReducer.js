@@ -1,7 +1,7 @@
 import { FETCH_COMMENTS_FAILURE, FETCH_COMMENTS_SUCCESS } from "../actions/fetchUser";
 
 const initialState = {
-  commentsData: null,
+  commentsData: [],
   loading: true,
   error: false,
 };
@@ -18,7 +18,7 @@ const commentsReducer = (state = initialState, action) => {
     case FETCH_COMMENTS_FAILURE:
       return {
         ...state,
-        commentsData: null,
+        commentsData: [],
         loading: false,
         error: true,
       };

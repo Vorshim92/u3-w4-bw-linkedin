@@ -81,7 +81,6 @@ export const fetchUser = () => async (dispatch, getState) => {
     });
     if (response.ok) {
       const data = await response.json();
-      console.log("dati ricevuti", data);
       dispatch(fetchUserSuccess(data));
     } else {
       throw new Error("errore recupero dati");
@@ -110,14 +109,11 @@ export const AddUserExpImage = (image, expId) => async (dispatch, getState) => {
       },
     });
     if (response.ok) {
-      console.log("Esperienza con successo");
-      // window.location.reload();
     } else {
       throw new Error("errore recupero dati");
     }
   } catch (error) {
     console.log(error);
-    // dispatch(fetchUserFailure());
   }
 };
 
@@ -136,7 +132,6 @@ export const AddUserExp = (dataForm, img) => async (dispatch, getState) => {
       },
     });
     if (response.ok) {
-      console.log("Esperienza con successo");
       const data = await response.json();
       await dispatch(AddUserExpImage(img.image, data._id)).then(() => {});
     } else {
@@ -160,7 +155,6 @@ export const fetchUserExp = () => async (dispatch, getState) => {
     });
     if (response.ok) {
       const data = await response.json();
-      console.log("exp ricevute", data);
       dispatch(fetchExpSuccess(data));
     } else {
       throw new Error("errore recupero dati");
@@ -186,7 +180,6 @@ export const ModUserExp = (dataForm, expId, img) => async (dispatch, getState) =
       },
     });
     if (response.ok) {
-      console.log("Esperienza modificata con successo");
       if (img) {
         const data = await response.json();
         await dispatch(AddUserExpImage(img.image, data._id)).then(() => {});
@@ -212,7 +205,6 @@ export const DelUserExp = (expId) => async (dispatch, getState) => {
       },
     });
     if (response.ok) {
-      console.log("Esperienza eliminata con successo");
     } else {
       throw new Error("errore recupero dati");
     }
@@ -239,7 +231,6 @@ export const ChangeImageUser =
         },
       });
       if (response.ok) {
-        console.log("Immagine Profilo modificata con successo");
         // dispatch(fetchUser());
       } else {
         throw new Error("errore recupero dati");
@@ -262,7 +253,6 @@ export const fetchUsers = () => async (dispatch, getState) => {
     });
     if (response.ok) {
       const data = await response.json();
-      console.log("dati ricevuti", data);
       await dispatch(fetchUsersSuccess(data));
     } else {
       throw new Error("errore recupero dati");
@@ -286,7 +276,6 @@ export const fetchPost = () => async (dispatch, getState) => {
     });
     if (response.ok) {
       const data = await response.json();
-      console.log("dati ricevuti", data);
       await dispatch(fetchPostSuccess(data));
     } else {
       throw new Error("errore recupero dati");
@@ -313,7 +302,6 @@ export const addPost = (data, img) => async (dispatch, getState) => {
       },
     });
     if (response.ok) {
-      console.log("Post Aggiunto con successo");
       const post = await response.json();
       await dispatch(addPostImage(img.image, post._id));
     } else {
@@ -342,8 +330,6 @@ export const addPostImage = (img, postID) => async (dispatch, getState) => {
       },
     });
     if (response.ok) {
-      console.log("post image con successo");
-      // dispatch(fetchPost());
     } else {
       throw new Error("errore post image");
     }
@@ -370,8 +356,6 @@ export const modPost = (data, postId, img) => async (dispatch, getState) => {
       if (img) {
         await dispatch(addPostImage(img.image, postId));
       }
-      console.log("Esperienza con successo");
-      // dispatch(fetchPost());
     } else {
       throw new Error("errore recupero dati");
     }
@@ -392,8 +376,6 @@ export const deletePost = (postId) => async (dispatch, getState) => {
       },
     });
     if (response.ok) {
-      console.log("Esperienza con successo");
-      // dispatch(fetchPost());
     } else {
       throw new Error("errore recupero dati");
     }
@@ -416,7 +398,6 @@ export const modUser = (data) => async (dispatch, getState) => {
       },
     });
     if (response.ok) {
-      console.log("dati ricevuti", data);
     } else {
       throw new Error("errore recupero dati");
     }
@@ -437,7 +418,6 @@ export const fetchComments = () => async (dispatch, getState) => {
     });
     if (response.ok) {
       const data = await response.json();
-      console.log("COMMENTI", data);
       await dispatch(fetchCommentsSuccess(data));
     } else {
       throw new Error("errore recupero dati");
@@ -480,7 +460,6 @@ export const validateToken = (token) => async (dispatch) => {
     });
     if (response.ok) {
       const data = await response.json();
-      console.log("dati ricevuti", data);
       dispatch(fetchUserSuccess(data));
       await dispatch(setTokenOk(token));
     } else {

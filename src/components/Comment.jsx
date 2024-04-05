@@ -6,8 +6,6 @@ import { useEffect } from "react";
 const Comment = ({ comment }) => {
   const profiles = useSelector((state) => state.users.usersData);
   const commentAuthor = profiles.filter((profile) => comment.author === profile.username);
-  console.log("COMMENT AUTHOR", commentAuthor);
-  console.log("SINGLE COMMENT", comment);
 
   return (
     <>
