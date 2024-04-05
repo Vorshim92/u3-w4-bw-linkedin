@@ -5,6 +5,7 @@ import usersReducer from "../reducers/usersReducer";
 import searchReducer from "../reducers/searchReducer";
 import postReducer from "../reducers/postsReducer";
 import loginReducer from "../reducers/loginReducer";
+import commentsReducer from "../reducers/commentsReducer";
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   search: searchReducer,
   post: postReducer,
   login: loginReducer,
+  comments: commentsReducer,
 });
 
 const store = configureStore({ reducer: rootReducer });

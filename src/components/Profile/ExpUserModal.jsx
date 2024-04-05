@@ -50,8 +50,8 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
       setFormData({
         role: expFinder.role,
         company: expFinder.company,
-        startDate: expFinder.startDate,
-        endDate: expFinder.endDate,
+        startDate: expFinder.startDate.slice(0, 10),
+        endDate: expFinder.endDate.slice(0, 10),
         description: expFinder.description,
         area: expFinder.area,
       });
@@ -81,47 +81,22 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
 
               <label htmlFor="company">Compagnia:</label>
               <br />
-              <input
-                type="text"
-                id="company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                required
-              />
+              <input type="text" id="company" name="company" value={formData.company} onChange={handleChange} required />
               <br />
 
               <label htmlFor="startDate">Data di Inizio:</label>
               <br />
-              <input
-                type="date"
-                id="startDate"
-                name="startDate"
-                value={formData.startDate.slice(0, 10).split("-").reverse().join("-")}
-                onChange={handleChange}
-                required
-              />
+              <input type="date" id="startDate" name="startDate" value={formData.startDate} onChange={handleChange} required />
               <br />
 
               <label htmlFor="endDate">Data di Fine:</label>
               <br />
-              <input
-                type="date"
-                id="endDate"
-                name="endDate"
-                value={formData.endDate.slice(0, 10).split("-").reverse().join("-")}
-                onChange={handleChange}
-              />
+              <input type="date" id="endDate" name="endDate" value={formData.endDate} onChange={handleChange} />
               <br />
 
               <label htmlFor="description">Descrizione:</label>
               <br />
-              <textarea
-                id="description"
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-              ></textarea>
+              <textarea id="description" name="description" value={formData.description} onChange={handleChange}></textarea>
               <br />
 
               <label htmlFor="area">Area:</label>

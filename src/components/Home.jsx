@@ -9,7 +9,7 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { RiUserFollowFill } from "react-icons/ri";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { RiArrowDropDownFill } from "react-icons/ri";
-import { fetchPost } from "../redux/actions/fetchUser";
+import { fetchComments, fetchPost } from "../redux/actions/fetchUser";
 import { useDispatch, useSelector } from "react-redux";
 import Post from "./Post";
 import PostHomeModal from "./PostHomeModal";
@@ -21,6 +21,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchPost());
+    dispatch(fetchComments());
   }, []);
 
   const handleModal = () => {
@@ -56,9 +57,7 @@ const Home = () => {
           </Card.Body>
           <CardBody className="p-0 ">
             <ListGroup className="rounded-0">
-              <ListGroup.Item
-                style={{ borderTop: "solid 1px", borderColor: "lightgray", borderLeft: "0", borderRight: "0" }}
-              >
+              <ListGroup.Item style={{ borderTop: "solid 1px", borderColor: "lightgray", borderLeft: "0", borderRight: "0" }}>
                 <div className="my-1">
                   <p id="pOfHome" className="paragraphGrey">
                     Collegamenti
@@ -304,14 +303,7 @@ const Home = () => {
               </div>
             </div>
             <p id="pOfHome">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="loader__linkedin-logo"
-                width="48"
-                height="48"
-                viewBox="0 0 190 48"
-                style={{ marginRight: "4px" }}
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" className="loader__linkedin-logo" width="48" height="48" viewBox="0 0 190 48" style={{ marginRight: "4px" }}>
                 <g>
                   <g>
                     <path

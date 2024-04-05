@@ -9,10 +9,14 @@ export const FETCH_POST_SUCCESS = "FETCH_POST_SUCCESS";
 export const FETCH_POST_FAILURE = "FETCH_POST_FAILURE";
 export const SET_TOKEN_OK = "FETCH_LOGIN_OK";
 export const SET_TOKEN_FAIL = "FETCH_LOGIN_FAIL";
+export const FETCH_COMMENTS_FAILURE = "FETCH_COMMENTS_FAILURE";
+export const FETCH_COMMENTS_SUCCESS = "FETCH_COMMENTS_SUCCESS";
+
 const MeEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me";
 const UsersEndopoint = "https://striveschool-api.herokuapp.com/api/profile";
 const PostEndopoint = "https://striveschool-api.herokuapp.com/api/posts/";
 const PostImageEndpoint = "https://striveschool-api.herokuapp.com/api/posts/";
+const commentsEndpoint = "https://striveschool-api.herokuapp.com/api/comments";
 
 export const setTokenOk = (token) => ({
   type: SET_TOKEN_OK,
@@ -47,6 +51,13 @@ const fetchPostSuccess = (data) => ({
 });
 const fetchPostFailure = () => ({
   type: FETCH_POST_FAILURE,
+});
+const fetchCommentsSuccess = (data) => ({
+  type: FETCH_COMMENTS_SUCCESS,
+  payload: data,
+});
+const fetchCommentsFailure = () => ({
+  type: FETCH_COMMENTS_FAILURE,
 });
 
 export const setSearchQuery = (query) => {
@@ -411,6 +422,28 @@ export const modUser = (data) => async (dispatch, getState) => {
     }
   } catch (error) {
     console.log(error);
+  }
+};
+
+// ACTION_FETCH_COMMENTS
+export const fetchComments = () => async (dispatch, getState) => {
+  const state = getState();
+  const token = state.login.loginData;
+  try {
+    const response = await fetch(commentsEndpoint, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(fetchCommentsSuccess(data));
+    } else {
+      throw new Error("errore recupero dati");
+    }
+  } catch (error) {
+    console.log(error);
+    dispatch(fetchCommentsFailure());
   }
 };
 
