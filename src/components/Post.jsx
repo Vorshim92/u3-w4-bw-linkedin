@@ -40,6 +40,10 @@ const Post = ({ post }) => {
 
   const handleSubmit = async (e) => {
     await dispatch(addComment(formData));
+    setFormData({
+      ...formData,
+      comment: "",
+    });
   };
 
   return (
@@ -143,7 +147,7 @@ const Post = ({ post }) => {
                   }}
                 />
 
-                <input type="text" id="" variant="primary" placeholder="Aggiungi un commento..." className="text-start w-100 my-4 rounded-3 p-1 " onChange={handleChange}></input>
+                <input type="text" id="" variant="primary" value={formData.comment} placeholder="Aggiungi un commento..." className="text-start w-100 my-4 rounded-3 p-1 " onChange={handleChange}></input>
               </div>
               <Button onClick={handleSubmit}> pubblica</Button>
               {postComments && postComments.length > 0 && postComments.map((comment) => <Comment comment={comment} key={comment._id} />)}
