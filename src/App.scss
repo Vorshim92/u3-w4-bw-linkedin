@@ -363,8 +363,14 @@ body {
   transition: opacity 0.2s ease-in;
   height: calc(100vh - 52px);
 }
-#mynavBar {
-  // z-index: 9999;
+
+#imgBtnUser {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+#containerProfileImage:hover #imgBtnUser {
+  opacity: 1;
 }
 
 .homeBtnPost {

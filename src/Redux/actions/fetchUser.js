@@ -12,6 +12,7 @@ export const SET_TOKEN_FAIL = "FETCH_LOGIN_FAIL";
 const MeEndpoint = "https://striveschool-api.herokuapp.com/api/profile/me";
 const UsersEndopoint = "https://striveschool-api.herokuapp.com/api/profile";
 const PostEndopoint = "https://striveschool-api.herokuapp.com/api/posts/";
+const PostImageEndpoint = "https://striveschool-api.herokuapp.com/api/posts/";
 
 export const setTokenOk = (token) => ({
   type: SET_TOKEN_OK,
@@ -301,8 +302,9 @@ export const addPost = (data) => async (dispatch, getState) => {
       },
     });
     if (response.ok) {
-      console.log("Esperienza con successo");
-      // dispatch(fetchPost());
+      console.log("Post Aggiunto con successo");
+      const post = await response.json();
+      await dispatch(addPostImage(img.image, post._id));
     } else {
       throw new Error("errore recupero dati");
     }
@@ -311,6 +313,32 @@ export const addPost = (data) => async (dispatch, getState) => {
     // dispatch(fetchUserFailure());
   }
 };
+
+// ACTION_POST_IMAGE_POST
+export const addPostImage = (img, postID) => async (dispatch) => {
+  try {
+    const formData = new FormData();
+    formData.append("post", img); // Aggiungi l'immagine con la chiave "experience"
+
+    const response = await fetch(`${PostImageEndpoint}${postID}`, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization: tokenSte,
+      },
+    });
+    if (response.ok) {
+      console.log("post image con successo");
+      // dispatch(fetchPost());
+    } else {
+      throw new Error("errore post image");
+    }
+  } catch (error) {
+    console.log(error);
+    // dispatch(fetchUserFailure());
+  }
+};
+
 // ACTION_PUT_POST
 export const modPost = (data, postId) => async (dispatch, getState) => {
   const state = getState();
@@ -325,6 +353,9 @@ export const modPost = (data, postId) => async (dispatch, getState) => {
       },
     });
     if (response.ok) {
+      if (img) {
+        await dispatch(addPostImage(img.image, postId));
+      }
       console.log("Esperienza con successo");
       // dispatch(fetchPost());
     } else {

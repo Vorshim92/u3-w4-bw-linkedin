@@ -8,19 +8,28 @@ const PostHomeModal = ({ showModal, handleModal, post }) => {
   const [textArea, settextArea] = useState({
     text: "",
   });
-
+  const [img, setImg] = useState({
+    image: null,
+  });
   const handleChange = (e) => {
-    settextArea({
-      ...textArea,
-      text: e.target.value,
-    });
+    if (e.target.name === "image") {
+      setImg({
+        image: e.target.files[0],
+      });
+    } else {
+      const { name, value } = e.target;
+      settextArea({
+        ...textArea,
+        text: e.target.value,
+      });
+    }
   };
 
   const handlePostSubmit = async () => {
     if (post) {
-      await dispatch(modPost(textArea, post._id));
+      await dispatch(modPost(textArea, post._id, img));
     } else {
-      await dispatch(addPost(textArea));
+      await dispatch(addPost(textArea, img));
     }
     handleModal();
     dispatch(fetchPost());
@@ -28,6 +37,7 @@ const PostHomeModal = ({ showModal, handleModal, post }) => {
       ...textArea,
       text: "",
     });
+    setImg({ image: null });
   };
   useEffect(() => {
     if (post) {
@@ -50,6 +60,10 @@ const PostHomeModal = ({ showModal, handleModal, post }) => {
       </Modal.Header>
       <Modal.Body>
         <textarea value={textArea.text} onChange={handleChange} className="form-control" rows="5" placeholder="Inserisci il testo del post"></textarea>
+        <label htmlFor="image">Immagine:</label>
+        <br />
+        <input type="file" id="image" name="image" onChange={handleChange} />
+        <br />
       </Modal.Body>
       <Modal.Footer>
         {post && (
