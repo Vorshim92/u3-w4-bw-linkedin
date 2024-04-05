@@ -45,10 +45,10 @@ const Post = ({ post }) => {
                     <p id="pOfHome">{post.username}</p>
                   </Col>
                   <Col xs={12}>
-                    <p id="pOfHome">bio io io io io io io</p>
+                    <p id="pOfHome">{post.user.title}</p>
                   </Col>
                   <Col xs={12}>
-                    <p id="pOfHome">times</p>
+                    <p id="pOfHome">Creato il {post.updatedAt.slice(0, 10)}</p>
                   </Col>
                 </Col>
                 <Col xs={3}>
