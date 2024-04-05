@@ -131,7 +131,7 @@ const Post = ({ post }) => {
 
           <Collapse in={open}>
             <div id="example-collapse-text">
-              <div className="d-flex justify-content-center">
+              <div className="d-flex justify-content-center align-items-center">
                 <img
                   src={userData.image}
                   alt=""
@@ -146,9 +146,13 @@ const Post = ({ post }) => {
                   }}
                 />
 
-                <input type="text" id="" variant="primary" value={formData.comment} placeholder="Aggiungi un commento..." className="text-start w-100 my-4 rounded-3 p-1 " onChange={handleChange}></input>
+                <input type="text" id="" variant="primary" placeholder="Aggiungi un commento..." className="text-start w-100 my-4 rounded-3 p-1 " onChange={handleChange}></input>
+
+                <div className="p-4">
+                  <Button onClick={handleSubmit}> pubblica</Button>
+                </div>
               </div>
-              <Button onClick={handleSubmit}> pubblica</Button>
+
               {postComments && postComments.length > 0 && postComments.map((comment) => <Comment comment={comment} key={comment._id} />)}
             </div>
           </Collapse>
