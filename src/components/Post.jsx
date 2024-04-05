@@ -105,12 +105,12 @@ const Post = ({ post }) => {
             <Col sx={12} className="my-3">
               {post.image && <Card.Img src={post.image}></Card.Img>}
             </Col>
-            <Col sx={12} className="my-3 d-flex justify-content-end">
-              <a href="#1" className="commentLink" onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
-                {postComments && postComments.length > 0 && `${postComments.length} commenti`}
-              </a>
-            </Col>
           </Row>
+          <Col sx={12} className="my-3 d-flex justify-content-end">
+            <a href="#1" className="commentLink" onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
+              {postComments && postComments.length > 0 && `${postComments.length} commenti`}
+            </a>
+          </Col>
           <Card.Body className="p-0 border-top ">
             <Col sx={12} className="m-1 d-flex justify-content-between align-items-center flex-wrap">
               <Button className="homeBtnPost">

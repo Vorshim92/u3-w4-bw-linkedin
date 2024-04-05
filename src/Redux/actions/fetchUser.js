@@ -427,7 +427,7 @@ export const fetchComments = () => async (dispatch, getState) => {
     dispatch(fetchCommentsFailure());
   }
 };
-// ACTION_FETCH_COMMENTS
+// ACTION_ADD_COMMENTS
 export const addComment = (comment) => async (dispatch, getState) => {
   const state = getState();
   const token = state.login.loginData;
@@ -437,6 +437,27 @@ export const addComment = (comment) => async (dispatch, getState) => {
       body: JSON.stringify(comment),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+      await dispatch(fetchComments());
+    } else {
+      throw new Error("errore recupero dati");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+// ACTION_DELETE_COMMENTS
+export const deleteComment = (commentId) => async (dispatch, getState) => {
+  const state = getState();
+  const token = state.login.loginData;
+  try {
+    const response = await fetch(`${commentsEndpoint}/${commentId}`, {
+      method: "DELETE",
+      headers: {
         Authorization: `Bearer ${token}`,
       },
     });
