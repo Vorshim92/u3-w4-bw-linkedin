@@ -9,7 +9,12 @@ const Comment = ({ comment }) => {
   console.log(comment);
   return (
     <div className="d-flex m-4">
-      <img className="rounded-circle m-3 mt-0" style={{ width: "30px", height: "30px" }} src={commentAuthor[0].image} alt="avatar" />
+      <img
+        className="rounded-circle m-3 mt-0"
+        style={{ width: "30px", height: "30px" }}
+        src={commentAuthor[0].image}
+        alt="avatar"
+      />
       <Card>
         <Card.Body>
           <div className="d-flex justify-content-between">
