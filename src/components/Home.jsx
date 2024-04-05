@@ -53,14 +53,14 @@ const Home = () => {
               }}
             />
 
-            <Card.Title className="mt-5">Ti diamo il benvenuto nome utente</Card.Title>
-            <Card.Link>Aggiungi una foto</Card.Link>
+            <Card.Title className="mt-5">
+              {userData.name} {userData.surname}
+            </Card.Title>
+            <Card.Text>{userData.title}</Card.Text>
           </Card.Body>
           <CardBody className="p-0 ">
             <ListGroup className="rounded-0">
-              <ListGroup.Item
-                style={{ borderTop: "solid 1px", borderColor: "lightgray", borderLeft: "0", borderRight: "0" }}
-              >
+              <ListGroup.Item style={{ borderTop: "solid 1px", borderColor: "lightgray", borderLeft: "0", borderRight: "0" }}>
                 <div className="my-1">
                   <p id="pOfHome" className="paragraphGrey">
                     Collegamenti
@@ -307,14 +307,7 @@ const Home = () => {
               </div>
             </div>
             <p id="pOfHome">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="loader__linkedin-logo"
-                width="48"
-                height="48"
-                viewBox="0 0 190 48"
-                style={{ marginRight: "4px" }}
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" className="loader__linkedin-logo" width="48" height="48" viewBox="0 0 190 48" style={{ marginRight: "4px" }}>
                 <g>
                   <g>
                     <path

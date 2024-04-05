@@ -68,13 +68,19 @@ const Post = ({ post }) => {
               <Row className="align-items-center">
                 <Col lg={9} md={6}>
                   <Col xs={12}>
-                    <p id="pOfHome">{post.username}</p>
+                    <p id="pOfHome" className="fw-bold fs-5">
+                      {post.user.name} {post.user.surname}
+                    </p>
                   </Col>
                   <Col xs={12}>
-                    <p id="pOfHome">{post.user.title}</p>
+                    <p id="pOfHome" className="paragraphGrey">
+                      {post.user.title}
+                    </p>
                   </Col>
                   <Col xs={12}>
-                    <p id="pOfHome">Creato il {post.updatedAt.slice(0, 10)}</p>
+                    <p id="pOfHome" className="paragraphGrey">
+                      Creato il {post.updatedAt.slice(0, 10)} alle {post.updatedAt.slice(11, 16)}
+                    </p>
                   </Col>
                 </Col>
                 <Col lg={3} md={6}>

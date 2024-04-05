@@ -11,12 +11,7 @@ const Comment = ({ comment }) => {
     <>
       {commentAuthor && commentAuthor.length > 0 && (
         <div className="d-flex m-4">
-          <img
-            className="rounded-circle m-3 mt-0"
-            style={{ width: "30px", height: "30px" }}
-            src={commentAuthor[0].image}
-            alt="avatar"
-          />
+          <img className="rounded-circle m-3 mt-0" style={{ width: "30px", height: "30px" }} src={commentAuthor[0].image} alt="avatar" />
           <Card className="w-75 bg-body-tertiary border-0 rounded-3">
             <Card.Body>
               <div className="d-flex justify-content-between align-items-start">
@@ -30,8 +25,7 @@ const Comment = ({ comment }) => {
                 </div>
                 <div>
                   <p className="text-body-tertiary font-monospace" style={{ fontSize: "15px" }}>
-                    {" "}
-                    {comment.updatedAt.slice(0, 10)}
+                    {comment.updatedAt.slice(0, 10)} - {comment.updatedAt.slice(11, 16)}
                   </p>
                 </div>
               </div>
