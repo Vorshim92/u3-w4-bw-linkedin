@@ -80,6 +80,16 @@ const Post = ({ post }) => {
             <Col xs={12} className="my-3">
               {post.image && <Card.Img src={post.image}></Card.Img>}
             </Col>
+            <Col xs={12} className="my-3 d-flex justify-content-end">
+              <Button
+                className="commentLink"
+                onClick={() => setOpen(!open)}
+                aria-controls="example-collapse-text"
+                aria-expanded={open}
+              >
+                Tot commenti
+              </Button>
+            </Col>
           </Row>
           <Card.Body className="p-0 border-top ">
             <Col xs={12} className="m-1 d-flex justify-content-between align-items-center">

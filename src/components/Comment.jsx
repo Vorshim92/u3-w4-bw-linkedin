@@ -2,9 +2,9 @@ import Card from "react-bootstrap/Card";
 
 const Comment = () => {
   return (
-    <div className="d-flex m-2">
+    <div className="d-flex m-4">
       <img
-        className="rounded-circle"
+        className="rounded-circle m-3 mt-0"
         style={{ width: "30px", height: "30px" }}
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLk6TjUtaSQBSnFt5KBiX27qmVQw2k_W5MD8zNNOzGPw&s"
         alt="avatar"

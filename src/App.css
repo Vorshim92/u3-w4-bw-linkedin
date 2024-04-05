@@ -12189,6 +12189,24 @@ body {
   transform: scale(1.5);
 }
 
+.commentLink {
+  background-color: transparent;
+  border: 0;
+  color: black;
+}
+
+.commentLink:hover {
+  color: blue;
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+.commentLink:focus {
+  color: blue;
+  text-decoration: underline;
+  background-color: transparent;
+}
+
 .seguiHomeBtn:hover {
   border: solid 5px blue;
 }
