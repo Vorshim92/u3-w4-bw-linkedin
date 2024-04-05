@@ -19,12 +19,15 @@ const Comment = ({ comment }) => {
         <Card.Body>
           <div className="d-flex justify-content-between">
             <div className="">
-              <p>{commentAuthor[0].name}</p>
-              <p>Sesso persona - 3° e oltre</p>
+              <p>
+                {commentAuthor[0].name} {commentAuthor[0].surname}
+              </p>
+              <p className="text-secondary">{commentAuthor[0].title}</p>
             </div>
-            <p>orario commento</p>
+            <div>
+              <p> {comment.updatedAt.slice(0, 10)}</p>
+            </div>
           </div>
-          <p className="text-secondary fs-5">professione utente</p>
 
           <p>{comment.comment}</p>
         </Card.Body>
