@@ -104,14 +104,15 @@ const Post = ({ post }) => {
               {post.image && <Card.Img src={post.image}></Card.Img>}
             </Col>
             <Col sx={12} className="my-3 d-flex justify-content-end">
-              <Button
+              <a
+                href="#1"
                 className="commentLink"
                 onClick={() => setOpen(!open)}
                 aria-controls="example-collapse-text"
                 aria-expanded={open}
               >
                 Tot commenti
-              </Button>
+              </a>
             </Col>
           </Row>
           <Card.Body className="p-0 border-top ">
@@ -149,7 +150,7 @@ const Post = ({ post }) => {
                 <img
                   src={userData.image}
                   alt=""
-                  className="mx-2"
+                  className="m-2"
                   style={{
                     width: "60px",
                     height: "60px",
@@ -165,7 +166,7 @@ const Post = ({ post }) => {
                   id=""
                   variant="primary"
                   placeholder="Aggiungi un commento..."
-                  className="text-start w-100 my-4 "
+                  className="text-start w-100 my-4 rounded-3 p-1 "
                   onChange={handleChange}
                 ></input>
               </div>
