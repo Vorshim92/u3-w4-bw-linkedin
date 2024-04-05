@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { AddUserExp, ModUserExp, DelUserExp, fetchUserExp } from "../../redux/actions/fetchUser";
 const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
@@ -52,6 +53,8 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
         company: expFinder.company,
         startDate: expFinder.startDate.slice(0, 10),
         endDate: expFinder.endDate.slice(0, 10),
+        startDate: expFinder.startDate.slice(0, 10),
+        endDate: expFinder.endDate.slice(0, 10),
         description: expFinder.description,
         area: expFinder.area,
       });
@@ -73,44 +76,46 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
         <Modal.Body>
           <div>
             <h2>Modulo Informazioni</h2>
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="role">Ruolo:</label>
-              <br />
-              <input type="text" id="role" name="role" value={formData.role} onChange={handleChange} required />
-              <br />
+            <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="role">
+                <Form.Label>Ruolo:</Form.Label>
+                <Form.Control type="text" name="role" value={formData.role} onChange={handleChange} required />
+              </Form.Group>
 
-              <label htmlFor="company">Compagnia:</label>
-              <br />
-              <input type="text" id="company" name="company" value={formData.company} onChange={handleChange} required />
-              <br />
+              <Form.Group controlId="company">
+                <Form.Label>Compagnia:</Form.Label>
+                <Form.Control type="text" name="company" value={formData.company} onChange={handleChange} required />
+              </Form.Group>
 
-              <label htmlFor="startDate">Data di Inizio:</label>
-              <br />
-              <input type="date" id="startDate" name="startDate" value={formData.startDate} onChange={handleChange} required />
-              <br />
+              <Form.Group controlId="startDate">
+                <Form.Label>Data di Inizio:</Form.Label>
+                <Form.Control type="date" name="startDate" value={formData.startDate} onChange={handleChange} required />
+              </Form.Group>
 
-              <label htmlFor="endDate">Data di Fine:</label>
-              <br />
-              <input type="date" id="endDate" name="endDate" value={formData.endDate} onChange={handleChange} />
-              <br />
+              <Form.Group controlId="endDate">
+                <Form.Label>Data di Fine:</Form.Label>
+                <Form.Control type="date" name="endDate" value={formData.endDate} onChange={handleChange} />
+              </Form.Group>
 
-              <label htmlFor="description">Descrizione:</label>
-              <br />
-              <textarea id="description" name="description" value={formData.description} onChange={handleChange}></textarea>
-              <br />
+              <Form.Group controlId="description">
+                <Form.Label>Descrizione:</Form.Label>
+                <Form.Control as="textarea" rows={3} name="description" value={formData.description} onChange={handleChange} />
+              </Form.Group>
 
-              <label htmlFor="area">Area:</label>
-              <br />
-              <input type="text" id="area" name="area" value={formData.area} onChange={handleChange} />
-              <br />
-              <label htmlFor="image">Immagine:</label>
-              <br />
-              <input type="file" id="image" name="image" onChange={handleChange} />
-              <br />
+              <Form.Group controlId="area">
+                <Form.Label>Area:</Form.Label>
+                <Form.Control type="text" name="area" value={formData.area} onChange={handleChange} />
+              </Form.Group>
+
+              <Form.Group controlId="image">
+                <Form.Label>Immagine:</Form.Label>
+                <Form.Control type="file" name="image" onChange={handleChange} />
+              </Form.Group>
+
               <Button variant="primary" type="submit" className="mt-3">
                 Invia
               </Button>
-            </form>
+            </Form>
           </div>
         </Modal.Body>
         <Modal.Footer>

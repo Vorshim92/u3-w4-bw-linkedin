@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchPost, addPost, modPost, deletePost } from "../redux/actions/fetchUser";
 import { Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 const PostHomeModal = ({ showModal, handleModal, post }) => {
   const dispatch = useDispatch();
   const [textArea, settextArea] = useState({
@@ -59,11 +60,21 @@ const PostHomeModal = ({ showModal, handleModal, post }) => {
         <Modal.Title>Avvia un post</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <textarea value={textArea.text} onChange={handleChange} className="form-control" rows="5" placeholder="Inserisci il testo del post"></textarea>
-        <label htmlFor="image">Immagine:</label>
-        <br />
-        <input type="file" id="image" name="image" onChange={handleChange} />
-        <br />
+        <Form.Group controlId="text">
+          <Form.Label>Testo del post:</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={5}
+            value={textArea.text}
+            onChange={handleChange}
+            placeholder="Inserisci il testo del post"
+          />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Immagine:</Form.Label>
+          <Form.Control type="file" name="image" onChange={handleChange} />
+        </Form.Group>
       </Modal.Body>
       <Modal.Footer>
         {post && (

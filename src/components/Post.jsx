@@ -1,4 +1,4 @@
-import { Button, Card, Col, Row, ListGroup, CardBody, ListGroupItem, Modal } from "react-bootstrap";
+import { Button, Card, Col, Row, ListGroup, CardBody } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 import { HiPlus } from "react-icons/hi";
@@ -76,6 +76,11 @@ const Post = ({ post }) => {
             <Col xs={12} className="my-3">
               {post.image && <Card.Img src={post.image}></Card.Img>}
             </Col>
+            <Col xs={12} className="my-3 d-flex justify-content-end">
+              <Button className="commentLink" onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
+                Tot commenti
+              </Button>
+            </Col>
           </Row>
           <Card.Body className="p-0 border-top ">
             <Col xs={12} className="m-1 d-flex justify-content-between align-items-center">
@@ -103,6 +108,25 @@ const Post = ({ post }) => {
 
           <Collapse in={open}>
             <div id="example-collapse-text">
+              <div className="d-flex justify-content-center">
+                <img
+                  src={userData.image}
+                  alt=""
+                  className="mx-2"
+                  style={{
+                    width: "60px",
+                    height: "60px",
+
+                    borderRadius: "50%",
+                    border: "5px solid white",
+                    objectFit: "cover",
+                  }}
+                />
+
+                <Button id="btnPost" variant="primary" className="text-start w-100 ">
+                  Avvia un post
+                </Button>
+              </div>
               {postComments.map((comment) => (
                 <Comment comment={comment} />
               ))}
