@@ -14,25 +14,11 @@ const Login = () => {
   };
 
   const onButtonClick = async () => {
-    console.log(token);
     await dispatch(validateToken(token));
   };
   const accountsClick = async (token) => {
     await dispatch(validateToken(token));
-    if (userData) {
-      await dispatch(setTokenOk(token));
-    } else {
-      dispatch(setTokenFail());
-    }
   };
-
-  useEffect(() => {
-    if (userData) {
-      dispatch(setTokenOk(token));
-    } else {
-      dispatch(setTokenFail());
-    }
-  }, [userData]);
 
   return (
     <Container className="mainContainer d-flex">
@@ -61,7 +47,7 @@ const Login = () => {
             <Form.Text className="errorLabel">{}</Form.Text>
           </Form.Group>
           <div className="mx-auto">
-            <Button variant="primary" className="inputButton" onClick={onButtonClick} style={{ width: "15rem" }}>
+            <Button variant="primary" className="inputButton" onClick={() => onButtonClick()} style={{ width: "15rem" }}>
               Log in
             </Button>
           </div>

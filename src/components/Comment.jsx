@@ -1,14 +1,20 @@
 import Card from "react-bootstrap/Card";
 
-const Comment = (comment) => {
+import { useDispatch, useSelector } from "react-redux";
+
+const Comment = ({ comment }) => {
+  const profiles = useSelector((state) => state.users.usersData);
+  const commentAuthor = profiles.filter((profile) => comment.author === profile.username);
+  console.log(commentAuthor);
+  console.log(comment);
   return (
     <div className="d-flex m-4">
-      <img className="rounded-circle m-3 mt-0" style={{ width: "30px", height: "30px" }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLk6TjUtaSQBSnFt5KBiX27qmVQw2k_W5MD8zNNOzGPw&s" alt="avatar" />
+      <img className="rounded-circle m-3 mt-0" style={{ width: "30px", height: "30px" }} src={commentAuthor[0].image} alt="avatar" />
       <Card>
         <Card.Body>
           <div className="d-flex justify-content-between">
-            <div className="d-flex">
-              <p>Nome utente</p>
+            <div className="">
+              <p>{commentAuthor[0].name}</p>
               <p>Sesso persona - 3° e oltre</p>
             </div>
             <p>orario commento</p>

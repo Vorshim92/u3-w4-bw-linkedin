@@ -18,7 +18,6 @@ const PostHomeModal = ({ showModal, handleModal, post }) => {
         image: e.target.files[0],
       });
     } else {
-      const { name, value } = e.target;
       settextArea({
         ...textArea,
         text: e.target.value,
@@ -62,13 +61,7 @@ const PostHomeModal = ({ showModal, handleModal, post }) => {
       <Modal.Body>
         <Form.Group controlId="text">
           <Form.Label>Testo del post:</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={5}
-            value={textArea.text}
-            onChange={handleChange}
-            placeholder="Inserisci il testo del post"
-          />
+          <Form.Control as="textarea" rows={5} value={textArea.text} onChange={handleChange} placeholder="Inserisci il testo del post" />
         </Form.Group>
 
         <Form.Group>

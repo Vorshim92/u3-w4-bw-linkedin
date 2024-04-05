@@ -1,5 +1,5 @@
 import { Button, Card, Col, Row, ListGroup, CardBody } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { HiPlus } from "react-icons/hi";
 import PostHomeModal from "./PostHomeModal";
@@ -10,16 +10,36 @@ import { PiArrowsCounterClockwise } from "react-icons/pi";
 import { IoIosSend } from "react-icons/io";
 import Comment from "./Comment";
 import Collapse from "react-bootstrap/Collapse";
+import { addComment } from "../redux/actions/fetchUser";
 
 const Post = ({ post }) => {
+  const dispatch = useDispatch();
+
   const userData = useSelector((state) => state.user.userData);
   const [open, setOpen] = useState(false);
   const commentsData = useSelector((state) => state.comments.commentsData);
-  const postComments = commentsData.filter((comment) => comment._id === post._id);
+  const postComments = commentsData.filter((comment) => comment.elementId === post._id);
   console.log(postComments);
   const [showPostMod, setShowPostMod] = useState(false);
   const toggleModalPost = () => {
     setShowPostMod(!showPostMod);
+  };
+
+  const [formData, setFormData] = useState({
+    comment: "",
+    rate: "5",
+    elementId: post._id,
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      comment: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    await dispatch(addComment(formData));
   };
 
   return (
@@ -123,13 +143,10 @@ const Post = ({ post }) => {
                   }}
                 />
 
-                <Button id="btnPost" variant="primary" className="text-start w-100 ">
-                  Avvia un post
-                </Button>
+                <input type="text" id="" variant="primary" placeholder="Aggiungi un commento..." className="text-start w-100 " onChange={handleChange}></input>
               </div>
-              {postComments.map((comment) => (
-                <Comment comment={comment} />
-              ))}
+              <Button onClick={handleSubmit}> pubblica</Button>
+              {postComments && postComments.map((comment) => <Comment comment={comment} key={comment._id} />)}
             </div>
           </Collapse>
         </Card.Body>

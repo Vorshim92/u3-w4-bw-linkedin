@@ -30,7 +30,7 @@ const fetchUserSuccess = (data) => ({
   payload: data,
 });
 
-const fetchUserFailure = () => ({
+export const fetchUserFailure = () => ({
   type: FETCH_USER_FAILURE,
 });
 
@@ -462,6 +462,7 @@ export const addComment = (comment) => async (dispatch, getState) => {
     });
 
     if (response.ok) {
+      await dispatch(fetchComments());
     } else {
       throw new Error("errore recupero dati");
     }
@@ -481,11 +482,13 @@ export const validateToken = (token) => async (dispatch) => {
       const data = await response.json();
       console.log("dati ricevuti", data);
       dispatch(fetchUserSuccess(data));
+      await dispatch(setTokenOk(token));
     } else {
       throw new Error("errore recupero dati");
     }
   } catch (error) {
     console.log(error);
     dispatch(fetchUserFailure());
+    dispatch(setTokenFail());
   }
 };
