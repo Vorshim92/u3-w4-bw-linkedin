@@ -1,7 +1,7 @@
 import { FETCH_POST_FAILURE, FETCH_POST_SUCCESS } from "../actions/fetchUser";
 
 const initialState = {
-  postData: null,
+  postData: [],
   loading: true,
   error: false,
 };
@@ -18,7 +18,7 @@ const postReducer = (state = initialState, action) => {
     case FETCH_POST_FAILURE:
       return {
         ...state,
-        postData: null,
+        postData: [],
         loading: false,
         error: true,
       };

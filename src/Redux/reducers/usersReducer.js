@@ -1,7 +1,7 @@
 import { FETCH_USERS_FAILURE, FETCH_USERS_SUCCESS } from "../actions/fetchUser";
 
 const initialState = {
-  usersData: null,
+  usersData: [],
   loading: true,
   error: false,
 };
@@ -18,7 +18,7 @@ const usersReducer = (state = initialState, action) => {
     case FETCH_USERS_FAILURE:
       return {
         ...state,
-        usersData: null,
+        usersData: [],
         loading: false,
         error: true,
       };
