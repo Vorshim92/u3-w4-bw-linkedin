@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Form, Button, Card, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { validateToken, setTokenOk, setTokenFail } from "../redux/actions/fetchUser";
+import { tokenIla, tokenMarco, tokenSte } from "../redux/actions/fetchToken";
 const Login = () => {
   const [striveLink, setStriveLink] = useState(false);
   const [token, setToken] = useState("");
@@ -15,6 +16,14 @@ const Login = () => {
   const onButtonClick = async () => {
     console.log(token);
     await dispatch(validateToken(token));
+  };
+  const accountsClick = async (token) => {
+    await dispatch(validateToken(token));
+    if (userData) {
+      await dispatch(setTokenOk(token));
+    } else {
+      dispatch(setTokenFail());
+    }
   };
 
   useEffect(() => {
@@ -30,13 +39,7 @@ const Login = () => {
       <Card className="p-5" style={{ borderRadius: "35px" }}>
         <div className="titleContainer" style={{ marginBottom: "" }}>
           <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="loader__linkedin-logo"
-              width="250"
-              height="100"
-              viewBox="0 0 190 48"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" className="loader__linkedin-logo" width="250" height="100" viewBox="0 0 190 48">
               <g>
                 <g>
                   <path
@@ -54,13 +57,7 @@ const Login = () => {
 
         <Form className="inputContainer">
           <Form.Group controlId="formBasicPassword" className="my-5">
-            <Form.Control
-              type="password"
-              placeholder="Enter your token here"
-              value={token}
-              onChange={(e) => handleOnChange(e)}
-              className="inputBox"
-            />
+            <Form.Control type="password" placeholder="Enter your token here" value={token} onChange={(e) => handleOnChange(e)} className="inputBox" />
             <Form.Text className="errorLabel">{}</Form.Text>
           </Form.Group>
           <div className="mx-auto">
@@ -75,9 +72,9 @@ const Login = () => {
           </div>
           <div className="d-flex justify-content-center w-50 m-auto mt-5 pt-2 ">
             <Button
+              onClick={() => accountsClick(tokenMarco)}
               variant="warning"
               className="loginBtnAvatar rounded-circle mx-2"
-              // onClick={setStriveLink}
               style={{
                 width: "50px",
                 height: "50px",
@@ -85,9 +82,9 @@ const Login = () => {
               }}
             ></Button>{" "}
             <Button
+              onClick={() => accountsClick(tokenSte)}
               variant="warning"
               className="loginBtnAvatar rounded-circle mx-2"
-              // onClick={setStriveLink}
               style={{
                 width: "50px",
                 height: "50px",
@@ -95,9 +92,9 @@ const Login = () => {
               }}
             ></Button>{" "}
             <Button
+              onClick={() => accountsClick(tokenIla)}
               variant="warning"
               className="loginBtnAvatar rounded-circle mx-2"
-              // onClick={setStriveLink}
               style={{
                 width: "50px",
                 height: "50px",

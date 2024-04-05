@@ -437,6 +437,7 @@ export const fetchComments = () => async (dispatch, getState) => {
     });
     if (response.ok) {
       const data = await response.json();
+      console.log("COMMENTI", data);
       dispatch(fetchCommentsSuccess(data));
     } else {
       throw new Error("errore recupero dati");
@@ -444,6 +445,28 @@ export const fetchComments = () => async (dispatch, getState) => {
   } catch (error) {
     console.log(error);
     dispatch(fetchCommentsFailure());
+  }
+};
+// ACTION_FETCH_COMMENTS
+export const addComment = (comment) => async (dispatch, getState) => {
+  const state = getState();
+  const token = state.login.loginData;
+  try {
+    const response = await fetch(commentsEndpoint, {
+      method: "POST",
+      body: JSON.stringify(comment),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+    } else {
+      throw new Error("errore recupero dati");
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
