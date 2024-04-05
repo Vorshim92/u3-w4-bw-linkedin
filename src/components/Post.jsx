@@ -19,6 +19,7 @@ const Post = ({ post }) => {
   const [open, setOpen] = useState(false);
   const commentsData = useSelector((state) => state.comments.commentsData);
   const postComments = commentsData.filter((comment) => comment.elementId === post._id);
+  console.log(postComments);
   const [showPostMod, setShowPostMod] = useState(false);
   const toggleModalPost = () => {
     setShowPostMod(!showPostMod);
@@ -159,7 +160,9 @@ const Post = ({ post }) => {
                 </div>
               </div>
 
-              {postComments && postComments.length > 0 && postComments.map((comment) => <Comment comment={comment} key={comment._id} />)}
+              {postComments.map((comment) => (
+                <Comment comment={comment} key={comment._id} />
+              ))}
             </div>
           </Collapse>
         </Card.Body>

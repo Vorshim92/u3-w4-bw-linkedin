@@ -257,7 +257,7 @@ const Home = () => {
         <div className="mt-3 position-sticky top-0 text-center">
           <Card>
             {" "}
-            <Card.Img variant="top" src="./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg" />
+            <Card.Img variant="top" src="pubblicità.png" />
           </Card>
           <div className="mt-3  text-center">
             <div className="d-flex flex-column ">

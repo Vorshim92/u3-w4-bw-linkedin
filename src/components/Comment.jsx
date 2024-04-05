@@ -2,30 +2,39 @@ import Card from "react-bootstrap/Card";
 import { FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteComment, fetchComments } from "../redux/actions/fetchUser";
+import { useEffect } from "react";
+import { useState } from "react";
+
 const Comment = ({ comment }) => {
   const profiles = useSelector((state) => state.users.usersData);
-  const commentAuthor = profiles.filter((profile) => comment.author === profile.username);
   const dispatch = useDispatch();
-
+  const [commentAuthor, setAuthor] = useState([]);
   const handleDelete = async (e) => {
     await dispatch(deleteComment(comment._id));
     dispatch(fetchComments()).then(() => {});
   };
 
+  useEffect(() => {
+    const user = profiles.filter((profile) => comment.author === profile.username);
+    if (user !== undefined) {
+      setAuthor(user[0]);
+    }
+  }, [comment]);
+
   return (
     <>
-      {commentAuthor && commentAuthor.length > 0 && (
+      {commentAuthor && (
         <div className="d-flex m-4">
-          <img className="rounded-circle m-3 mt-0" style={{ width: "30px", height: "30px" }} src={commentAuthor[0].image} alt="avatar" />
+          <img className="rounded-circle m-3 mt-0" style={{ width: "30px", height: "30px" }} src={commentAuthor.image} alt="avatar" />
           <Card className="w-75 bg-body-tertiary border-0 rounded-3">
             <Card.Body>
               <div className="d-flex justify-content-between align-items-start">
                 <div>
                   <p className="m-0">
-                    {commentAuthor[0].name} {commentAuthor[0].surname}
+                    {commentAuthor.name} {commentAuthor.surname}
                   </p>
                   <p className="text-body-tertiary mb-3" style={{ fontSize: "12px" }}>
-                    {commentAuthor[0].title}
+                    {commentAuthor.title}
                   </p>
                 </div>
                 <div>
