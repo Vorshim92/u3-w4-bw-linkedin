@@ -63,7 +63,7 @@ const Post = ({ post }) => {
             </Col>
             <Col xs={10}>
               <Row className="align-items-center">
-                <Col xs={9}>
+                <Col lg={9} md={6}>
                   <Col xs={12}>
                     <p id="pOfHome">{post.username}</p>
                   </Col>
@@ -74,8 +74,8 @@ const Post = ({ post }) => {
                     <p id="pOfHome">Creato il {post.updatedAt.slice(0, 10)}</p>
                   </Col>
                 </Col>
-                <Col xs={3}>
-                  <Button className="seguiHomeBtn rounded-4 bg-light text-primary d-flex align-items-end border border-primary py-1 d-flex align-items-center">
+                <Col lg={3} md={6}>
+                  <Button className="seguiHomeBtn rounded-4 bg-light text-primary d-flex align-items-end border border-primary py-1 ">
                     <HiPlus className="fs-5 me-1" /> Segui
                   </Button>
                 </Col>
