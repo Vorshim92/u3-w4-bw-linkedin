@@ -16,6 +16,7 @@ import PostHomeModal from "./PostHomeModal";
 const Home = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.post.postData);
+  const userData = useSelector((state) => state.user.userData);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -35,7 +36,7 @@ const Home = () => {
 
           <Card.Body style={{ position: "relative" }} className="text-center">
             <img
-              src=/*mettere immagine */ "./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"
+              src={userData.image}
               alt=""
               style={{
                 width: "70px",
@@ -124,7 +125,7 @@ const Home = () => {
             <Row className="align-items-center">
               <Col xs={2}>
                 <img
-                  src=/*mettere immagine */ "./360_F_575073408_glupjidkesdoYGsQJch2yKZS50oSNTMi.jpg"
+                  src={userData.image}
                   alt=""
                   style={{
                     width: "60px",
