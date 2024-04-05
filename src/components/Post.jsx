@@ -8,9 +8,12 @@ import { BsHandThumbsUp } from "react-icons/bs";
 import { BsChatText } from "react-icons/bs";
 import { PiArrowsCounterClockwise } from "react-icons/pi";
 import { IoIosSend } from "react-icons/io";
+import Comment from "./Comment";
+import Collapse from "react-bootstrap/Collapse";
 
 const Post = ({ post }) => {
   const userData = useSelector((state) => state.user.userData);
+  const [open, setOpen] = useState(false);
   const commentsData = useSelector((state) => state.comments.commentsData);
   const postComments = commentsData.filter((comment) => comment._id === post._id);
   const [showPostMod, setShowPostMod] = useState(false);
@@ -80,7 +83,7 @@ const Post = ({ post }) => {
                 Consiglia
               </Button>
 
-              <Button className="homeBtnPost">
+              <Button className="homeBtnPost " onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
                 <BsChatText className="my-1 mx-2 fs-4" />
                 Commenta
               </Button>
@@ -96,6 +99,12 @@ const Post = ({ post }) => {
               </Button>
             </Col>
           </Card.Body>
+
+          <Collapse in={open}>
+            <div id="example-collapse-text">
+              <Comment />
+            </div>
+          </Collapse>
         </Card.Body>
       </Card>
       <PostHomeModal showModal={showPostMod} handleModal={toggleModalPost} post={post}></PostHomeModal>
