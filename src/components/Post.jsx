@@ -1,4 +1,4 @@
-import { Button, Card, Col, Row, ListGroup, CardBody, ListGroupItem, Modal } from "react-bootstrap";
+import { Button, Card, Col, Row, ListGroup, CardBody } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 import { HiPlus } from "react-icons/hi";
@@ -122,6 +122,25 @@ const Post = ({ post }) => {
 
           <Collapse in={open}>
             <div id="example-collapse-text">
+              <div className="d-flex justify-content-center">
+                <img
+                  src={userData.image}
+                  alt=""
+                  className="mx-2"
+                  style={{
+                    width: "60px",
+                    height: "60px",
+
+                    borderRadius: "50%",
+                    border: "5px solid white",
+                    objectFit: "cover",
+                  }}
+                />
+
+                <Button id="btnPost" variant="primary" className="text-start w-100 ">
+                  Avvia un post
+                </Button>
+              </div>
               <Comment />
             </div>
           </Collapse>
