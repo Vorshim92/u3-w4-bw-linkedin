@@ -287,7 +287,7 @@ export const fetchPost = () => async (dispatch, getState) => {
 };
 
 // ACTION_POST_POST
-export const addPost = (data) => async (dispatch, getState) => {
+export const addPost = (data, img) => async (dispatch, getState) => {
   const state = getState();
 
   const token = state.login.loginData;
@@ -315,7 +315,10 @@ export const addPost = (data) => async (dispatch, getState) => {
 };
 
 // ACTION_POST_IMAGE_POST
-export const addPostImage = (img, postID) => async (dispatch) => {
+export const addPostImage = (img, postID) => async (dispatch, getState) => {
+  const state = getState();
+
+  const token = state.login.loginData;
   try {
     const formData = new FormData();
     formData.append("post", img); // Aggiungi l'immagine con la chiave "experience"
@@ -324,7 +327,7 @@ export const addPostImage = (img, postID) => async (dispatch) => {
       method: "POST",
       body: formData,
       headers: {
-        Authorization: tokenSte,
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
@@ -340,7 +343,7 @@ export const addPostImage = (img, postID) => async (dispatch) => {
 };
 
 // ACTION_PUT_POST
-export const modPost = (data, postId) => async (dispatch, getState) => {
+export const modPost = (data, postId, img) => async (dispatch, getState) => {
   const state = getState();
   const token = state.login.loginData;
   try {

@@ -59,11 +59,9 @@ const ExpUserModal = ({ showExp, toggleExpModal, expID }) => {
   }, [expID, userExp]);
 
   const dispatchDelete = async (e) => {
-    dispatch(DelUserExp(expID));
+    await dispatch(DelUserExp(expID));
     toggleExpModal();
-    dispatch(fetchUserExp()).then(() => {
-      console.log("fetchUserExp completato dopo DelUserExp");
-    });
+    dispatch(fetchUserExp()).then(() => {});
   };
 
   return (
